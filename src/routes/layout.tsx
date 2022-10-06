@@ -1,10 +1,12 @@
 import { component$, Slot } from "@builder.io/qwik";
-import Header from "../components/nav/nav";
+import Nav from "../components/nav/nav";
+import NavBar from "../components/nav/navbar";
 
 export default component$(() => {
   return (
     <>
-      <Header />
+      <Nav />
+      <NavBar />
       <Slot />
     </>
   );

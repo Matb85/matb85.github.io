@@ -21,7 +21,7 @@ export default component$(() => {
   return (
     <>
       <H text={text} />
-      <section class="w-11/12 mx-auto flex justify-center items-center">
+      <section class="w-11/12 mx-auto cr_flex">
         <Quote char="„" />
         <p class="text-4xl max-w-3xl leading-relaxed text-center">{store.joke}</p>
         <Quote char="”" />

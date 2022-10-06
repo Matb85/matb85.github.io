@@ -10,10 +10,12 @@
 @tailwind utilities;
 
 @layer base {
-  .wh-full {
+  .wh_full {
     @apply w-full h-full;
   }
-
+  .cr_flex {
+    @apply flex justify-center items-center;
+  }
   .btn {
     transition: all 0.3s ease;
     z-index: 1;
