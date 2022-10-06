@@ -5,8 +5,8 @@ export default component$(() => {
   useStylesScoped$(header);
   return (
     <header id="home" class="header w-full cr_flex pt-48 sm:pt-20 sm:gap-12 overflow-hidden">
-      <div class="sm:flex flex-col items-end gap-4 flex-none">
-        <img src="/pg.png" alt="poznajgóry" loading="lazy" class="w-full" />
+      <div class="flex flex-col items-end gap-4 flex-none sm:flex-auto">
+        <img src="/mobile/poznajgory-mobile.png" alt="poznajgóry" loading="lazy" class="w-3/5" />
         <h2 class="left">UI/UX designer</h2>
       </div>
 
@@ -15,9 +15,9 @@ export default component$(() => {
         <Logo className="wh_full absolute top-0" />
       </div>
 
-      <div class="sm:flex flex-col items-start gap-4 flex-none">
+      <div class="flex flex-col items-start gap-4 flex-none sm:flex-auto">
         <h2 class="right">Web developer</h2>
-        <img src="/pg.png" alt="poznajgóry" loading="lazy" class="w-full" />
+        <img src="/mobile/oceanpeace-mobile.png" alt="poznajgóry" loading="lazy" class="w-3/5" />
       </div>
     </header>
   );
