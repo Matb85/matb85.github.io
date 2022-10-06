@@ -1,3 +1,5 @@
+public/**/*.webp
+
 # Build
 /dist
 /lib
