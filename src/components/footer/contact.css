@@ -2,14 +2,6 @@
   @apply w-1/2 p-12;
 }
 
-.text_border::before {
-  @apply w-full;
-}
-
-.text_border::after {
-  @apply w-4 h-full;
-}
-
 .say_hello input {
   @apply mt-4 w-full;
 }

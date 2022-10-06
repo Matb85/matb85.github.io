@@ -3,7 +3,7 @@ import { Logo } from "../icons/qwik";
 
 export default component$(() => {
   return (
-    <header class="wh_full flex items-center justify-center pt-20 gap-16">
+    <header id="home" class="wh_full flex items-center justify-center pt-20 gap-16">
       <div class="flex flex-col items-end">
         <img src="/pg.png" alt="poznajgóry" />
         <h2 class="text-5xl">UI/UX designer</h2>
