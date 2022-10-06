@@ -63,16 +63,16 @@ body {
 }
 
 .text_border {
-  @apply relative z-10 p-8 border-black text-xl leading-relaxed;
+  @apply relative z-10 p-6 sm:p-8 border-black lg:text-xl leading-relaxed;
 }
 .text_border::before {
   display: block;
   content: "";
-  @apply w-full h-4 bg-black absolute top-0 left-0;
+  @apply w-full h-2 sm:h-4 bg-black absolute top-0 left-0;
 }
 
 .text_border::after {
   display: block;
   content: "";
-  @apply w-4 h-full bg-black absolute top-0 left-0;
+  @apply w-2 sm:w-4 h-full bg-black absolute top-0 left-0;
 }

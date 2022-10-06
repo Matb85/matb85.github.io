@@ -8,7 +8,9 @@ export default component$(() => {
     <>
       <Contact />
       <Joke />
-      <footer class="mt-16 w-full text-center py-4">© Mateusz Bis {new Date().getFullYear()}. Have a great day!</footer>
+      <footer class="mt-16 pb-32 w-full text-center py-4">
+        © Mateusz Bis {new Date().getFullYear()}. Have a great day!
+      </footer>
     </>
   );
 });

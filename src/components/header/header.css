@@ -1,0 +1,26 @@
+#home h2 {
+  @apply text-3xl xl:text-5xl;
+}
+#home h2.left {
+  @apply text-right;
+}
+
+@media screen and (max-width: 640px) {
+  #home h2 {
+    @apply absolute top-36 w-full left-0 !text-center;
+  }
+
+  #home h2.right {
+    @apply top-24;
+  }
+}
+
+.logo {
+  @apply relative w-72 h-72;
+}
+
+@media screen and (max-width: 850px) {
+  .logo {
+    @apply hidden;
+  }
+}

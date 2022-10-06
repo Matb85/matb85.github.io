@@ -9,7 +9,7 @@ export default component$(() => {
   return (
     <>
       <H text={text} />
-      <section class="-full px-20 flex gap-8 justify-center">
+      <section class="contact -full px-4 md:px-20 flex flex-col lg:flex-row gap-8 justify-center">
         <div class="text_border say_hello ">
           <h4 class="text-4xl">Say hello</h4>
           <input type="text" placeholder="Your name" />
@@ -20,9 +20,9 @@ export default component$(() => {
           <hr />
           <button class="btn text-base">Say hello</button>
         </div>
-        <div class="text_border relative flex items-center justify-center">
+        <div class="cr_flex text_border relative">
           <h4 class="text-4xl absolute top-12 left-12">My CV</h4>
-          <button class="btn text-4xl py-4 px-12">Download my CV</button>
+          <button class="btn sm:text-2xl md:text-4xl py-4 px-12 absolute">Download my CV</button>
         </div>
       </section>
     </>

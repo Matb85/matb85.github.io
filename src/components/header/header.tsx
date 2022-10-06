@@ -1,21 +1,23 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { Logo } from "../icons/qwik";
-
+import header from "./header.css?inline";
 export default component$(() => {
+  useStylesScoped$(header);
   return (
-    <header id="home" class="wh_full flex items-center justify-center pt-20 gap-16">
-      <div class="flex flex-col items-end">
-        <img src="/pg.png" alt="poznajgóry" />
-        <h2 class="text-5xl">UI/UX designer</h2>
+    <header id="home" class="header w-full cr_flex pt-48 sm:pt-20 sm:gap-12 overflow-hidden">
+      <div class="sm:flex flex-col items-end gap-4 flex-none">
+        <img src="/pg.png" alt="poznajgóry" loading="lazy" class="w-full" />
+        <h2 class="left">UI/UX designer</h2>
       </div>
-      <div class="w-72 h-72 relative">
-        <Logo className="wh_full absolute top-0 scale-150 opacity-10" />
+
+      <div class="logo">
+        <Logo className="wh_full absolute top-0 scale-[1.7] opacity-10 " />
         <Logo className="wh_full absolute top-0" />
       </div>
-      <div class="flex flex-col items-start">
-        <h2 class="text-5xl">Web developer</h2>
 
-        <img src="/pg.png" alt="poznajgóry" />
+      <div class="sm:flex flex-col items-start gap-4 flex-none">
+        <h2 class="right">Web developer</h2>
+        <img src="/pg.png" alt="poznajgóry" loading="lazy" class="w-full" />
       </div>
     </header>
   );

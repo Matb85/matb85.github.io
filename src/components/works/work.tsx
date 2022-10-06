@@ -10,8 +10,8 @@ export default component$(() => {
         <img src="/arrows.svg" alt="arrows" />
       </div>
       <div class="work_text">
-        <h4 class="text-7xl">OceanPeace</h4>
-        <h5 class="text-3xl">Digital wellbeing app</h5>
+        <h4 class="text-3xl sm:text-5xl xl:text-7xl">OceanPeace</h4>
+        <h5 class="sm:text-xl xl:text-3xl">Digital wellbeing app</h5>
         <button class="btn">Read the case study</button>
       </div>
     </section>

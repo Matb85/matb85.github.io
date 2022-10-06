@@ -2,39 +2,45 @@
   @apply w-full h-4/5 relative mb-32;
 }
 .work .work_border {
-  @apply w-1/2 h-44 absolute bottom-4 left-8 bg-black;
+  @apply w-1/2 h-24 sm:h-44 absolute bottom-4 left-4 bg-black;
 }
-.work .work_image {
-  @apply w-4/5 h-full object-cover absolute right-0 top-0;
-}
-.work .work_text {
-  @apply bg-white p-8 h-44 w-2/5 absolute bottom-0 left-12;
-}
-.work .work_arrows {
-  @apply absolute top-0 left-0 overflow-hidden;
-}
-.work .work_arrows img {
-  @apply translate-x-[-50%];
-}
-.work .btn {
-  @apply translate-x-[50%] absolute right-0 -bottom-4;
+.work:nth-of-type(odd) .work_border {
+  @apply left-auto right-4;
 }
 
-.work:nth-of-type(odd) .work_border {
-  @apply left-auto right-8;
+.work .work_image {
+  width: calc(100% - 3rem);
+  @apply sm:w-4/5 h-full object-cover absolute right-0 top-0;
 }
+
 .work:nth-of-type(odd) .work_image {
   @apply left-0 right-auto;
 }
+
+.work .work_text {
+  @apply bg-white p-8 h-24 sm:h-44 sm:w-96 absolute bottom-0 left-8;
+}
 .work:nth-of-type(odd) .work_text {
-  @apply left-auto right-12;
+  @apply left-auto right-8;
+}
+
+.work .work_arrows {
+  @apply absolute top-0 left-0 overflow-hidden;
 }
 .work:nth-of-type(odd) .work_arrows {
   @apply left-auto right-0;
 }
+
+.work .work_arrows img {
+  @apply translate-x-[-50%];
+}
 .work:nth-of-type(odd) .work_arrows img {
   @apply translate-x-[50%] float-right;
 }
+
+.work .btn {
+  @apply sm:translate-x-[50%] sm:absolute right-0 -bottom-4;
+}
 .work:nth-of-type(odd) .btn {
-  @apply translate-x-[-50%] right-auto left-0;
+  @apply sm:translate-x-[-50%] right-auto left-0;
 }

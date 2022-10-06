@@ -1,14 +1,15 @@
-.text_border {
-  @apply w-1/2 p-12;
+.contact .text_border {
+  min-height: 18rem;
+  @apply w-full lg:w-1/2 p-12;
 }
 
-.say_hello input {
+.contact .say_hello input {
   @apply mt-4 w-full;
 }
-.say_hello hr {
+.contact .say_hello hr {
   @apply border-t-2;
 }
 
-.say_hello .btn {
+.contact .say_hello .btn {
   @apply float-right mt-12;
 }

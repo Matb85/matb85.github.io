@@ -4,15 +4,15 @@ import { Logo } from "../icons/qwik";
 export const scroll = (store: { opacity: number; y: number; bg: string }) => {
   if (window.scrollY > window.innerHeight || window.scrollY < 10) {
     store.y = 0;
-    store.opacity = 1;
   } else {
     store.y = -100;
-    store.opacity = 0;
   }
   if (window.scrollY > window.innerHeight) {
     store.bg = "bg-primary-200";
+    store.opacity = 1;
   } else {
     store.bg = "bg-white";
+    store.opacity = 0;
   }
 };
 
@@ -32,7 +32,7 @@ export default component$(() => {
       style={"transform: translateY(" + store.y + "%);"}
       class={"fixed transition-transform top-0 w-full h-20 backdrop-blur cr_flex bg-opacity-40 z-50 " + store.bg}
     >
-      <a href="mailto:hello@mateuszbis.com" class="absolute left-4">
+      <a href="mailto:hello@mateuszbis.com" class="hidden sm:block absolute left-4">
         hello@mateuszbis.com
       </a>
       <Logo className="h-16 w-16 mx-auto" />

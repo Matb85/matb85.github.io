@@ -23,10 +23,10 @@ export default component$(() => {
       <H text={text} />
       <section class="w-11/12 mx-auto cr_flex">
         <Quote char="„" />
-        <p class="text-4xl max-w-3xl leading-relaxed text-center">{store.joke}</p>
+        <p class="md:text-4xl max-w-3xl leading-relaxed text-center">{store.joke}</p>
         <Quote char="”" />
       </section>
-      <button onClick$={async () => (store.joke = await fetchJoke())} class="btn mx-auto">
+      <button onClick$={async () => (store.joke = await fetchJoke())} class="btn mx-auto mt-4">
         One more
       </button>
     </>
@@ -36,8 +36,8 @@ export default component$(() => {
 export function Quote(props: { char: string }) {
   return (
     <div class="relative leading-none">
-      <span class="text-[15rem]">{props.char}</span>
-      <span class="text-[15rem] absolute opacity-10 top-4 left-4">{props.char}</span>
+      <span class="text-[5rem] md:text-[15rem]">{props.char}</span>
+      <span class="text-[5rem] md:text-[15rem] absolute opacity-10 top-1 left-1 sm:top-4 sm:left-4">{props.char}</span>
     </div>
   );
 }
