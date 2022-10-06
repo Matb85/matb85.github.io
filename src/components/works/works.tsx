@@ -7,9 +7,15 @@ export default component$(() => {
   return (
     <>
       <H text={text} />
-      <Work data={{ img: "/show/poznajgory-show.png", name: "Poznaj Góry", desc: "Webportal devoted to mountains" }} />
-      <Work data={{ img: "/show/oceanpeace-show.png", name: "Ocean Peace", desc: "Digital wellbeing app" }} />
-      <Work data={{ img: "/show/echopienin-show.png", name: "Echopienin", desc: "Website for an apartment rental" }} />
+      <seciton class="w-full flex flex-col gap-32 sm:gap-52">
+        <Work
+          data={{ img: "/show/poznajgory-show.png", name: "Poznaj Góry", desc: "Webportal devoted to mountains" }}
+        />
+        <Work data={{ img: "/show/oceanpeace-show.png", name: "Ocean Peace", desc: "Digital wellbeing app" }} />
+        <Work
+          data={{ img: "/show/echopienin-show.png", name: "Echopienin", desc: "Website for an apartment rental" }}
+        />
+      </seciton>
     </>
   );
 });
