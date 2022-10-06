@@ -1,4 +1,5 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import Photo from "../utils/photo";
 import work from "./work.css?inline";
 
 interface DataI {
@@ -12,7 +13,7 @@ export default component$(({ data }: { data: DataI }) => {
   return (
     <section class="work">
       <div class="work_border"></div>
-      <img class="work_image" src={data.img} alt={data.name} loading="lazy" />
+      <Photo className="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]} />
       <div class="work_arrows">
         <img src="/arrows.svg" alt="arrow" loading="lazy" />
       </div>
