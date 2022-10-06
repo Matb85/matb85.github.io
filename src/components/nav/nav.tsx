@@ -3,7 +3,7 @@ import { Logo } from "../icons/qwik";
 
 export default component$(() => {
   return (
-    <nav class="fixed top-0 w-full h-20 backdrop-blur flex justify-center items-center bg-slate-200 bg-opacity-40">
+    <nav class="fixed top-0 w-full h-20 backdrop-blur flex justify-center items-center bg-primary-200 bg-opacity-40 z-50">
       <a href="mailto:hello@mateuszbis.com" class="absolute left-4">
         hello@mateuszbis.com
       </a>

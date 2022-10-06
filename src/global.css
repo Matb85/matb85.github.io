@@ -13,6 +13,28 @@
   .wh-full {
     @apply w-full h-full;
   }
+
+  .btn {
+    transition: all 0.3s ease;
+    z-index: 1;
+    @apply block relative 
+      cursor-pointer outline-none border-none
+    bg-black text-white px-8 py-2;
+  }
+
+  .btn:after {
+    content: "";
+    z-index: -1;
+    transition: all 0.3s ease;
+    @apply absolute top-0 left-0 w-0 h-full;
+    background-image: linear-gradient(315deg, #c084fc 0%, #818cf8 74%);
+  }
+  .btn:hover:after {
+    @apply w-full;
+  }
+  .btn:active {
+    top: 2px;
+  }
 }
 
 /* latin */
@@ -33,4 +55,19 @@
 html,
 body {
   @apply w-full h-full bg-white;
+}
+
+.text_border {
+  @apply relative z-10 p-8 border-black text-xl leading-relaxed;
+}
+.text_border::before {
+  display: block;
+  content: "";
+  @apply w-4/5 h-4 bg-black absolute top-0 left-0;
+}
+
+.text_border::after {
+  display: block;
+  content: "";
+  @apply w-4 h-1/2 bg-black absolute top-0 left-0;
 }
