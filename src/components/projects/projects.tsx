@@ -15,7 +15,7 @@ export default component$(() => {
     <>
       <H text={text} />
       <section class="w-full overflow-hidden">
-        <div class="flex flex-nowrap w-full gap-4 px-4 overflow-x-auto">
+        <div data-aos="fade-up" class="flex flex-nowrap w-full gap-4 px-4 overflow-x-auto">
           {projects.map(p => (
             <a href="#" class="w-4/5 lg:w-1/3 flex-none">
               <Photo className="w-full object-cover" src={p} alt="project" sizes={[480, 720, 1280]} />

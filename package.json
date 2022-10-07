@@ -37,5 +37,8 @@
     "typescript": "4.8.3",
     "vite": "3.1.1",
     "vite-tsconfig-paths": "3.5.0"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
   }
 }

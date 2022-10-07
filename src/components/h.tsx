@@ -3,7 +3,11 @@ import { normalise } from "./utils";
 
 export default component$((props: { text: string }) => {
   return (
-    <div id={normalise(props.text)} class="text-center relative mt-32 mb-10 md:mt-44 md:mb-20 w-full">
+    <div
+      id={normalise(props.text)}
+      data-aos="fade-zoom-in"
+      class="text-center relative mt-32 mb-10 md:mt-44 md:mb-20 w-full"
+    >
       <h3 class="text-4xl sm:text-6xl xl:text-8xl absolute md:top-10 w-full">{props.text}</h3>
       {["", "", ""].map(x => (
         <h3

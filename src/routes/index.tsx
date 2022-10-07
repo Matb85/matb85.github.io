@@ -5,7 +5,8 @@ import Footer from "~/components/footer/footer";
 import Header from "~/components/header/header";
 import Projects from "~/components/projects/projects";
 import Works from "~/components/works/works";
-
+import aos from "aos";
+import "aos/dist/aos.css";
 export default component$(() => {
   useClientEffect$(() => {
     async function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
@@ -29,6 +30,12 @@ export default component$(() => {
 
     // observe all images
     addImages(document.querySelectorAll(".lazy-photo") as NodeListOf<HTMLImageElement>);
+    aos.init({
+      offset: 300,
+      duration: 300,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
   });
   return (
     <main>

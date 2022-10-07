@@ -11,7 +11,7 @@ interface DataI {
 export default component$(({ data }: { data: DataI }) => {
   useStylesScoped$(work);
   return (
-    <section class="work">
+    <section data-aos="fade-up" class="work">
       <div class="work_border"></div>
       <Photo className="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]} />
       <div class="work_arrows">
