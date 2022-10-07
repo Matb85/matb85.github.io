@@ -22,7 +22,7 @@ export default component$(() => {
     y: -100,
     bg: "bg-primary-200",
   });
-
+  const email = "mateuszbis85@gmail.com";
   useClientEffect$(() => {
     scroll(store);
     window.addEventListener("scroll", () => scroll(store));
@@ -32,8 +32,8 @@ export default component$(() => {
       style={"transform: translateY(" + store.y + "%);"}
       class={"fixed transition-transform top-0 w-full h-20 backdrop-blur cr_flex bg-opacity-40 z-50 " + store.bg}
     >
-      <a href="mailto:hello@mateuszbis.com" class="hidden sm:block absolute left-4">
-        hello@mateuszbis.com
+      <a href={"mailto:" + email} class="hidden sm:block absolute left-4">
+        {email}
       </a>
       <Logo className="h-16 w-16 mx-auto" />
       <a class="absolute right-4 transition-opacity" href="#" style={"opacity: " + store.opacity}>

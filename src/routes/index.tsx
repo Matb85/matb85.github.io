@@ -48,6 +48,18 @@ export default component$(() => {
   );
 });
 
+const title = "Matesz Bis - Portfolo";
+const desc = "Hi, my name is Mateusz Bis, I'm a web developer and a UI/UX designer. Welcome to my portfolio!";
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title,
+  meta: [
+    { name: "description", content: desc },
+    { property: "og:title", content: title },
+    { property: "og:description", content: desc },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: title },
+    { property: "og:url", content: "https://matb85.github.io/portfolio/" },
+    { property: "og:type", content: "website" },
+    { property: "og:type", content: "website" },
+  ],
 };
