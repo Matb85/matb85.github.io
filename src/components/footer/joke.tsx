@@ -1,5 +1,5 @@
 import { component$, useStore, useServerMount$ } from "@builder.io/qwik";
-import H from "../h";
+import H from "../utils/h";
 
 export async function fetchJoke() {
   const res = await fetch("https://icanhazdadjoke.com/", {

@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import H from "../h";
+import H from "../utils/h";
 import Work from "./work";
 
 export default component$(() => {

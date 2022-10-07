@@ -1,6 +1,5 @@
 import { component$, useClientEffect$, useStore } from "@builder.io/qwik";
-import { isGeneratorFunction } from "util/types";
-import { normalise } from "../utils";
+import { normalise } from "../utils/utils";
 export default component$(() => {
   const links = ["Home", "About me", "Selected works", "Other projects", "Contact"];
   const headers: HTMLElement[] = [];

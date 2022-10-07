@@ -1,9 +1,9 @@
 import { component$, useClientEffect$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import About from "~/components/about/about";
+import About from "~/components/index/about";
 import Footer from "~/components/footer/footer";
-import Header from "~/components/header/header";
-import Projects from "~/components/projects/projects";
+import Header from "~/components/index/header";
+import Projects from "~/components/works/projects";
 import Works from "~/components/works/works";
 import aos from "aos";
 import "aos/dist/aos.css";

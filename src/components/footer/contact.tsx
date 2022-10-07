@@ -1,5 +1,5 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import H from "../h";
+import H from "../utils/h";
 import contact from "./contact.css?inline";
 
 export default component$(() => {

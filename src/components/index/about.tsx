@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import H from "../h";
+import H from "../utils/h";
 
 export default component$(() => {
   const text = "About me";
