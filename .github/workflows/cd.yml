@@ -27,8 +27,11 @@ jobs:
       - name: Install dependencies
         run: pnpm i
 
+      - name: Optimise images
+        run: node ./imageResizer.cjs
+
       - name: Generate
-        run: node ./imageResizer.cjs && pnpm build.static && cp public/*.pdf dist/ && ls dist/
+        run: pnpm build && cp public/*.pdf dist/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
