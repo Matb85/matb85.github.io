@@ -1,10 +1,20 @@
-import { component$, useClientEffect$, useStore } from "@builder.io/qwik";
+import { component$, useClientEffect$, useRef, useStore } from "@builder.io/qwik";
 import { normalise } from "../utils/utils";
+
+export function btnClick(nav: HTMLElement) {
+  if (window.outerWidth > 850) return;
+
+  setTimeout(
+    () => nav.scrollTo({ top: 0, left: (window.scrollY / document.documentElement.scrollHeight) * window.innerWidth }),
+    1000
+  );
+}
+
 export default component$(() => {
   const links = ["Home", "About me", "Selected works", "Other projects", "Contact"];
   const headers: HTMLElement[] = [];
   const state = useStore({ current: 0, progress: 0 });
-
+  const nav = useRef<HTMLElement>();
   useClientEffect$(() => {
     for (let i = 0; i < links.length; i++) headers[i] = document.getElementById(normalise(links[i])) as HTMLElement;
     /** look out! headers have the .scroll-mt-24 class */
@@ -25,21 +35,14 @@ export default component$(() => {
         }
       }
     });
-    if (window.innerHeight > 850) return;
-    const nav = document.getElementById("nav") as HTMLElement;
-    let old_current = state.current;
-    window.addEventListener("scroll", () => {
-      if (old_current == state.current) return;
-      old_current = state.current;
-      nav?.scrollTo({ top: 0, left: (window.scrollY / document.documentElement.scrollHeight) * window.innerWidth });
-    });
   });
 
   return (
     <div class="w-full h-0 flex justify-center items-end fixed bottom-0 md:bottom-4 z-50">
-      <nav id="nav" class="flex backdrop-blur gap-4 p-4 bg-primary-200 bg-opacity-40 max-w-full overflow-auto">
+      <nav ref={nav} class="flex backdrop-blur gap-4 p-4 bg-primary-200 bg-opacity-40 max-w-full overflow-auto">
         {links.map((x, i) => (
           <a
+            onClick$={() => btnClick(nav.current as HTMLElement)}
             href={"#" + normalise(x)}
             class="btn flex-none"
             style={

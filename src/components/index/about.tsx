@@ -6,7 +6,7 @@ export default component$(() => {
   return (
     <>
       <H text={text} />
-      <section class="w-full px-4 md:px-20 flex flex-col-reverse lg:flex-row gap-8 justify-center">
+      <section class="w-full px-4 md:px-20 flex flex-col-reverse lg:flex-row gap-8 justify-center overflow-hidden">
         <p data-aos="fade-right" class="w-full lg:w-1/2 text_border">
           Hi, My name is Mateusz Bis, welcome to my portfolio! I'm a web developer since 2018, and a Google certified UX
           designer since 2021. Through my career, I've had a chance to work on a variety of projects, from static
