@@ -16,7 +16,7 @@ export default component$(({ data }: { data: DataI }) => {
       <div class="work_border"></div>
       <Photo className="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]} />
       <div class="work_arrows">
-        <img src="/arrows.svg" alt="arrow" loading="lazy" />
+        <img src="arrows.svg" alt="arrow" loading="lazy" />
       </div>
       <div class="work_text">
         <h4 class="text-3xl sm:text-4xl xl:text-6xl">{data.name}</h4>

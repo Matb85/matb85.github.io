@@ -9,7 +9,7 @@ interface DataI {
 }
 
 export default component$((props: DataI) => {
-  const { genSrcset } = photo("/images/thumbnail_" + props.src, props.sizes);
+  const { genSrcset } = photo("images/thumbnail_" + props.src, props.sizes);
 
   return (
     <img
