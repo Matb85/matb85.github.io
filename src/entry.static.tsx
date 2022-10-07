@@ -4,6 +4,6 @@ import { fileURLToPath } from "url";
 import { join } from "path";
 
 qwikCityGenerate(render, {
-  origin: "https://qwik.builder.io",
+  origin: "https://matb85.github.io/portfolio/",
   outDir: join(fileURLToPath(import.meta.url), "..", "..", "dist"),
 });

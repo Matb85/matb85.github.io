@@ -9,12 +9,12 @@ export function scroll(el: HTMLElement, dist: number) {
 export default component$(() => {
   const text = "Other projects";
   const projects = [
-    "redinnlabs-ss.webp",
-    "amforest-ss.webp",
-    "echopienin-ss.webp",
-    "zygmuntowka-ss.webp",
-    "poznajgory-ss.webp",
-    "zygmuntowka-ss.webp",
+    { img: "redinnlabs-ss.webp", href: "https://redinnlabs.com" },
+    { img: "amforest-ss.webp", href: "https://amforest.pl" },
+    { img: "echopienin-ss.webp", href: "https://echopienin.pl" },
+    { img: "fizjopieniny-ss.webp", href: "https://fizjopieniny.pl" },
+    { img: "poznajgory-ss.webp", href: "https://poznajgory.pl" },
+    { img: "zygmuntowka-ss.webp", href: "https://zygmuntowkaknd.pl" },
   ];
 
   const w = useRef<HTMLElement>();
@@ -25,17 +25,22 @@ export default component$(() => {
       <section class="w-full overflow-hidden">
         <div ref={w} data-aos="fade-up" class="flex flex-nowrap w-full gap-2 sm:gap-4 px-4 overflow-x-auto">
           {projects.map(p => (
-            <a href="#" class="w-4/5 lg:w-1/3 flex-none">
-              <Photo className="w-full object-cover" src={p} alt="project" sizes={[480, 720, 1280]} />
+            <a
+              href={p.href}
+              target="_blank"
+              rel="nofollow noopener"
+              class="w-4/5 lg:w-1/3 flex-none transition-all hover:brightness-75 "
+            >
+              <Photo className="w-full object-cover" src={p.img} alt="project" sizes={[480, 720]} />
             </a>
           ))}
         </div>
       </section>
       <div class="w-full flex justify-between -mt-4">
-        <button class="btn" onClick$={() => scroll(w.current as HTMLElement, -150)}>
+        <button class="btn" onClick$={() => scroll(w.current as HTMLElement, -300)}>
           Scroll left
         </button>
-        <button class="btn" onClick$={() => scroll(w.current as HTMLElement, 150)}>
+        <button class="btn" onClick$={() => scroll(w.current as HTMLElement, 300)}>
           Show more
         </button>
       </div>
