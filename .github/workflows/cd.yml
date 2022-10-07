@@ -28,7 +28,7 @@ jobs:
         run: pnpm i
 
       - name: Generate
-        run: node ./imageResizer.cjs && pnpm run build.static && cp public/*.pdf dist/
+        run: pnpm run build.static && mkdir -p dist/images && node ./imageResizer.cjs && cp public/*.pdf dist/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
