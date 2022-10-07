@@ -28,10 +28,10 @@ jobs:
         run: pnpm i
 
       - name: Optimise images
-        run: node ./imageResizer.cjs
+        run: pnpm imgs
 
       - name: Generate
-        run: pnpm build && cp public/*.pdf dist/
+        run: pnpm build && cp public/*.pdf dist/  && node ./server/entry.static.mjs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
