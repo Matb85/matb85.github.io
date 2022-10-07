@@ -9,12 +9,12 @@ interface DataI {
 }
 
 export default component$((props: DataI) => {
-  const { genSrcset } = photo("images/thumbnail_" + props.src, props.sizes);
+  const { genSrcset } = photo("./images/thumbnail_" + props.src, props.sizes);
 
   return (
     <img
       class={"lazy-photo " + props.className}
-      src={"/images/thumbnail_" + props.src}
+      src={"./images/thumbnail_" + props.src}
       data-srcset={genSrcset}
       alt={props.alt}
       {...props.args}
