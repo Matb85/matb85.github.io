@@ -12,7 +12,7 @@ interface DataI {
 export default component$(({ data }: { data: DataI }) => {
   useStyles$(work);
   return (
-    <section data-aos="fade-up" class="work">
+    <section data-aos="fade-up" data-aos-offset="150" class="work">
       <div class="work_border"></div>
       <Photo className="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]} />
       <div class="work_arrows">
