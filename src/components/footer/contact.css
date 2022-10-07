@@ -3,7 +3,8 @@
   @apply w-full lg:w-1/2 p-12;
 }
 
-.contact .say_hello input {
+.contact input,
+.contact textarea {
   @apply mt-4 w-full;
 }
 .contact .say_hello hr {

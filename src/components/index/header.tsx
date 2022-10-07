@@ -14,7 +14,7 @@ export default component$(() => {
           className="w-3/5"
           src="poznajgory-mobile.webp"
           alt="Poznaj Góry"
-          sizes={[480, 720]}
+          sizes={[480]}
         />
         <h2 data-aos-offset="0" data-aos-delay="0" data-aos="fade-right" class="left">
           UI/UX designer
@@ -35,7 +35,7 @@ export default component$(() => {
           className="w-3/5"
           src="oceanpeace-mobile.webp"
           alt="Ocean Peace"
-          sizes={[480, 720]}
+          sizes={[480]}
         />
       </div>
     </header>

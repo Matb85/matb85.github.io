@@ -23,7 +23,7 @@ export default component$(() => {
       <H text={text} />
       <section class="w-11/12 mx-auto cr_flex">
         <Quote char="„" />
-        <p class="md:text-4xl max-w-3xl leading-relaxed text-center">{store.joke}</p>
+        <p class="md:text-4xl max-w-3xl !leading-relaxed text-center">{store.joke}</p>
         <Quote char="”" />
       </section>
       <button onClick$={async () => (store.joke = await fetchJoke())} class="btn mx-auto mt-4">

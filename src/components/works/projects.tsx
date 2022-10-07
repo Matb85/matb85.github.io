@@ -7,6 +7,7 @@ export default component$(() => {
   const projects = [
     "redinnlabs-ss.webp",
     "amforest-ss.webp",
+    "echopienin-ss.webp",
     "zygmuntowka-ss.webp",
     "poznajgory-ss.webp",
     "zygmuntowka-ss.webp",

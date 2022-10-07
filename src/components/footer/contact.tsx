@@ -16,7 +16,7 @@ export default component$(() => {
           <hr />
           <input type="text" placeholder="Your email" />
           <hr />
-          <input type="text" placeholder="Your message" />
+          <textarea placeholder="Your message" />
           <hr />
           <button class="btn text-base">Say hello</button>
         </div>

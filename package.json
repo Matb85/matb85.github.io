@@ -8,6 +8,7 @@
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
+    "build.static": "vite build --ssr src/entry.static.tsx && node ./server/entry.static.mjs",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.types": "tsc --incremental --noEmit",
     "dev": "vite --mode ssr",
@@ -17,7 +18,8 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "imgs": "node ./imageResizer.cjs"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.9.0",

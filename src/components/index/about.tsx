@@ -14,7 +14,7 @@ export default component$(() => {
           start with a sheet of paper to try out lots of versions. After work, I'm a keen runner, a photography amateur
           and a coffee lover. I bet our cooperation will be fruitful!
         </p>
-        <img data-aos="fade-left" src="/i.svg" class="w-full mx-auto lg:w-1/2" alt="interests" />
+        <img data-aos="fade-left" src="/i.svg" class="w-full mx-auto lg:w-1/2 object-contain" alt="interests" />
       </section>
     </>
   );
