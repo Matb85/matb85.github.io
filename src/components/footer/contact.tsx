@@ -1,8 +1,7 @@
 import { component$, useStylesScoped$, useStore, $ } from "@builder.io/qwik";
-import { stopCoverage } from "v8";
 import H from "../utils/h";
 import contact from "./contact.css?inline";
-
+import { email } from "../utils/utils";
 export default component$(() => {
   useStylesScoped$(contact);
 
@@ -77,12 +76,16 @@ export default component$(() => {
           <textarea placeholder="Your message" onInput$={e => (store.message = (e.target as HTMLInputElement).value)} />
           <hr />
           <p class="text-base h-5 mt-4 text-[#f5426f]">{status.error}</p>
-
-          <button class={"btn " + status.className}>
-            <span>Say hello</span>
-            <span>Sending...</span>
-            <span>Success!</span>
-          </button>
+          <div class="w-full mt-8 flex justify-between gap-2 text-base items-center">
+            <a href={"mailto:" + email} class="hover:underline">
+              {email}
+            </a>
+            <button class={"btn " + status.className}>
+              <span>Say hello</span>
+              <span>Sending...</span>
+              <span>Success!</span>
+            </button>
+          </div>
         </form>
         <div data-aos="fade-left" class="cr_flex text_border relative">
           <h4 class="text-4xl absolute top-12 left-12">My CV</h4>
