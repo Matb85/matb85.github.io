@@ -2,7 +2,7 @@ const sharp = require("sharp");
 const fs = require("fs").promises;
 const OUT_FOLDER = __dirname + "/public/images";
 
-const folders = ["/src/assets/mobile", "/src/assets/show", "/src/assets/ss"];
+const folders = ["/src/assets/photos", "/src/assets/mobile", "/src/assets/show", "/src/assets/ss"];
 
 /** specify how to resize the images and how to name them */
 /** assume that each photo has a 3/2 aspect ratio - of course it is not a requiremet, just a reference  */
@@ -29,7 +29,7 @@ for (const folder of folders)
           sharp(__dirname + folder + "/" + file)
             .resize(Object.assign(defaults, spec))
             .toFormat("webp")
-            .toFile(OUT_FOLDER + "/" + spec.prefix + file.replace(".png", ".webp"))
+            .toFile(OUT_FOLDER + "/" + spec.prefix + file.replace(".png", ".webp").replace(".jpg", ".webp"))
             .then(newFileInfo => console.log("Success", newFileInfo))
         );
       }

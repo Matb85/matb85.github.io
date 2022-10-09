@@ -76,7 +76,7 @@ export default component$(() => {
           <textarea placeholder="Your message" onInput$={e => (store.message = (e.target as HTMLInputElement).value)} />
           <hr />
           <p class="text-base h-5 mt-4 text-[#f5426f]">{status.error}</p>
-          <div class="w-full mt-8 flex justify-between gap-2 text-base items-center">
+          <div class="w-full mt-8 flex justify-between gap-2 text-base items-end">
             <a href={"mailto:" + email} class="hover:underline">
               {email}
             </a>

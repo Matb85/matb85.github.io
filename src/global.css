@@ -16,6 +16,12 @@
   .cr_flex {
     @apply flex justify-center items-center;
   }
+
+  .gradient-text {
+    background: linear-gradient(315deg, #c084fc 0%, #818cf8 74%);
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+  }
   .btn {
     --btn-gradient-width: -100%;
     transition: all 0.3s ease;

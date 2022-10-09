@@ -7,12 +7,12 @@ export default component$(() => {
   useStylesScoped$(header);
 
   return (
-    <header id="home" class="cr_flex w-full sm:gap-12 pt-52 sm:py-20 overflow-hidden">
+    <header id="home" class="cr_flex w-full sm:gap-12 pt-52 md:py-20 overflow-hidden relative">
       <img
         data-aos-delay="300"
         data-aos-offset="0"
         data-aos="fade"
-        class="translate-x-[-20%] absolute top-20 -left-32"
+        class="translate-x-[-20%] absolute top-20 -left-32 hidden md:block"
         src="./arrows.svg"
         alt="arrow"
         loading="lazy"
@@ -21,7 +21,7 @@ export default component$(() => {
         data-aos-delay="300"
         data-aos-offset="0"
         data-aos="fade"
-        class="translate-x-[20%] absolute bottom-20 -right-32"
+        class="translate-x-[20%] absolute bottom-20 -right-32 hidden md:block"
         src="./arrows.svg"
         alt="arrow"
         loading="lazy"

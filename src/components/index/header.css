@@ -5,7 +5,7 @@
   @apply text-right;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   #home h2 {
     @apply absolute top-36 w-full left-0 !text-center;
   }
@@ -15,7 +15,7 @@
 }
 
 #home .showcase {
-  @apply md:w-1/2 flex flex-col gap-4 flex-none sm:flex-auto;
+  @apply md:w-1/2 flex flex-col gap-4 flex-none md:flex-auto;
 }
 
 .logo {
