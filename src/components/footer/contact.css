@@ -7,10 +7,21 @@
 .contact textarea {
   @apply mt-4 w-full;
 }
-.contact .say_hello hr {
+.say_hello hr {
   @apply border-t-2;
 }
 
-.contact .say_hello .btn {
-  @apply float-right mt-12;
+.say_hello .btn {
+  @apply mt-8 float-right flex-none flex items-center w-52 px-0;
+}
+.say_hello .btn span {
+  @apply w-full flex-none transition-transform;
+}
+
+.say_hello .btn.sending span {
+  transform: translate(-100%);
+}
+
+.say_hello .btn.success span {
+  transform: translate(-200%);
 }
