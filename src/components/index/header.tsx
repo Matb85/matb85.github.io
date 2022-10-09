@@ -8,6 +8,24 @@ export default component$(() => {
 
   return (
     <header id="home" class="cr_flex w-full sm:gap-12 pt-52 sm:py-20 overflow-hidden">
+      <img
+        data-aos-delay="300"
+        data-aos-offset="0"
+        data-aos="fade"
+        class="translate-x-[-20%] absolute top-20 -left-32"
+        src="./arrows.svg"
+        alt="arrow"
+        loading="lazy"
+      />
+      <img
+        data-aos-delay="300"
+        data-aos-offset="0"
+        data-aos="fade"
+        class="translate-x-[20%] absolute bottom-20 -right-32"
+        src="./arrows.svg"
+        alt="arrow"
+        loading="lazy"
+      />
       <div class="showcase items-end">
         <Photo
           args={{ "data-aos": "fade-up-right" }}

@@ -36,7 +36,7 @@ export default component$(() => {
           ))}
         </div>
       </section>
-      <div class="mx-auto flex justify-center gap-4 text-4xl -mt-4">
+      <div class="mx-auto flex justify-center gap-4 text-4xl mt-4">
         <button class="btn pt-0 pb-1" onClick$={() => scroll(w.current as HTMLElement, -300)}>
           ««
         </button>

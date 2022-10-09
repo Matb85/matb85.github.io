@@ -31,7 +31,7 @@ export default component$(() => {
     // observe all images
     addImages(document.querySelectorAll(".lazy-photo") as NodeListOf<HTMLImageElement>);
     aos.init({
-      offset: 250,
+      offset: 200,
       duration: 300,
       easing: "ease-in-sine",
       delay: 100,
