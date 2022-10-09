@@ -7,8 +7,8 @@ export default component$(() => {
   useStylesScoped$(header);
 
   return (
-    <header id="home" class="header w-full cr_flex pt-48 sm:pt-20 sm:gap-12 overflow-hidden">
-      <div class="flex flex-col items-end gap-4 flex-none sm:flex-auto">
+    <header id="home" class="cr_flex w-full sm:gap-12 pt-52 sm:py-20 overflow-hidden">
+      <div class="showcase items-end">
         <Photo
           args={{ "data-aos": "fade-up-right" }}
           className="w-3/5"
@@ -17,7 +17,7 @@ export default component$(() => {
           sizes={[480]}
         />
         <h2 data-aos-offset="0" data-aos-delay="0" data-aos="fade-right" class="left">
-          UI/UX designer
+          Web developer
         </h2>
       </div>
 
@@ -26,9 +26,9 @@ export default component$(() => {
         <Logo className="wh_full absolute top-0" />
       </div>
 
-      <div class="flex flex-col items-start gap-4 flex-none sm:flex-auto">
+      <div class="showcase items-start">
         <h2 data-aos="fade-left" class="right">
-          Web developer
+          UI/UX designer
         </h2>
         <Photo
           args={{ "data-aos": "fade-up-left" }}

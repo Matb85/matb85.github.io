@@ -9,14 +9,17 @@
   #home h2 {
     @apply absolute top-36 w-full left-0 !text-center;
   }
-
   #home h2.right {
     @apply top-24;
   }
 }
 
+#home .showcase {
+  @apply md:w-1/2 flex flex-col gap-4 flex-none sm:flex-auto;
+}
+
 .logo {
-  @apply relative w-72 h-72;
+  @apply relative w-64 h-64;
 }
 
 @media screen and (max-width: 850px) {
