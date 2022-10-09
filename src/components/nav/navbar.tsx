@@ -37,7 +37,7 @@ export default component$(() => {
           state.progress =
             100 - ((next_el + scroll_offset - window.scrollY) / (next_el + scroll_offset - headers[i].offsetTop)) * 100;
 
-          if (state.oldCounter != state.current && state.canScroll) {
+          if (window.outerWidth < 850 && state.oldCounter != state.current && state.canScroll) {
             nav.current!.scrollTo({
               top: 0,
               left: (window.scrollY / document.documentElement.scrollHeight) * window.innerWidth,
@@ -47,6 +47,9 @@ export default component$(() => {
         }
       }
     });
+
+    const back = document.getElementById("back_to_top") as HTMLElement;
+    back.addEventListener("click", btnClick);
   });
 
   return (
