@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@builder.io/qwik': ^0.10.0
+  '@builder.io/qwik': ^0.9.0
   '@builder.io/qwik-city': ^0.0.112
   '@types/eslint': ^8.4.6
   '@types/node': ^18.8.3
@@ -24,7 +24,7 @@ dependencies:
   aos: 2.3.4
 
 devDependencies:
-  '@builder.io/qwik': 0.10.0
+  '@builder.io/qwik': 0.9.0
   '@builder.io/qwik-city': 0.0.112
   '@types/eslint': 8.4.6
   '@types/node': 18.8.3
@@ -55,9 +55,9 @@ packages:
       - supports-color
     dev: true
 
-  /@builder.io/qwik/0.10.0:
-    resolution: {integrity: sha512-HM+iIaYRNrKmyrK+7xyEree1OZVJ9KSWn1eIWkd8XSp5CoC5xf8uskQOtB24/oi1DEj/jVmgBPT3OS3IPf50zA==}
-    engines: {node: '>=16'}
+  /@builder.io/qwik/0.9.0:
+    resolution: {integrity: sha512-xAyQNABvPe/V0xGKuAaUJcP9r+qNegWegkstRQza/CgJ3vgR20yyaYzkcAD+G9wvPeG1mRSiUZAYDgevV2BLaQ==}
+    engines: {node: '>=14.18.0'}
     hasBin: true
     dev: true
 
