@@ -27,7 +27,7 @@ export default component$(() => {
         loading="lazy"
       />
       <div class="showcase items-end">
-        <Photo className="w-3/5 relative z-10" src="poznajgory-mobile.webp" alt="Poznaj Góry" sizes={[480]} />
+        <Photo className="w-3/5 relative z-10" src="poznajgory-mobile.webp" alt="Poznaj Góry" sizes={[480, 720]} />
         <h2 data-aos-offset="0" data-aos-delay="0" data-aos="fade-right" class="left">
           Web developer
         </h2>
@@ -42,7 +42,7 @@ export default component$(() => {
         <h2 data-aos="fade-left" class="right">
           UI/UX designer
         </h2>
-        <Photo className="w-3/5 relative z-10" src="oceanpeace-mobile.webp" alt="Ocean Peace" sizes={[480]} />
+        <Photo className="w-3/5 relative z-10" src="oceanpeace-mobile.webp" alt="Ocean Peace" sizes={[480, 720]} />
       </div>
     </header>
   );

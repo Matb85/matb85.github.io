@@ -84,7 +84,7 @@ body {
 }
 
 .lazy-photo {
-  @apply opacity-0 transition-opacity;
+  @apply opacity-0 transition-opacity duration-500;
 }
 .lazy-photo.loaded {
   @apply opacity-100;
