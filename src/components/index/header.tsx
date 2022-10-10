@@ -7,12 +7,12 @@ export default component$(() => {
   useStylesScoped$(header);
 
   return (
-    <header id="home" class="cr_flex w-full sm:gap-12 pt-52 md:py-20 overflow-hidden relative">
+    <header id="home" class="cr_flex w-full sm:gap-12 pt-56 md:py-20 overflow-hidden relative">
       <img
         data-aos-delay="300"
         data-aos-offset="0"
         data-aos="fade"
-        class="translate-x-[-20%] absolute top-20 -left-32 hidden md:block"
+        class="translate-x-[-20%] absolute top-48 md:top-20 -left-32"
         src="./arrows.svg"
         alt="arrow"
         loading="lazy"
@@ -21,19 +21,13 @@ export default component$(() => {
         data-aos-delay="300"
         data-aos-offset="0"
         data-aos="fade"
-        class="translate-x-[20%] absolute bottom-20 -right-32 hidden md:block"
+        class="translate-x-[20%] absolute bottom-0 md:bottom-20 -right-32"
         src="./arrows.svg"
         alt="arrow"
         loading="lazy"
       />
       <div class="showcase items-end">
-        <Photo
-          args={{ "data-aos": "fade-up-right" }}
-          className="w-3/5"
-          src="poznajgory-mobile.webp"
-          alt="Poznaj Góry"
-          sizes={[480]}
-        />
+        <Photo className="w-3/5 relative z-10" src="poznajgory-mobile.webp" alt="Poznaj Góry" sizes={[480]} />
         <h2 data-aos-offset="0" data-aos-delay="0" data-aos="fade-right" class="left">
           Web developer
         </h2>
@@ -48,13 +42,7 @@ export default component$(() => {
         <h2 data-aos="fade-left" class="right">
           UI/UX designer
         </h2>
-        <Photo
-          args={{ "data-aos": "fade-up-left" }}
-          className="w-3/5"
-          src="oceanpeace-mobile.webp"
-          alt="Ocean Peace"
-          sizes={[480]}
-        />
+        <Photo className="w-3/5 relative z-10" src="oceanpeace-mobile.webp" alt="Ocean Peace" sizes={[480]} />
       </div>
     </header>
   );

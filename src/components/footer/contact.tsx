@@ -42,7 +42,7 @@ export default component$(() => {
         store.email = store.name = store.message = "";
         localStorage.setItem("TimeOfLastEmail", Date.now().toString());
         status.className = "success";
-        setTimeout(() => (status.className = ""), 500);
+        setTimeout(() => (status.className = ""), 1500);
       } else {
         status.error = "Hmmm... An error occured. Try again later.";
         status.className = "";
@@ -76,7 +76,7 @@ export default component$(() => {
           <textarea placeholder="Your message" onInput$={e => (store.message = (e.target as HTMLInputElement).value)} />
           <hr />
           <p class="text-base h-5 mt-4 text-[#f5426f]">{status.error}</p>
-          <div class="w-full mt-8 flex justify-between gap-2 text-base items-end">
+          <div class="w-full mt-8 flex flex-col-reverse gap-2 text-base items-end">
             <a href={"mailto:" + email} class="hover:underline">
               {email}
             </a>
