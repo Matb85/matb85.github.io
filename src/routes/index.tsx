@@ -51,7 +51,7 @@ export default component$(() => {
   );
 });
 
-const title = "Matesz Bis - Portfolo";
+const title = "Matesz Bis - Portfolio";
 const desc = "Hi, my name is Mateusz Bis, I'm a web developer and a UI/UX designer. Welcome to my portfolio!";
 export const head: DocumentHead = {
   title,
@@ -61,8 +61,12 @@ export const head: DocumentHead = {
     { property: "og:description", content: desc },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: title },
-    { property: "og:url", content: "https://matb85.github.io/portfolio/" },
-    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://matb85.github.io/" },
+    { property: "og:image", content: "https://matb85.github.io/og.png" },
+    { property: "og:image:alt", content: "Mateusz Bis's Logo" },
+    { property: "og:image:type", content: "image/png" },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
     { property: "og:type", content: "website" },
   ],
 };
