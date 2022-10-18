@@ -26,6 +26,8 @@ export const RouterHead = component$(() => {
       {head.styles.map(s => (
         <style {...s.props} dangerouslySetInnerHTML={s.style} />
       ))}
+
+      <script defer data-domain="matb85.github.io" src="https://analytics.redinnlabs.com/js/plausible.js"></script>
     </>
   );
 });
