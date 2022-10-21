@@ -1,9 +1,6 @@
 {
   "name": "portfolio",
   "description": "My portfolio - Mateusz Bis",
-  "engines": {
-    "node": ">=15.0.0"
-  },
   "private": true,
   "scripts": {
     "build": "qwik build",
@@ -21,26 +18,26 @@
     "qwik": "qwik",
     "imgs": "node ./imageResizer.cjs"
   },
+  "dependencies": {
+    "aos": "^2.3.4"
+  },
   "devDependencies": {
     "@builder.io/qwik": "^0.9.0",
     "@builder.io/qwik-city": "^0.0.112",
-    "@types/eslint": "^8.4.6",
-    "@types/node": "^18.8.3",
-    "@typescript-eslint/eslint-plugin": "^5.39.0",
-    "@typescript-eslint/parser": "^5.39.0",
+    "@types/eslint": "^8.4.7",
+    "@types/node": "^18.11.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
     "autoprefixer": "^10.4.12",
-    "eslint": "^8.24.0",
-    "eslint-plugin-qwik": "^0.10.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-qwik": "^0.11.1",
     "node-fetch": "^3.2.10",
-    "postcss": "^8.4.17",
+    "postcss": "^8.4.18",
     "prettier": "^2.7.1",
     "sharp": "^0.31.1",
-    "tailwindcss": "^3.1.8",
+    "tailwindcss": "^3.2.0",
     "typescript": "^4.8.4",
-    "vite": "^3.1.6",
-    "vite-tsconfig-paths": "^3.5.1"
-  },
-  "dependencies": {
-    "aos": "^2.3.4"
+    "vite": "^3.1.8",
+    "vite-tsconfig-paths": "^3.5.2"
   }
 }
