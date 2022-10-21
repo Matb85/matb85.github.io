@@ -7,7 +7,7 @@ export default component$(() => {
   useStylesScoped$(header);
 
   return (
-    <header id="home" class="cr_flex w-full sm:gap-12 pt-56 md:py-20 overflow-hidden relative">
+    <header id="home" class="cr_flex w-full sm:gap-12 pt-48 md:py-20 overflow-hidden relative">
       <img
         data-aos-delay="300"
         data-aos-offset="0"
@@ -27,7 +27,12 @@ export default component$(() => {
         loading="lazy"
       />
       <div class="showcase items-end">
-        <Photo className="w-3/5 relative z-10" src="poznajgory-mobile.webp" alt="Poznaj Góry" sizes={[480, 720]} />
+        <Photo
+          className="w-3/5 sm:w-auto sm:h-[75vh] relative z-10"
+          src="poznajgory-mobile.webp"
+          alt="Poznaj Góry"
+          sizes={[480, 720]}
+        />
         <h2 data-aos-offset="0" data-aos-delay="0" data-aos="fade-right" class="left">
           Web developer
         </h2>
@@ -42,7 +47,12 @@ export default component$(() => {
         <h2 data-aos="fade-left" class="right">
           UI/UX designer
         </h2>
-        <Photo className="w-3/5 relative z-10" src="oceanpeace-mobile.webp" alt="Ocean Peace" sizes={[480, 720]} />
+        <Photo
+          className="w-3/5 sm:w-auto sm:h-[75vh] relative z-10"
+          src="oceanpeace-mobile.webp"
+          alt="Ocean Peace"
+          sizes={[480, 720]}
+        />
       </div>
     </header>
   );
