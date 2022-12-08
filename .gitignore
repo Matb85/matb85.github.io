@@ -1,5 +1,5 @@
 public/**/*.webp
-
+test/*
 # Build
 /dist
 /lib
