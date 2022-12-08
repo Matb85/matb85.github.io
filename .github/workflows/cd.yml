@@ -31,7 +31,7 @@ jobs:
         run: pnpm imgs
 
       - name: Generate
-        run: pnpm build && cp public/*.pdf dist/  && node ./server/entry.static.mjs
+        run: mkdir dist && pnpm build.server && node ./server/entry.ssr.js && cp -R public/* dist/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
