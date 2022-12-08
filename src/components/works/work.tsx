@@ -21,7 +21,7 @@ export default component$(({ data }: { data: DataI }) => {
       <div class="work_text">
         <h4 class="text-3xl sm:text-4xl xl:text-6xl">{data.name}</h4>
         <h5 class="sm:text-xl xl:text-3xl">{data.desc}</h5>
-        <a href={data.link} target="_blank " class="btn">
+        <a href={data.link} target="_blank " class="btn w-48 px-0 text-center">
           Read the case study
         </a>
       </div>
