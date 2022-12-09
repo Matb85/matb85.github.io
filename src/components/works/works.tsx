@@ -28,7 +28,7 @@ export default component$(() => {
           data={{
             img: "etee-show.webp",
             name: "Etee's",
-            desc: "Zero-waste centred shopping",
+            desc: "Zero-waste shopping made easy",
             link: "etee.pdf",
           }}
         />
