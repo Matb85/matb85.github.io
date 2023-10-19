@@ -3,7 +3,7 @@ import photo from "./observer";
 interface DataI {
   src: string;
   alt: string;
-  className: string;
+  class: string;
   sizes: number[];
   args?: Record<string, string>;
 }
@@ -13,7 +13,7 @@ export default component$((props: DataI) => {
 
   return (
     <img
-      class={"lazy-photo " + props.className}
+      class={"lazy-photo " + props.class}
       src={"./images/thumbnail_" + props.src}
       data-srcset={genSrcset}
       alt={props.alt}

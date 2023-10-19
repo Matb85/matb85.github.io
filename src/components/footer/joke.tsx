@@ -1,4 +1,5 @@
-import { component$, useStore, useServerMount$ } from "@builder.io/qwik";
+import { component$, useStore, useTask$ } from "@builder.io/qwik";
+import { isServer } from "@builder.io/qwik/build";
 import H from "../utils/h";
 
 export async function fetchJoke() {
@@ -16,7 +17,9 @@ export default component$(() => {
 
   const store = useStore({ joke: "" });
 
-  useServerMount$(async () => (store.joke = await fetchJoke()));
+  useTask$(async () => {
+    if (isServer) store.joke = await fetchJoke();
+  });
 
   return (
     <>

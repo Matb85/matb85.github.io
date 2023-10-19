@@ -27,13 +27,13 @@ export default component$(() => {
             src="autumn.webp"
             alt="Polish mountains"
             sizes={[480, 720, 1280]}
-            className="aspect-[3/2] w-full relative"
+            class="aspect-[3/2] w-full relative"
           />
           <Photo
             src="bee.webp"
             alt="A bee sitting on a flower"
             sizes={[480, 720]}
-            className="aspect-square w-2/5 absolute bottom-0 right-0"
+            class="aspect-square w-2/5 absolute bottom-0 right-0"
           />
         </div>
         <img data-aos="fade-left" src="/i.svg" class="w-10/12 mx-auto md:w-5/12 object-contain" alt="interests" />

@@ -14,7 +14,7 @@ export default component$(({ data }: { data: DataI }) => {
   return (
     <section data-aos="fade-up" data-aos-offset="150" class="work">
       <div class="work_border"></div>
-      <Photo className="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]} />
+      <Photo class="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]} />
       <div class="work_arrows">
         <img src="./arrows.svg" alt="arrow" loading="lazy" />
       </div>

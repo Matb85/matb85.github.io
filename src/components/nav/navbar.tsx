@@ -1,17 +1,17 @@
-import { component$, useClientEffect$, useRef, useStore, $ } from "@builder.io/qwik";
+import { component$, useVisibleTask$, useSignal, useStore, $ } from "@builder.io/qwik";
 import { normalise } from "../utils/utils";
 
 export default component$(() => {
   const links = ["Home", "About me", "Selected works", "Other projects", "Contact"];
   const headers: HTMLElement[] = [];
   const state = useStore({ current: 0, progress: 0, oldCounter: 0, canScroll: true });
-  const nav = useRef<HTMLElement>();
+  const nav = useSignal<HTMLElement>();
 
   const btnClick = $(() => {
     if (window.outerWidth > 850) return;
     state.canScroll = false;
     setTimeout(() => {
-      nav.current!.scrollTo({
+      nav.value!.scrollTo({
         top: 0,
         left: (window.scrollY / document.documentElement.scrollHeight) * window.innerWidth,
       });
@@ -19,7 +19,7 @@ export default component$(() => {
     }, 1000);
   });
 
-  useClientEffect$(() => {
+  useVisibleTask$(() => {
     for (let i = 0; i < links.length; i++) headers[i] = document.getElementById(normalise(links[i])) as HTMLElement;
     /** look out! headers have the .scroll-mt-24 class */
     const scroll_offset = 7 * parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -38,7 +38,7 @@ export default component$(() => {
             100 - ((next_el + scroll_offset - window.scrollY) / (next_el + scroll_offset - headers[i].offsetTop)) * 100;
 
           if (window.outerWidth < 850 && state.oldCounter != state.current && state.canScroll) {
-            nav.current!.scrollTo({
+            nav.value!.scrollTo({
               top: 0,
               left: (window.scrollY / document.documentElement.scrollHeight) * window.innerWidth,
             });

@@ -1,4 +1,4 @@
-import { component$, useClientEffect$ } from "@builder.io/qwik";
+import { component$, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import About from "~/components/index/about";
 import Footer from "~/components/footer/footer";
@@ -8,7 +8,7 @@ import Works from "~/components/works/works";
 import aos from "aos";
 import "aos/dist/aos.css";
 export default component$(() => {
-  useClientEffect$(
+  useVisibleTask$(
     () => {
       async function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
         entries.forEach(entry => {
@@ -38,7 +38,7 @@ export default component$(() => {
         delay: 100,
       });
     },
-    { eagerness: "load" }
+    { strategy: "document-ready" }
   );
   return (
     <main>

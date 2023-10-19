@@ -28,7 +28,7 @@ export default component$(() => {
       />
       <div class="showcase items-end">
         <Photo
-          className="w-3/5 sm:w-auto sm:h-[75vh] relative z-10 object-contain"
+          class="w-3/5 sm:w-auto sm:h-[75vh] relative z-10 object-contain"
           src="poznajgory-mobile.webp"
           alt="Poznaj Góry"
           sizes={[480, 720]}
@@ -39,8 +39,8 @@ export default component$(() => {
       </div>
 
       <div class="logo" data-aos="zoom-in-up">
-        <Logo className="wh_full absolute top-0 scale-[1.7] opacity-10 " />
-        <Logo className="wh_full absolute top-0" />
+        <Logo class="wh_full absolute top-0 scale-[1.7] opacity-10 " />
+        <Logo class="wh_full absolute top-0" />
       </div>
 
       <div class="showcase items-start">
@@ -48,7 +48,7 @@ export default component$(() => {
           UI/UX designer
         </h2>
         <Photo
-          className="w-3/5 sm:w-auto sm:h-[75vh] relative z-10 object-contain"
+          class="w-3/5 sm:w-auto sm:h-[75vh] relative z-10 object-contain"
           src="oceanpeace-mobile.webp"
           alt="Ocean Peace"
           sizes={[480, 720]}

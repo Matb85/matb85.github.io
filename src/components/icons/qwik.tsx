@@ -1,6 +1,6 @@
-export const Logo = (props: { className: string }) => (
+export const Logo = (props: { class: string }) => (
   <svg
-    class={props.className}
+    class={props.class}
     width="266"
     height="256"
     viewBox="0 0 266 256"

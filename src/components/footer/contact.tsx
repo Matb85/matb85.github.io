@@ -51,7 +51,7 @@ export default component$(() => {
       status.error = "Hmmm... An error occured. Try again later.";
       status.className = "";
     }
-  });
+  }) as any;
 
   const text = "Contact";
 

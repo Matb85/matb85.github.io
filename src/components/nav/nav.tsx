@@ -1,4 +1,4 @@
-import { component$, useClientEffect$, useStore, $ } from "@builder.io/qwik";
+import { component$, useVisibleTask$, useStore, $ } from "@builder.io/qwik";
 import { Logo } from "../icons/qwik";
 
 export default component$(() => {
@@ -25,7 +25,7 @@ export default component$(() => {
     store.oldScroll = window.scrollY;
   });
 
-  useClientEffect$(() => {
+  useVisibleTask$(() => {
     store.oldScroll = window.scrollY;
     scroll();
     window.addEventListener("scroll", () => scroll());
@@ -35,7 +35,7 @@ export default component$(() => {
       style={"transform: translateY(" + store.y + "%);"}
       class={"fixed transition-transform top-0 w-full h-20 backdrop-blur cr_flex bg-opacity-40 z-50 " + store.bg}
     >
-      <Logo className="h-16 w-16 mx-auto" />
+      <Logo class="h-16 w-16 mx-auto" />
       <a id="back_to_top" class="absolute right-4 transition-opacity" href="#" style={"opacity: " + store.opacity}>
         back to top
       </a>
