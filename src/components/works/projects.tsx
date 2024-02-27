@@ -10,11 +10,12 @@ export default component$(() => {
   const text = "Other projects";
   const projects = [
     { img: "redinnlabs-ss.webp", href: "https://redinnlabs.com" },
+    { img: "poznajgory-ss.webp", href: "https://poznajgory.pl" },
+    { img: "optimamedical-ss.webp", href: "https://okulistakrakow.pl" },
     { img: "amforest-ss.webp", href: "https://amforest.pl" },
+    { img: "zygmuntowka-ss.webp", href: "https://zygmuntowkaknd.pl" },
     { img: "echopienin-ss.webp", href: "https://echopienin.pl" },
     { img: "fizjopieniny-ss.webp", href: "https://fizjopieniny.pl" },
-    { img: "poznajgory-ss.webp", href: "https://poznajgory.pl" },
-    { img: "zygmuntowka-ss.webp", href: "https://zygmuntowkaknd.pl" },
   ];
 
   const w = useSignal<HTMLElement>();
