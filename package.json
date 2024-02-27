@@ -2,6 +2,7 @@
   "name": "portfolio",
   "description": "My portfolio - Mateusz Bis",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
