@@ -2,7 +2,7 @@ import { component$, useVisibleTask$, useSignal, useStore, $ } from "@builder.io
 import { normalise } from "../utils/utils";
 
 export default component$(() => {
-  const links = ["Home", "About me", "Selected works", "Other projects", "Contact"];
+  const links = ["Home", "About me", "Selected works", "Other projects", "Contact + CV"];
   const headers: HTMLElement[] = [];
   const state = useStore({ current: 0, progress: 0, oldCounter: 0, canScroll: true });
   const nav = useSignal<HTMLElement>();
@@ -64,8 +64,8 @@ export default component$(() => {
               state.current == i
                 ? "--btn-gradient-width: " + state.progress + "%;transition: none;"
                 : state.current >= i
-                ? "--btn-gradient-width: 100%;"
-                : ""
+                  ? "--btn-gradient-width: 100%;"
+                  : ""
             }
           >
             {x}
