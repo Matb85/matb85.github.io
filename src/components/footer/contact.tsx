@@ -53,7 +53,7 @@ export default component$(() => {
     }
   }) as any;
 
-  const text = "Contact";
+  const text = "Contact + CV";
 
   return (
     <>
