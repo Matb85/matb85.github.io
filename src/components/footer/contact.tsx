@@ -87,10 +87,17 @@ export default component$(() => {
             </button>
           </div>
         </form>
-        <div data-aos="fade-left" class="cr_flex text_border relative">
-          <h4 class="text-4xl absolute top-12 left-12">My CV</h4>
-          <a href="resume.pdf" target="_blank " class="btn sm:text-2xl md:text-4xl py-4 px-12 absolute">
-            Download my CV
+        <div data-aos="fade-left" class="cr_flex text_border relative flex flex-col gap-4">
+          <h4 class="text-4xl absolute top-12 left-12">My CV & LinkedIn</h4>
+          <a href="resume.pdf" target="_blank " class="btn sm:text-2xl w-96 !px-0 text-center md:text-4xl py-4">
+            Download resume
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mateusz-bis-185bb1230/"
+            target="_blank "
+            class="btn sm:text-2xl w-96 !px-0 text-center md:text-4xl py-4"
+          >
+            LinkedIn profile
           </a>
         </div>
       </section>
