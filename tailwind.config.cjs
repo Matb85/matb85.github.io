@@ -7,6 +7,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       primary: "Prata, serif",
+      secondary: "Times New Roman, Verdana, Geneva, Tahoma, sans-serif",
     },
     colors: {
       transparent: "transparent",
