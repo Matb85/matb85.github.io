@@ -58,6 +58,8 @@
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   @apply font-secondary;
 }
 h1,
@@ -78,7 +80,7 @@ body {
 }
 
 .text_border {
-  @apply relative z-10 p-4 sm:p-8 border-black lg:text-xl leading-relaxed;
+  @apply relative z-10 p-4 sm:p-8 border-black text-sm sm:text-base lg:text-xl leading-relaxed;
 }
 .text_border::before {
   display: block;
