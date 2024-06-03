@@ -1,7 +1,0 @@
-import{f as _,p as d,P as r,E as p,M as l,q as e,_ as a,K as n,$ as i,w}from"./q-HtZrHgre.js";import{L as y}from"./q-kj4qIkL-.js";const b=()=>{const o=_({opacity:0,y:-100,bg:"bg-primary-200",oldScroll:0});return d(e(()=>a(()=>Promise.resolve().then(()=>c),void 0),"s_psleLs0bT7s",[e(()=>a(()=>Promise.resolve().then(()=>c),void 0),"s_9Qj0ZSlPGrk",[o]),o])),r("section",null,{class:l(s=>"fixed transition-transform top-0 w-full h-20 backdrop-blur cr_flex bg-opacity-40 z-50 "+s.bg,[o]),style:l(s=>"transform: translateY("+s.y+"%);",[o])},[p(y,{class:"h-16 w-16 mx-auto",[n]:{class:n}},3,"tH_0"),r("a",null,{class:"absolute right-4 transition-opacity",href:"#",id:"back_to_top",style:l(s=>"opacity: "+s.opacity,[o])},"back to top",3,null)],1,"tH_1")},f=()=>{const[o]=i();window.scrollY<o.oldScroll||window.scrollY<20?o.y=0:o.y=-100,window.scrollY>window.innerHeight?(o.bg="bg-primary-200",o.opacity=1):(o.bg="bg-white",o.opacity=0),o.oldScroll=window.scrollY},g=()=>{const[o,t]=i();t.oldScroll=window.scrollY,o(),window.addEventListener("scroll",()=>o())},c=Object.freeze(Object.defineProperty({__proto__:null,_hW:w,s_0wt1a7SaFyk:b,s_9Qj0ZSlPGrk:f,s_psleLs0bT7s:g},Symbol.toStringTag,{value:"Module"}));export{w as _hW,b as s_0wt1a7SaFyk,f as s_9Qj0ZSlPGrk,g as s_psleLs0bT7s};
-function __vite__mapDeps(indexes) {
-  if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = []
-  }
-  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
-}
