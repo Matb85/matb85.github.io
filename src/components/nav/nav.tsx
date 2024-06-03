@@ -32,8 +32,8 @@ export default component$(() => {
   });
   return (
     <section
-      style={"transform: translateY(" + store.y + "%);"}
-      class={"fixed transition-transform top-0 w-full h-20 backdrop-blur cr_flex bg-opacity-40 z-50 " + store.bg}
+      style={"transform: translateY(" + store.y + "%); opacity: " + store.opacity}
+      class={"fixed transition-all top-0 w-full h-20 backdrop-blur cr_flex bg-opacity-40 z-50 " + store.bg}
     >
       <Logo class="h-16 w-16 mx-auto" />
       <a id="back_to_top" class="absolute right-4 transition-opacity" href="#" style={"opacity: " + store.opacity}>

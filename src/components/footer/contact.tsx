@@ -60,7 +60,7 @@ export default component$(() => {
       <H text={text} />
       <section class="contact w-full px-4 md:px-20 flex flex-col lg:flex-row gap-8 justify-center overflow-hidden">
         <form onSubmit$={submit} data-aos="fade-right" class="text_border say_hello ">
-          <h4 class="text-4xl">Say hello</h4>
+          <h4 class="text-2xl sm:text-4xl">Say hello</h4>
           <input
             type="text"
             placeholder="Your name"
@@ -88,14 +88,14 @@ export default component$(() => {
           </div>
         </form>
         <div data-aos="fade-left" class="cr_flex text_border relative flex flex-col gap-4">
-          <h4 class="text-4xl absolute top-12 left-12">My CV & LinkedIn</h4>
-          <a href="resume.pdf" target="_blank " class="btn sm:text-2xl w-96 !px-0 text-center md:text-4xl py-4">
+          <h4 class="text-2xl sm:text-4xl w-full">My CV & LinkedIn</h4>
+          <a href="resume.pdf" target="_blank " class="btn sm:text-2xl w-48 md:w-80 !px-0 text-center py-4">
             Download resume
           </a>
           <a
             href="https://www.linkedin.com/in/mateusz-bis-185bb1230/"
             target="_blank "
-            class="btn sm:text-2xl w-96 !px-0 text-center md:text-4xl py-4"
+            class="btn sm:text-2xl w-48 md:w-80 !px-0 text-center py-4"
           >
             LinkedIn profile
           </a>
