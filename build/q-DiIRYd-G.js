@@ -1,0 +1,1 @@
+function t(s){return s.toLowerCase().replace(" ","-")}const e="mateuszbis85@gmail.com",n="+48 575 200 012",o="https://www.linkedin.com/in/mateusz-bis-185bb1230/",i="https://github.com/Matb85";export{i as G,o as L,e,t as n,n as p};
