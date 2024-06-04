@@ -1,7 +1,7 @@
 import { component$, useStylesScoped$, useStore, $ } from "@builder.io/qwik";
 import H from "../utils/h";
 import contact from "./contact.css?inline";
-import { email } from "../utils/utils";
+import { GithubProfile, LinkeInProfile, email, phone } from "../utils/utils";
 export default component$(() => {
   useStylesScoped$(contact);
 
@@ -77,11 +77,15 @@ export default component$(() => {
           <hr />
           <p class="text-base h-5 mt-4 text-[#f5426f]">{status.error}</p>
           <div class="w-full mt-8 flex flex-col-reverse gap-2 text-base items-end">
+            <a href={"tel:" + phone} class="hover:underline">
+              {phone}
+            </a>
             <a href={"mailto:" + email} class="hover:underline">
               {email}
             </a>
+
             <button class={"btn " + status.className}>
-              <span>Say hello</span>
+              <span>Send message</span>
               <span>Sending...</span>
               <span>Success!</span>
             </button>
@@ -92,18 +96,10 @@ export default component$(() => {
           <a href="resume.pdf" target="_blank" class="btn md:text-2xl w-48 md:w-80 !px-0 text-center py-4">
             Download resume
           </a>
-          <a
-            href="https://www.linkedin.com/in/mateusz-bis-185bb1230/"
-            target="_blank"
-            class="btn md:text-2xl w-48 md:w-80 !px-0 text-center py-4"
-          >
+          <a href={LinkeInProfile} target="_blank" class="btn md:text-2xl w-48 md:w-80 !px-0 text-center py-4">
             LinkedIn profile
           </a>
-          <a
-            href="https://github.com/Matb85"
-            target="_blank"
-            class="btn md:text-2xl w-48 md:w-80 !px-0 text-center py-4"
-          >
+          <a href={GithubProfile} target="_blank" class="btn md:text-2xl w-48 md:w-80 !px-0 text-center py-4">
             Github profile
           </a>
         </div>

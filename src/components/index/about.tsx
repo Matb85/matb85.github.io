@@ -34,7 +34,7 @@ export default component$(() => {
           </a>
           , with the most important being the{" "}
           <a
-            href="https://www.coursera.org/professional-certificates/google-ux-design"
+            href="https://www.credly.com/badges/ef282292-674e-4a89-a22c-834730b19d42?source=linked_in_profile"
             target="_blank"
             class=" gradient-text"
           >

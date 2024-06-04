@@ -7,6 +7,7 @@ import Projects from "~/components/works/projects";
 import Works from "~/components/works/works";
 import aos from "aos";
 import "aos/dist/aos.css";
+
 export default component$(() => {
   useVisibleTask$(
     () => {
@@ -44,8 +45,8 @@ export default component$(() => {
     <main>
       <Header />
       <About />
-      <Works />
       <Projects />
+      <Works />
       <Footer />
     </main>
   );

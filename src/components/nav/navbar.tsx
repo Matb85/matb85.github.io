@@ -2,7 +2,7 @@ import { component$, useVisibleTask$, useSignal, useStore, $ } from "@builder.io
 import { normalise } from "../utils/utils";
 
 export default component$(() => {
-  const links = ["Home", "About me", "Selected works", "Other projects", "Contact + CV"];
+  const links = ["Home", "About me", "Selected works", "Case Studies", "Contact + CV"];
   const headers: HTMLElement[] = [];
   const state = useStore({ current: 0, progress: 0, oldCounter: 0, canScroll: true });
   const nav = useSignal<HTMLElement>();
