@@ -13,6 +13,8 @@ export default component$(() => {
     { img: "estetic.webp", href: "https://estetic.optimamedical.pl" },
     { img: "optimamedical-ss.webp", href: "https://optimamedical.pl" },
     { img: "redinnlabs-ss.webp", href: "https://redinnlabs.com" },
+    { img: "pieninski-potok-ss.webp", href: "https://pieninskipotok.pl" },
+    { img: "u-wiktorka-ss.webp", href: "https://domekuwiktorka.pl" },
     { img: "zygmuntowka-ss.webp", href: "https://zygmuntowkaknd.pl" },
     { img: "echopienin-ss.webp", href: "https://echopienin.pl" },
     { img: "fizjopieniny-ss.webp", href: "https://fizjopieniny.pl" },
