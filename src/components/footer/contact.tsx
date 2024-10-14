@@ -13,7 +13,6 @@ export default component$(() => {
 
   const submit = $(async (e: Event) => {
     e.preventDefault();
-    console.log(store);
 
     const TimeOfLastEmail = localStorage.getItem("TimeOfLastEmail");
     if (TimeOfLastEmail && Date.now() - parseInt(TimeOfLastEmail) < 2 * 1000 * 60) {
@@ -59,7 +58,7 @@ export default component$(() => {
     <>
       <H text={text} />
       <section class="contact w-full px-4 md:px-20 flex flex-col lg:flex-row gap-8 justify-center overflow-hidden">
-        <form onSubmit$={submit} data-aos="fade-right" class="text_border say_hello ">
+        <form onSubmit$={submit} preventdefault:submit data-aos="fade-right" class="text_border say_hello ">
           <h4 class="text-2xl sm:text-4xl">Say hello</h4>
           <input
             type="text"
@@ -91,7 +90,7 @@ export default component$(() => {
             </button>
           </div>
         </form>
-        <div data-aos="fade-left" class="cr_flex text_border relative flex flex-wrap justify-center gap-y-0 gap-x-4">
+        <div data-aos="fade-left" class="cr_flex text_border relative flex flex-wrap justify-center gap-y-4 gap-x-4">
           <h4 class="text-2xl sm:text-4xl w-full">My CV & Links</h4>
           <a href="resume.pdf" target="_blank" class="btn md:text-2xl w-48 md:w-80 !px-0 text-center py-4">
             Download resume
