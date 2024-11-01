@@ -20,7 +20,9 @@
     "qwik": "qwik"
   },
   "dependencies": {
-    "aos": "^2.3.4"
+    "@types/scrollbooster": "^3.0.3",
+    "aos": "^2.3.4",
+    "scrollbooster": "^3.0.2"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.9.1",

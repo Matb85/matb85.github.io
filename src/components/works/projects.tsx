@@ -1,12 +1,15 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal,  useVisibleTask$ } from "@builder.io/qwik";
 import H from "../utils/h";
 import Photo from "../utils/photo";
+import ScrollBooster from 'scrollbooster';
 
-export function scroll(el: HTMLElement, dist: number) {
-  el.scrollTo({ left: el.scrollLeft + dist, top: 0, behavior: "smooth" });
+export function scroll(el: HTMLElement, dir: number) {
+    const child = el.querySelector("a") as HTMLElement;
+    el.scrollTo({ left: el.scrollLeft + (child.offsetWidth * dir), top: 0, behavior: "smooth" });
 }
 
 export default component$(() => {
+
   const text = "Selected Works";
   const projects = [
     { img: "poznajgory-ss.webp", href: "https://poznajgory.pl" },
@@ -22,6 +25,18 @@ export default component$(() => {
   ];
 
   const w = useSignal<HTMLElement>();
+
+    useVisibleTask$(() => {
+        console.log(w.value)
+        const con = document.getElementById("projects-con") as HTMLElement;
+        new ScrollBooster({
+            viewport: con,
+            content: con.children[0],
+            scrollMode: "native",
+            direction: 'horizontal',
+        })
+        }, { strategy: "document-idle" }
+    )
 
   return (
     <>
@@ -40,36 +55,36 @@ export default component$(() => {
         </p>
       </div>
       <div class="hidden mx-auto md:flex justify-center gap-4 text-4xl mb-4">
-        <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, -300)}>
+        <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, -1)}>
           ««
         </button>
-        <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, 300)}>
+        <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, 1)}>
           »»
         </button>
       </div>
-      <section class="w-full overflow-hidden">
-        <div ref={w} data-aos="fade-up" class="flex flex-nowrap w-full gap-2 sm:gap-4 px-4 overflow-x-auto">
+      <section id="projects-con" ref={w} class="w-full overflow-auto">
+        <div data-aos="fade-up" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-4">
           {projects.map((p, i) => (
-            <a
+          <a
               key={`project-${i}`}
               href={p.href}
               target="_blank"
               rel="nofollow noopener"
               class="w-4/5 lg:w-1/3 max-w-[66vh] flex-none transition-all hover:brightness-75 "
-            >
-              <Photo class="w-full object-cover" src={p.img} alt="project" sizes={[480, 720]} />
-            </a>
+          >
+              <Photo class="w-full object-cover" src={p.img} alt="project" sizes={[480, 720]}/>
+          </a>
           ))}
         </div>
       </section>
-      <div class="mx-auto flex justify-center gap-4 text-4xl mt-4">
-        <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, -300)}>
-          ««
-        </button>
-        <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, 300)}>
-          »»
-        </button>
-      </div>
+        <div class="mx-auto flex justify-center gap-4 text-4xl mt-4">
+            <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, -1)}>
+                ««
+            </button>
+            <button class="btn pt-0 pb-1" onClick$={() => scroll(w.value as HTMLElement, 1)}>
+                »»
+            </button>
+        </div>
     </>
   );
 });

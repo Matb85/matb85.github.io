@@ -19,12 +19,12 @@ export default component$(() => {
       status.error = "You can send email only every 5 minutes";
       return;
     }
-    if (store.email.length < 5 || store.name.length < 5 || store.message.length < 5) {
-      status.error = "Fill in all the fields correctly.";
-      return;
-    }
     if (!emailRegex.test(store.email)) {
       status.error = "Make sure the email is correct.";
+      return;
+    }
+    if (store.email.length < 5 || store.name.length < 5 || store.message.length < 5) {
+      status.error = "Fill in all the fields correctly.";
       return;
     }
     status.error = "";

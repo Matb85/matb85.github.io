@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@types/scrollbooster':
+        specifier: ^3.0.3
+        version: 3.0.3
       aos:
         specifier: ^2.3.4
         version: 2.3.4
+      scrollbooster:
+        specifier: ^3.0.2
+        version: 3.0.2
     devDependencies:
       '@builder.io/qwik':
         specifier: ^1.9.1
@@ -525,6 +531,9 @@ packages:
 
   '@types/node@22.7.5':
     resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
+
+  '@types/scrollbooster@3.0.3':
+    resolution: {integrity: sha512-N2H8KcK+mzoJ2qzAc094Sm5TI/YioRaFSDE7mNSKeoOXn0AoKISMJZrhSWgYoKNXsuB1owMk86jPcl8HxT44fg==}
 
   '@types/unist@2.0.6':
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
@@ -1657,6 +1666,9 @@ packages:
   safe-regex-test@1.0.0:
     resolution: {integrity: sha512-JBUUzyOgEwXQY1NuPtvcj/qcBDbDmEvWufhlnXZIm75DEHp+afM1r1ujJpJsV/gSM4t59tpDyPi1sd6ZaPFfsA==}
 
+  scrollbooster@3.0.2:
+    resolution: {integrity: sha512-WZjvtSxCgCEbfc+9DmxfhuK6ACOqQr3jymniIp4I9Hh0mIEK1CKS4t+d7iPdeuILP5Q/we13h4YUHD0o+gPiRg==}
+
   semver@7.6.3:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
@@ -2343,6 +2355,8 @@ snapshots:
   '@types/node@22.7.5':
     dependencies:
       undici-types: 6.19.8
+
+  '@types/scrollbooster@3.0.3': {}
 
   '@types/unist@2.0.6': {}
 
@@ -3833,6 +3847,8 @@ snapshots:
       call-bind: 1.0.2
       get-intrinsic: 1.2.1
       is-regex: 1.1.4
+
+  scrollbooster@3.0.2: {}
 
   semver@7.6.3: {}
 
