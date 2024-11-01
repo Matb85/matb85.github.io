@@ -4,8 +4,7 @@ import Photo from "../utils/photo";
 import ScrollBooster from 'scrollbooster';
 
 export function scroll(el: HTMLElement, dir: number) {
-    const child = el.querySelector("a") as HTMLElement;
-    el.scrollTo({ left: el.scrollLeft + (child.offsetWidth * dir), top: 0, behavior: "smooth" });
+    el.scrollTo({ left: el.scrollLeft + (400 * dir), top: 0, behavior: "smooth" });
 }
 
 export default component$(() => {
