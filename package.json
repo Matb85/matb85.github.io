@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "imgs": "node ./imageResizer.cjs"
+    "imgs": "node ./imageResizer.js"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.1",
