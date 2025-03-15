@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import react from '@astrojs/react';
+import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,5 +13,6 @@ export default defineConfig({
     },
     integrations: [
         react(),
+        compress({Image: false, SVG: false}),
     ]
 });
