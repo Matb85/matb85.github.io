@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { normalise } from '@/utils/utils';
 
 const Navbar = () => {
-  const links = ["Start", "Photography", "Coding + Designing", "Contact + CV"];
+  const links = ["Start", "Photography", "Coding + Design", "Contact + CV"];
   const headers = useRef<HTMLElement[]>([]);
   const [state, setState] = useState({ current: 0, progress: 0, oldCounter: 0, canScroll: true });
   const navRef = useRef<HTMLElement>(null);
