@@ -66,6 +66,10 @@
   .btn:hover {
     --btn-gradient-width: 0% !important;
   }
+
+  img {
+    @apply object-cover;
+  }
 }
 
 /* latin */
@@ -87,9 +91,6 @@ h5,
 h6,
 .btn {
   @apply font-primary;
-}
-img {
-  @apply object-cover;
 }
 html,
 body {

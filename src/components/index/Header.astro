@@ -2,7 +2,7 @@
 import { Logo } from "@/icons/Logo";
 import Photo from "@/utils/Photo.tsx";
 ---
-<header id="home" class="cr_flex w-full gap-2 md:gap-12  md:pt-4 overflow-hidden relative">
+<header id="start" class="cr_flex w-full gap-2 md:gap-12  md:pt-4 overflow-hidden relative">
   <img
     data-aos-delay="300"
     data-aos-offset="0"
@@ -57,34 +57,34 @@ import Photo from "@/utils/Photo.tsx";
 <style lang="postcss">
     @import "~/global.css" reference;
 
-    #home h2 {
+    #start h2 {
         @apply text-2xl md:text-3xl xl:text-4xl 2xl:text-4xl;
     }
-    #home h2.left {
+    #start h2.left {
         @apply text-right;
     }
 
     @media screen and (max-width: 767px) {
-        #home {
+        #start {
             @apply pt-20;
         }
-        #home h2 {
+        #start h2 {
             @apply absolute top-32 w-full left-0 text-center!;
         }
-        #home h2.right {
+        #start h2.right {
             @apply top-24;
         }
 
-        #home .showcase {
+        #start .showcase {
             @apply mt-24;
         }
     }
 
-    #home .showcase {
+    #start .showcase {
         @apply md:w-1/2 flex flex-col flex-none md:flex-auto;
     }
 
-    #home .showcase :global(img) {
+    #start .showcase :global(img) {
       @apply object-contain;
     }
 

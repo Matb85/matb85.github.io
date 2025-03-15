@@ -2,7 +2,6 @@
 import H from '@/utils/H';
 import Photo from '@/utils/Photo';
 
-const text = "Selected Works";
 const projects = [
     { img: "esteticoptima.webp", href: "https://estetic.optimamedical.pl" },
     { img: "optimamedical.webp", href: "https://optimamedical.pl" },
@@ -19,7 +18,7 @@ const projects = [
 ];
 ---
 
-<H text={text}/>
+<H text="Coding"/>
 <div
         data-aos="fade-right"
         class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4"
@@ -27,10 +26,7 @@ const projects = [
         <p>
             Below are my <b>favourite projects</b> I have worked on so far, click on the images to see the end product.
             Most of them are also displayed on{" "}
-            <a href="https://redinnlabs.com" target="_blank" class=" gradient-text">
-                Redinn Labs' website
-            </a>
-            .
+            <a href="https://redinnlabs.com" target="_blank" class=" gradient-text">Redinn's website</a>.
         </p>
 </div>
 <div class="hidden mx-auto md:flex justify-center gap-4 text-4xl mb-4">
@@ -55,21 +51,11 @@ const projects = [
         ))}
     </div>
 </section>
-<div class="mx-auto flex justify-center gap-4 text-4xl mt-4">
-    <button id="projects-back-2" class="btn pt-0 pb-1">
-        ««
-    </button>
-    <button id="projects-next-2" class="btn pt-0 pb-1">
-        »»
-    </button>
-</div>
 
 <script>
     const projectsCon = document.getElementById('projects-con')!;
     const projectsBack1 = document.getElementById('projects-back-1')!;
     const projectsNext1 = document.getElementById('projects-next-1')!;
-    const projectsBack2 = document.getElementById('projects-back-2')!;
-    const projectsNext2 = document.getElementById('projects-next-2')!;
 
     let scrollAmount = 0;
     let scrollMax = projectsCon.scrollWidth - projectsCon.clientWidth;
@@ -84,13 +70,4 @@ const projects = [
         projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
     });
 
-    projectsBack2.addEventListener('click', () => {
-        scrollAmount = Math.max(scrollAmount - 400, 0);
-        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    });
-
-    projectsNext2.addEventListener('click', () => {
-        scrollAmount = Math.min(scrollAmount + 400, scrollMax);
-        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    });
 </script>
