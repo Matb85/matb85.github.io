@@ -1,0 +1,88 @@
+---
+import Nav from './components/nav/Nav.astro';
+import NavBar from './components/nav/Navbar.tsx';
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+
+import ogImage from '~/assets/og.png';
+import 'aos/dist/aos.css';
+import '~/global.css';
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="/favicon.ico" sizes="any"/>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <meta name="theme-color" content="#00CC76"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>{title}</title>
+    <meta name="description" content={description}/>
+
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:url" content={Astro.site!.toString()}/>
+    <meta property="og:site_name" content="Poznaj Góry"/>
+    <meta property="og:type" content="website"/>
+
+    <meta property="og:image" content={ogImage.src}/>
+    <meta property="og:image:alt" content="Mateusz Bis - Portfolio"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content={ogImage.width + ''}/>
+    <meta property="og:image:height" content={ogImage.height + ''}/>
+
+    <link rel="canonical" href={`https://matb85.github.io${Astro.url.href}`}/>
+</head>
+<body>
+<Nav client:load/>
+<NavBar client:load/>
+<slot/>
+
+<script>
+    import aos from 'aos';
+
+    async function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio <= 0) return;
+            const target = entry.target as HTMLImageElement;
+            target.addEventListener("load", () => target.classList.add("loaded"), { once: true });
+            target.srcset = target.dataset.srcset as string;
+            observer.unobserve(target);
+        });
+    }
+
+    /** set up a new IntersectionObserver if in the browser */
+    const observer = new IntersectionObserver(callback, { rootMargin: "0px", threshold: 0.05 });
+
+
+    document.addEventListener('DOMContentLoaded',
+        () => {
+            // utility for add images to the store add setting up proper event listeners
+            function addImages(imgs: NodeListOf<HTMLImageElement>) {
+                imgs.forEach(img => {
+                    observer.observe(img);
+                });
+            }
+
+            // observe all images
+            addImages(document.querySelectorAll(".lazy-photo") as NodeListOf<HTMLImageElement>);
+            aos.init({
+                offset: 200,
+                duration: 300,
+                easing: "ease-in-sine",
+                delay: 100,
+            });
+        },
+    );
+</script>
+</body>
+</html>

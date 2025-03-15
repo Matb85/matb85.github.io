@@ -1,3 +1,5 @@
+@import "~/global.css" reference;
+
 .contact .text_border {
   min-height: 18rem;
   @apply w-full lg:w-1/2 p-8 sm:p-12;

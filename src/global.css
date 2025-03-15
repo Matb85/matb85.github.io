@@ -1,14 +1,39 @@
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-@tailwind base;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-*: initial;
+  --font-primary: Prata, serif;
+  --font-secondary: Times New Roman, Verdana, Geneva, Tahoma, sans-serif;
+
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-primary-50: #f8fafc;
+  --color-primary-100: #f1f5f9;
+  --color-primary-200: #e2e8f0;
+  --color-primary-300: #cbd5e1;
+  --color-primary-400: #94a3b8;
+  --color-primary-500: #64748b;
+  --color-primary-600: #475569;
+  --color-primary-700: #334155;
+  --color-primary-800: #1e293b;
+  --color-primary-900: #0f172a;
+  --color-primary-950: #020617;
+}
 
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+    @apply font-secondary;
+  }
+
   .wh_full {
     @apply w-full h-full;
   }
@@ -26,7 +51,7 @@
     transition: all 0.3s ease;
     z-index: 1;
     @apply block relative 
-      cursor-pointer outline-none border-none overflow-hidden
+      cursor-pointer outline-hidden border-none overflow-hidden
     bg-black text-white px-8 py-2;
   }
 
@@ -54,12 +79,6 @@
     U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  @apply font-secondary;
-}
 h1,
 h2,
 h3,

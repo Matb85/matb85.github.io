@@ -1,0 +1,84 @@
+---
+import Photo from "../utils/Photo";
+import work from "./work.css?inline";
+
+interface DataI {
+  img: string;
+  name: string;
+  desc: string;
+  link: string;
+}
+
+interface Props {
+    data: DataI;
+}
+
+const { data } = Astro.props;
+---
+
+    <section data-aos="fade-up" data-aos-offset="150" class="work">
+      <div class="work_border"></div>
+      <Photo className="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]} />
+      <div class="work_arrows">
+        <img src="./arrows.svg" alt="arrow" loading="lazy" />
+      </div>
+      <div class="work_text">
+        <h4 class="text-3xl sm:text-4xl xl:text-6xl">{data.name}</h4>
+        <h5 class="sm:text-xl xl:text-3xl">{data.desc}</h5>
+        <a href={data.link} target="_blank " class="btn w-48 px-0 text-center">
+          Read the case study
+        </a>
+      </div>
+    </section>
+
+<style lang="postcss">
+  @import "~/global.css" reference;
+
+  .work {
+    @apply w-full h-[80vh] relative;
+  }
+  .work .work_border {
+    @apply w-1/2 h-24 sm:h-44 absolute bottom-4 left-4 bg-black;
+  }
+  .work:nth-of-type(odd) .work_border {
+    @apply left-auto right-4;
+  }
+
+  .work :global(.work_image) {
+    width: calc(100% - 3rem);
+    @apply sm:w-4/5 h-full object-cover absolute right-0 top-0;
+  }
+
+  .work:nth-of-type(odd) :global(.work_image) {
+    @apply left-0 right-auto;
+  }
+
+  .work .work_text {
+    @apply bg-white p-8 h-24 sm:h-44 absolute bottom-0 left-8;
+  }
+  .work:nth-of-type(odd) .work_text {
+    @apply left-auto right-8;
+  }
+
+  .work .work_arrows {
+    @apply absolute top-0 left-0 overflow-hidden -z-10;
+  }
+  .work:nth-of-type(odd) .work_arrows {
+    @apply left-auto right-0;
+  }
+
+  .work .work_arrows img {
+    @apply translate-x-[-50%];
+  }
+  .work:nth-of-type(odd) .work_arrows img {
+    @apply translate-x-[50%] float-right;
+  }
+
+  .work .btn {
+    @apply sm:translate-x-[50%] sm:absolute right-0 -bottom-4;
+  }
+  .work:nth-of-type(odd) .btn {
+    @apply sm:translate-x-[-50%] right-auto left-0;
+  }
+
+</style>

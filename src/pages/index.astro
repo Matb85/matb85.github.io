@@ -1,0 +1,29 @@
+---
+import About from '@/index/About.astro';
+import Footer from '@/footer/Footer.astro';
+import Header from '@/index/Header.astro';
+import Projects from '@/works/Projects.astro';
+import Works from '@/works/Works.astro';
+import Layout from "~/layout.astro";
+
+const title = "Mateusz Bis - Portfolio";
+const desc = "Hi, my name is Mateusz Bis, I'm a web developer and a UI/UX designer. Welcome to my portfolio!";
+---
+
+<Layout title={title} description={desc}>
+    <Header />
+    <About />
+    <Projects />
+    <Works />
+    <Footer />
+    <script>
+        import AOS from 'aos';
+
+        AOS.init({
+            offset: 200,
+            duration: 300,
+            easing: 'ease-in-sine',
+            delay: 100,
+        });
+    </script>
+</Layout>

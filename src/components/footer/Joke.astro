@@ -1,0 +1,30 @@
+---
+import H from '@/utils/H.tsx';
+import Quote from "./Quote.astro";
+import { fetchJoke } from "@/utils/utils";
+
+const joke = await fetchJoke()
+---
+
+
+<H text="Joke for you"/>
+<section class="w-11/12 mx-auto cr_flex">
+    <Quote char="„"/>
+    <p id="joke-content" class="md:text-4xl max-w-3xl leading-relaxed! text-center">{joke}</p>
+    <Quote char="”"/>
+</section>
+<button id="joke-button" class="btn mx-auto mt-4">
+    One more
+</button>
+
+<script>
+    import { fetchJoke } from "@/utils/utils";
+
+    const button = document.getElementById('joke-button')!;
+    const content = document.getElementById('joke-content')!;
+
+    button.addEventListener('click', async () => {
+        const joke = await fetchJoke();
+        content.innerText = joke;
+    });
+</script>
