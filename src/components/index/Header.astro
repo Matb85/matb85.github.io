@@ -23,7 +23,7 @@ import Photo from "@/utils/Photo.tsx";
   />
   <div class="showcase items-end">
     <Photo
-      className="w-3/4 md:w-auto md:h-[calc(100vh-10rem)] min-h-[400px] relative z-10 object-contain"
+      className="w-3/4 md:w-auto md:h-[calc(100vh-10rem)] min-h-[400px] relative z-10"
       src="poznajgory-mobile.webp"
       alt="Poznaj Góry"
       sizes={[480, 720]}
@@ -69,7 +69,7 @@ import Photo from "@/utils/Photo.tsx";
             @apply pt-20;
         }
         #home h2 {
-            @apply absolute top-32 w-full left-0 !text-center;
+            @apply absolute top-32 w-full left-0 text-center!;
         }
         #home h2.right {
             @apply top-24;
@@ -82,6 +82,10 @@ import Photo from "@/utils/Photo.tsx";
 
     #home .showcase {
         @apply md:w-1/2 flex flex-col flex-none md:flex-auto;
+    }
+
+    #home .showcase :global(img) {
+      @apply object-contain;
     }
 
     .logo {

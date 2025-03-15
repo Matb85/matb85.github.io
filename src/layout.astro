@@ -60,7 +60,6 @@ import '~/global.css';
     /** set up a new IntersectionObserver if in the browser */
     const observer = new IntersectionObserver(callback, { rootMargin: "0px", threshold: 0.05 });
 
-
     document.addEventListener('DOMContentLoaded',
         () => {
             // utility for add images to the store add setting up proper event listeners
@@ -73,7 +72,7 @@ import '~/global.css';
             // observe all images
             addImages(document.querySelectorAll(".lazy-photo") as NodeListOf<HTMLImageElement>);
             aos.init({
-                offset: 200,
+                offset: 0,
                 duration: 300,
                 easing: "ease-in-sine",
                 delay: 100,

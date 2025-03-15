@@ -55,13 +55,15 @@ return (
           <h4 className="text-2xl sm:text-4xl">Say hello</h4>
           <input
               type="text"
+              autoComplete="given-name"
               placeholder="Your name"
               value={store.name}
               onChange={(e) => setStore({ ...store, name: e.target.value })}
           />
           <hr />
           <input
-              type="text"
+              type="email"
+              autoComplete="email"
               placeholder="Your email"
               value={store.email}
               onChange={(e) => setStore({ ...store, email: e.target.value })}
