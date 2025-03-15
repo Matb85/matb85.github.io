@@ -1,0 +1,29 @@
+{
+  "name": "portfolio",
+  "description": "My portfolio - Mateusz Bis",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "imgs": "node ./imageResizer.cjs"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.1",
+    "aos": "^2.3.4",
+    "astro": "^5.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.14",
+    "@types/node": "^22.7.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^4.0.14"
+  },
+  "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
+}

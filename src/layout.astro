@@ -31,7 +31,7 @@ import '~/global.css';
     <meta property="og:title" content={title}/>
     <meta property="og:description" content={description}/>
     <meta property="og:url" content={Astro.site!.toString()}/>
-    <meta property="og:site_name" content="Poznaj Góry"/>
+    <meta property="og:site_name" content="Mateusz Bis | Portfolio"/>
     <meta property="og:type" content="website"/>
 
     <meta property="og:image" content={ogImage.src}/>
@@ -43,7 +43,7 @@ import '~/global.css';
     <link rel="canonical" href={`https://matb85.github.io${Astro.url.href}`}/>
 </head>
 <body>
-<Nav client:load/>
+<Nav/>
 <NavBar client:load/>
 <slot/>
 

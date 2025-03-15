@@ -1,3 +1,4 @@
+.astro
 public/**/*.webp
 test/*
 # Build

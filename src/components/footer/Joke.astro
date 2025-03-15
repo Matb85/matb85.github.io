@@ -24,7 +24,6 @@ const joke = await fetchJoke()
     const content = document.getElementById('joke-content')!;
 
     button.addEventListener('click', async () => {
-        const joke = await fetchJoke();
-        content.innerText = joke;
+        content.innerText = await fetchJoke();
     });
 </script>
