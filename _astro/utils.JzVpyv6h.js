@@ -1,1 +1,0 @@
-function e(t){return t.toLowerCase().trim().replaceAll(" ","-")}async function o(){return await(await fetch("https://icanhazdadjoke.com/",{headers:{Accept:"text/plain","User-Agent":"Portfolio (https://github.com/Matb85/portfolio)"}})).text()}export{o as f,e as n};
