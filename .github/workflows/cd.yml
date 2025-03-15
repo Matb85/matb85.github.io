@@ -4,16 +4,10 @@ on: [push, pull_request]
 
 jobs:
   cd:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [22]
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
         with:
@@ -22,7 +16,7 @@ jobs:
       - name: Setup node env
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 22
 
       - name: Install dependencies
         run: pnpm i
@@ -31,10 +25,10 @@ jobs:
         run: pnpm imgs
 
       - name: Generate
-        run: mkdir dist && pnpm build && node ./server/entry.ssr.js && cp -R public/* dist/
+        run: mkdir dist && pnpm build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
