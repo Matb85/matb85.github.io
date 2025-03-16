@@ -135,7 +135,7 @@ const albums = [
                             <div class="photos-con w-full overflow-auto mt-4">
                                 <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
                                     {session.photos.map((p, i) => (
-                                            <Photo className="max-w-none h-64 sm:h-96 lg:h-[30vw] aspect-auto flex-none" src={p.src} alt={p.src}
+                                            <Photo className="max-w-none max-h-[500px] h-64 sm:h-96 lg:h-[30vw] aspect-auto flex-none" src={p.src} alt={p.src}
                                                    fullUrl={true}
                                                    sizes={[480, 720]}/>
                                     ))}
