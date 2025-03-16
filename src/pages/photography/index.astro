@@ -19,7 +19,7 @@ function extractPhotos(folder: string, photos: Record<string, { default: PhotoMo
     return Object.values(photos).map((photo) => ({
         ...photo.default,
         src: "/images/" + folder + "/thumbnail_" + photo.default.src.match(/\/([^\/.]+)\./)![1] + ".webp"
-    }));
+    })).sort((a, b) => a.src.localeCompare(b.src));
 }
 
 const albums = [
