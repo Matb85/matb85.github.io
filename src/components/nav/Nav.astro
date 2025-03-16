@@ -1,5 +1,6 @@
 ---
 import { Logo } from '@/icons/Logo';
+import Hamburger from "./Hamburger.tsx"
 ---
 <section
         id="nav"
@@ -7,14 +8,14 @@ import { Logo } from '@/icons/Logo';
 >
     <a href="/" class="flex gap-2 items-center">
         <div id="nav-logo"
-             class="hidden sm:block transition-all duration-500 overflow-hidden">
-            <h2 class="text-[3rem] mt-2 block leading-none transition-all">Mateusz</h2>
+             class="transition-all duration-500 overflow-hidden">
+            <h2 class="text-[2rem] sm:text-[3rem] mt-2 block leading-none transition-all">Mateusz</h2>
         </div>
-        <Logo className="h-12 w-12 mx-auto"/>
+        <Logo className="w-8 sm:w-12 mx-auto"/>
     </a>
-    <div class="flex items-center gap-6">
-        <a id="nav-dev" href="/development" class="text-xl hover:underline">Development</a>
-        <a id="nav-photo" href="/photography" class="text-xl hover:underline">Photography</a>
+    <div class="hidden md:flex items-center gap-6">
+        <a href="/development" class="nav-dev text-xl hover:underline">Development</a>
+        <a href="/photography" class="nav-photo text-xl hover:underline">Photography</a>
         <a href="/#contact-+-cv" class="text-xl hover:underline">Contact + CV</a>
         <div class="flex items-center gap-2">
             <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
@@ -25,7 +26,46 @@ import { Logo } from '@/icons/Logo';
             </a>
         </div>
     </div>
+    <div class="flex md:hidden items-center">
+        <Hamburger id="mobile-navbar-toggle"/>
+    </div>
 </section>
+
+<section id="mobile-navbar">
+    <a href="/development" class="nav-dev text-2xl hover:underline">Development</a>
+    <a href="/photography" class="nav-photo text-2xl hover:underline">Photography</a>
+    <a href="/#contact-+-cv" class="text-2xl hover:underline">Contact + CV</a>
+    <div class="flex items-center gap-8">
+        <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
+            <img src="/github.svg" alt="GitHub Icon" class="w-6 h-6"/>
+        </a>
+        <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" rel="noopener noreferrer">
+            <img src="/linkedin.svg" alt="LinkedIn Icon" class="w-6 h-6"/>
+        </a>
+    </div>
+</section>
+
+<style lang="postcss">
+    @import "~/global.css" reference;
+
+    :global(#nav-logo.open) {
+        @apply w-[130px] sm:w-[200px];
+    }
+
+    :global(#nav-logo:not(.open)) {
+        @apply w-0 opacity-0;
+    }
+
+    :global(#mobile-navbar) {
+        transform: translateX(-100vw);
+        transition: 0.4s transform;
+        @apply h-screen w-full bg-primary-200/[0.6] backdrop-blur fixed left-0 top-0 pt-20 z-40 flex flex-col items-center justify-center gap-6;
+    }
+
+    :global(#mobile-navbar.open) {
+        transform: translateX(0vw);
+    }
+</style>
 
 <script>
     const nav = document.getElementById('nav')!;
@@ -36,11 +76,9 @@ import { Logo } from '@/icons/Logo';
     function scroll() {
         if (window.scrollY < oldScroll || window.scrollY < 80) {
             nav.style.transform = `translateY(0px)`;
-            logo.classList.remove('w-0', 'opacity-0');
-            logo.classList.add('w-[200px]');
+            logo.classList.add('open');
         } else {
-            logo.classList.add('w-0', 'opacity-0');
-            logo.classList.remove('w-[200px]');
+            logo.classList.remove('open');
             nav.style.transform = `translateY(-100px)`;
         }
         oldScroll = window.scrollY;
@@ -49,4 +87,19 @@ import { Logo } from '@/icons/Logo';
     oldScroll = window.scrollY;
     scroll();
     window.addEventListener("scroll", () => scroll());
+
+    const mobileNavbar = document.getElementById('mobile-navbar')!;
+    const mobileNavbarToggle = document.getElementById('mobile-navbar-toggle')!;
+    const links = document.querySelectorAll('#mobile-navbar a');
+
+    mobileNavbarToggle.addEventListener('click', () => {
+        mobileNavbar.classList.toggle('open');
+        mobileNavbarToggle.classList.toggle('is-active');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavbar.classList.remove('open');
+                mobileNavbarToggle.classList.remove('is-active');
+            })
+        })
+    });
 </script>

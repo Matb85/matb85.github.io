@@ -113,44 +113,38 @@ const albums = [
 
 <Layout title={title} description={desc}>
     <Header/>
-
-    {albums.map((album, i) => (
+    {albums.map((album) => (
             <>
                 <H text={album.name}/>
                 {album.sessions.map((session, i) => (
-                        <>
+                        <section class="photos-session">
                             <div
                                     data-aos="fade-right"
                                     class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4 mt-24"
                             >
-                                <p>
-                                    {session.desc}
-                                </p>
+                                <p>{session.desc}</p>
                             </div>
-                            <div class="hidden mx-auto md:flex justify-center gap-4 text-4xl">
-                                <button id={"photos-back-" + i} class="btn pt-0 pb-1">
+                            <div class="flex justify-center gap-4 text-4xl">
+                                <button class="photos-back btn pt-0 pb-1">
                                     ««
                                 </button>
-                                <button id={"photos-next-" + i} class="btn pt-0 pb-1">
+                                <button class="photos-next btn pt-0 pb-1">
                                     »»
                                 </button>
                             </div>
-                            <section id={"photos-con-" + i} class="w-full overflow-auto mt-4">
+                            <div class="photos-con w-full overflow-auto mt-4">
                                 <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-16">
                                     {session.photos.map((p, i) => (
-                                            <Photo className="h-[25vw] aspect-auto" src={p.src} alt={p.src}
+                                            <Photo className="h-[28vw] aspect-auto" src={p.src} alt={p.src}
                                                    fullUrl={true}
                                                    sizes={[480, 720]}/>
                                     ))}
                                 </div>
-                            </section>
-                        </>
+                            </div>
+                        </section>
                 ))}
-
-
             </>
     ))}
-
     <Footer/>
 </Layout>
 
@@ -168,28 +162,34 @@ const albums = [
         text-decoration: underline;
     }
 
-    :global(#nav #nav-photo) {
+    :global(.nav-photo) {
         text-decoration: underline;
     }
 </style>
 
 <script>
-    const projectsCon = document.getElementById('photos-con')!;
-    const projectsBack1 = document.getElementById('photos-back-1')!;
-    const projectsNext1 = document.getElementById('photos-next-1')!;
+    const photoSessions = document.querySelectorAll('.photos-session');
+    photoSessions.forEach((session) => {
+        const photosCon = session.querySelector('.photos-con')!;
+        const photosBack = session.querySelector('.photos-back')!;
+        const photosNext = session.querySelector('.photos-next')!;
 
-    let scrollAmount = 0;
-    let scrollMax = projectsCon.scrollWidth - projectsCon.clientWidth;
+        const photoWidth = session.querySelector('.lazy-photo')!.clientWidth;
 
-    projectsBack1.addEventListener('click', () => {
-        scrollAmount = Math.max(scrollAmount - 400, 0);
-        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+        photosBack.addEventListener('click', () => {
+            photosCon.scrollTo({ left: photosCon.scrollLeft - photoWidth, behavior: 'smooth' });
+        });
+
+        photosNext.addEventListener('click', () => {
+            photosCon.scrollTo({ left: photosCon.scrollLeft + photoWidth, behavior: 'smooth' });
+        });
     });
 
-    projectsNext1.addEventListener('click', () => {
-        scrollAmount = Math.min(scrollAmount + 400, scrollMax);
-        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    });
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('showcase-left')!.classList.add('inactive-section')
+        }, 800);
+    })
 </script>
 
 

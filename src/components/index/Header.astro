@@ -2,8 +2,8 @@
 import { Logo } from "@/icons/Logo";
 import Photo from "@/utils/Photo.tsx";
 ---
-<header id="start" class="wh_full grid grid-cols-1 md:grid-cols-3 gap-0 pb-4 pt-24">
-  <a href="/development" class="showcase-left w-full relative z-10 flex flex-col gap-4">
+<header id="start" class="w-full md:h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-0 overflow-hidden gap-0 pb-4 pt-24 px-4 md:px-0">
+  <a href="/development" id="showcase-left" class="w-full relative z-10 flex flex-col gap-4">
     <img
         data-aos-delay="300"
         data-aos-offset="0"
@@ -13,35 +13,35 @@ import Photo from "@/utils/Photo.tsx";
         alt="arrow"
         loading="lazy"
     />
-    <h2 class="pl-4" data-aos-offset="0" data-aos-delay="0" data-aos="fade-right">
+    <h2 class="md:pl-4" data-aos-offset="0" data-aos-delay="0" data-aos="fade-right">
       Full Stack Developer
     </h2>
     <Photo
-        className="pl-4 wh_full flex-shrink-1"
-        src="autumn.webp"
+        className="px-0 md:pl-4 w-full h-96 md:h-[calc(100vh-15rem)] flex-shrink-1"
+        src="/images/landscape/thumbnail_DSC07088.webp"
+        fullUrl={true}
         alt="Poznaj Góry"
         sizes={[720]}
     />
   </a>
 
-  <section class="cr_flex wh_full" data-aos="zoom-in-up">
-    <div class="w-64 h-64 relative">
+  <section class="hidden md:flex cr_flex wh_full" data-aos="zoom-in-up">
+    <div class="w-40 lg:w-64 aspect-square relative">
       <Logo className="wh_full absolute top-0 scale-[1.7] opacity-10"/>
       <Logo className="wh_full absolute top-0" />
       <p class="absolute -top-[4rem] w-full text-center text-[3rem]">Mateusz</p>
     </div>
   </section>
 
-  <p class="md:hidden absolute top-8 w-full text-center text-5xl">Mateusz Bis</p>
-
-  <a href="/photography" class="showcase-right w-full relative z-10 flex flex-col gap-4 overflow-hidden">
+  <a href="/photography" id="showcase-right" class="w-full relative z-10 flex flex-col gap-4">
     <Photo
-        className="pr-4 wh_full flex-shrink-1"
-        src="bee.webp"
+        className="px-0 md:pr-4 w-full h-96 md:h-[calc(100vh-15rem)] flex-shrink-1"
+        src="/images/drone/thumbnail_DJI_0186.webp"
+        fullUrl={true}
         alt="Ocean Peace"
         sizes={[720]}
     />
-    <h2 data-aos="fade-left" class="pr-4">
+    <h2 data-aos="fade-left" class="md:pr-4 text-right">
       Photographer
     </h2>
     <img

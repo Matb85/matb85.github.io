@@ -29,7 +29,12 @@ async function transformFolder(folder, outFolder) {
     for (const file of files) {
         const ext = path.extname(file).toLowerCase();
         const filename = path.join(__dirname, folder, file)
-        console.log(filename);
+
+        if(!['.jpg', '.jpeg', '.png'].includes(ext)) {
+            console.log('Skipping', filename);
+            continue
+        }
+
         for (const spec of specification) {
             allProcesses.push(
                 sharp(filename)
@@ -46,11 +51,12 @@ async function transformFolder(folder, outFolder) {
         console.log('finished processing folder', folder);
     } catch (err) {
         console.error('Error in processing', err);
+        process.exit(1);
     }
 }
 
 for (const folder of folders) {
-    //await transformFolder(folder, OUT_FOLDER);
+    await transformFolder(folder, OUT_FOLDER);
 }
 
 for (const file of await fs.readdir(path.join(__dirname, '/src/assets/photos'))) {

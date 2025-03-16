@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import H from '../utils/H.tsx';
-import { GithubProfile, LinkeInProfile, email, phone } from '../utils/utils';
+import { email, GithubProfile, LinkeInProfile, phone } from '../utils/utils';
 import './contact.css';
 
 const Contact: React.FC = () => {
@@ -93,15 +93,15 @@ return (
         <div data-aos="fade-left" className="text_border">
           <h4 className="text-2xl sm:text-4xl w-full">My CV & Links</h4>
           <div className="mt-4 cr_flex flex-wrap gap-4">
-          <a href="resume.pdf" target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
-            Download résumé
-          </a>
-          <a href={LinkeInProfile} target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
-            LinkedIn profile
-          </a>
-          <a href={GithubProfile} target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
-            Github profile
-          </a>
+            <a href="resume.pdf" target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
+              Download résumé
+            </a>
+            <a href={LinkeInProfile} target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
+              LinkedIn profile
+            </a>
+            <a href={GithubProfile} target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
+              Github profile
+            </a>
           </div>
         </div>
       </section>
