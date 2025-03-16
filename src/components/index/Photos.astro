@@ -71,12 +71,12 @@ const secondRow = [
     </button>
 </div>
 <section id="photos-con" class="w-full overflow-auto mt-4 space-y-4">
-    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-16">
+    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
         {firstRow.map((p, i) => (
                 <PhotoAlbumCover data={p}/>
         ))}
     </div>
-    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-16 pl-[20vw]">
+    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16 pl-[20vw]">
         {secondRow.map((p, i) => (
                 <PhotoAlbumCover data={p}/>
         ))}
