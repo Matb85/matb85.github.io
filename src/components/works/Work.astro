@@ -20,7 +20,7 @@ const { data } = Astro.props;
   <div class="work_border"></div>
   <Photo className="work_image" src={data.img} alt={data.name} sizes={[720, 1280, 1920]}/>
   <div class="work_arrows">
-    <img src="./arrows.svg" alt="arrow" loading="lazy"/>
+    <img src="/arrows.svg" alt="arrow" loading="lazy"/>
   </div>
   <div class="work_text">
     <h4 class="text-3xl sm:text-4xl xl:text-6xl">{data.name}</h4>
@@ -80,5 +80,4 @@ const { data } = Astro.props;
   .work:nth-of-type(odd) .btn {
     @apply sm:translate-x-[-50%] right-auto left-0;
   }
-
 </style>

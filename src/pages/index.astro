@@ -7,7 +7,7 @@ import Layout from "~/layout.astro";
 import Photos from "@/index/Photos.astro";
 
 const title = "Mateusz Bis | Portfolio";
-const desc = "Hi, my name is Mateusz Bis, I'm a web developer and a UI/UX designer. Welcome to my portfolio!";
+const desc = "Hi, my name is Mateusz Bis, I'm a web developer, UI/UX designer and photographer. Welcome to my portfolio!";
 ---
 
 <Layout title={title} description={desc}>
@@ -15,5 +15,8 @@ const desc = "Hi, my name is Mateusz Bis, I'm a web developer and a UI/UX design
     <About />
     <Photos/>
     <Projects />
+    <div class="flex justify-center gap-4 mt-12">
+        <a href="/development" class="btn">See more</a>
+    </div>
     <Footer />
 </Layout>

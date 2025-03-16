@@ -41,7 +41,7 @@ const { data } = Astro.props;
 
     .album :global(.album_image) {
         width: calc(100% - 3rem);
-        @apply w-96 lg:w-[40vw] aspect-[3/2] relative;
+        @apply w-96 lg:w-[40vw] max-w-[720px] aspect-[3/2] relative;
     }
 
     .album .album_text {

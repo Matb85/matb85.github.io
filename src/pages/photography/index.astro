@@ -168,27 +168,29 @@ const albums = [
 </style>
 
 <script>
-    const photoSessions = document.querySelectorAll('.photos-session');
-    photoSessions.forEach((session) => {
-        const photosCon = session.querySelector('.photos-con')!;
-        const photosBack = session.querySelector('.photos-back')!;
-        const photosNext = session.querySelector('.photos-next')!;
+    document.addEventListener("DOMContentLoaded", () => {
+        const photoSessions = document.querySelectorAll('.photos-session');
+        photoSessions.forEach((session) => {
+            const photosCon = session.querySelector('.photos-con')!;
+            const photosBack = session.querySelector('.photos-back')!;
+            const photosNext = session.querySelector('.photos-next')!;
 
-        const photoWidth = session.querySelector('.lazy-photo')!.clientWidth;
+            const photoWidth = session.querySelector('.lazy-photo')!.clientWidth;
 
-        photosBack.addEventListener('click', () => {
-            photosCon.scrollTo({ left: photosCon.scrollLeft - photoWidth, behavior: 'smooth' });
+            photosBack.addEventListener('click', () => {
+                photosCon.scrollTo({ left: photosCon.scrollLeft - photoWidth, behavior: 'smooth' });
+            });
+
+            photosNext.addEventListener('click', () => {
+                photosCon.scrollTo({ left: photosCon.scrollLeft + photoWidth, behavior: 'smooth' });
+            });
         });
-
-        photosNext.addEventListener('click', () => {
-            photosCon.scrollTo({ left: photosCon.scrollLeft + photoWidth, behavior: 'smooth' });
-        });
-    });
+    })
 
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.getElementById('showcase-left')!.classList.add('inactive-section')
-        }, 800);
+        }, 400);
     })
 </script>
 
