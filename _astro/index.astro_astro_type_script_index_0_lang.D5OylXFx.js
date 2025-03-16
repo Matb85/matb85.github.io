@@ -1,1 +1,0 @@
-import{a}from"./aos.CxUZVJOk.js";a.init({offset:200,duration:300,easing:"ease-in-sine",delay:100});
