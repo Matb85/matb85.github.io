@@ -17,7 +17,7 @@ const H: React.FC<Props> = ({ text }) => {
             <h3
                 key={i}
                 aria-hidden="true"
-                className="text-4xl sm:text-6xl md:text-8xl xl:text-9xl leading-[0.4]! opacity-10 whitespace-nowrap"
+                className="text-4xl sm:text-6xl md:text-8xl xl:text-9xl leading-[0.4]! opacity-5 whitespace-nowrap"
             >
               {text}
             </h3>

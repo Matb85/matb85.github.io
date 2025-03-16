@@ -1,0 +1,125 @@
+---
+import Header from '@/index/Header.astro';
+import Layout from "~/layout.astro";
+import Footer from "@/footer/Footer.astro";
+import Works from "@/works/Works.astro";
+import Projects from "@/works/Projects.astro";
+
+const title = "Photography - Mateusz Bis | Portfolio";
+const desc = "Feel invited to see my photography works!";
+
+interface PhotoModuleI {
+    src: string;
+    width: number;
+    height: number;
+    format: string;
+}
+
+function extractPhotos(folder: string, photos: Record<string, { default: PhotoModuleI }>): PhotoModuleI[] {
+    return Object.values(photos).map((photo) => ({
+        ...photo.default,
+        src: "/images/" + folder + "/thumbnail_" + photo.default.src.match(/\/([^\/.]+)\./)![1] + ".webp"
+    }));
+}
+
+const albums = [
+    {
+        photos: extractPhotos('street', import.meta.glob('~/assets/photos/street/*.jpg', { eager: true })),
+        name: "Street",
+        desc: "Urban life through my lens",
+        link: "#",
+    },
+    {
+        photos: extractPhotos('apartments-1', import.meta.glob('~/assets/photos/apartments-1/*.jpg', { eager: true })),
+        name: "Real estate",
+        desc: "Hotels & apartments",
+        link: "#",
+    },
+    {
+        photos: extractPhotos('landscape', import.meta.glob('~/assets/photos/landscape/*.jpg', { eager: true })),
+        name: "Landscape",
+        desc: "Selection from poznajgory.pl",
+        link: "#",
+    },
+    {
+        photos: extractPhotos('drone', import.meta.glob('~/assets/photos/drone/*.jpg', { eager: true })),
+        name: "Drone",
+        desc: "Selection from poznajgory.pl",
+        link: "#",
+    },
+    {
+        photos: extractPhotos('smp', import.meta.glob('~/assets/photos/smp/*.jpg', { eager: true })),
+        name: "Events",
+        desc: "Catching emotions",
+        link: "#",
+    },
+    {
+        photos: extractPhotos('portraits', import.meta.glob('~/assets/photos/portraits/*.jpg', { eager: true })),
+        name: "Portraits",
+        desc: "Selected portraits",
+        link: "#",
+    },
+    {
+        photos: extractPhotos('family-events', import.meta.glob('~/assets/photos/family-events/*.jpg', { eager: true })),
+        name: "Family Events",
+        desc: "Cherished family moments",
+        link: "#",
+    },
+    {
+        photos: extractPhotos('church', import.meta.glob('~/assets/photos/church/*.jpg', { eager: true })),
+        name: "Church",
+        desc: "Catholic celebrations",
+        link: "#",
+    },
+]
+---
+
+
+<Layout title={title} description={desc}>
+    <Header/>
+
+    <Projects />
+    <Works />
+    <Footer/>
+</Layout>
+
+<style lang="postcss">
+    :global(#start .showcase-right)  {
+        filter: grayscale(1);
+        transition: filter 0.2s;
+    }
+
+    :global(#start .showcase-right:hover)  {
+        filter: grayscale(0);
+    }
+
+    :global(#start .showcase-right:hover h2)  {
+        text-decoration: underline;
+    }
+
+    :global(#nav #nav-dev){
+        text-decoration: underline;
+    }
+</style>
+
+
+<script>
+    const projectsCon = document.getElementById('photos-con')!;
+    const projectsBack1 = document.getElementById('photos-back-1')!;
+    const projectsNext1 = document.getElementById('photos-next-1')!;
+
+    let scrollAmount = 0;
+    let scrollMax = projectsCon.scrollWidth - projectsCon.clientWidth;
+
+    projectsBack1.addEventListener('click', () => {
+        scrollAmount = Math.max(scrollAmount - 400, 0);
+        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    projectsNext1.addEventListener('click', () => {
+        scrollAmount = Math.min(scrollAmount + 400, scrollMax);
+        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    });
+</script>
+
+

@@ -1,0 +1,51 @@
+---
+import Photo from "../utils/Photo";
+import album from "./album.css?inline";
+import { normalise } from "../utils/utils";
+
+interface DataI {
+    img: string;
+    name: string;
+    desc: string;
+}
+
+interface Props {
+    data: DataI;
+}
+
+const { data } = Astro.props;
+---
+
+<a href={"/photography/#" + normalise(data.name)} class="album mb-4 relative flex-none pl-16">
+    <div class="album_border"></div>
+    <Photo className="album_image" fullUrl={true} src={data.img} alt={data.name} sizes={[480, 720]}/>
+    <div class="album_text">
+        <h4 class="text-3xl">{data.name}</h4>
+        <h5 class="">{data.desc}</h5>
+        <button class="btn w-40 px-0 text-center">
+            Browse photos
+        </button>
+    </div>
+</a>
+
+<style lang="postcss">
+    @import "~/global.css" reference;
+
+    .album .album_border {
+        @apply w-1/2 h-28 absolute bottom-4 left-4 bg-black;
+    }
+
+    .album :global(.album_image) {
+        width: calc(100% - 3rem);
+        @apply w-[40vw] aspect-[3/2] relative;
+    }
+
+    .album .album_text {
+        @apply bg-white p-4 pb-8 h-28 absolute bottom-0 left-8;
+    }
+
+    .album .btn {
+        @apply sm:translate-x-[50%] sm:absolute -bottom-4 right-0;
+    }
+
+</style>

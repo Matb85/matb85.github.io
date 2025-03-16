@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { normalise } from '@/utils/utils';
 
 const Navbar = () => {
-  const links = ["Start", "Photography", "Coding + Design", "Contact + CV"];
+  const links = ["Start", "Photography", "Development", "Contact + CV"];
   const headers = useRef<HTMLElement[]>([]);
   const [state, setState] = useState({ current: 0, progress: 0, oldCounter: 0, canScroll: true });
   const navRef = useRef<HTMLElement>(null);
@@ -50,17 +50,14 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    const back = document.getElementById('back_to_top') as HTMLElement;
-    back.addEventListener('click', btnClick);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      back.removeEventListener('click', btnClick);
     };
   }, [links, state.current, state.oldCounter, state.canScroll]);
 
   return (
-      <div className="w-full h-0 flex justify-center items-end fixed bottom-0 md:bottom-4 z-50">
+      <div className="w-full h-0 flex justify-center items-end fixed bottom-0 md:bottom-2 z-50">
         <nav ref={navRef} className="flex backdrop-blur gap-4 p-4 bg-primary-200 bg-opacity-40 max-w-full overflow-auto">
           {links.map((x, i) => (
               <a

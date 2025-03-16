@@ -12,6 +12,7 @@ const { title, description } = Astro.props;
 import ogImage from '~/assets/og.png';
 import 'aos/dist/aos.css';
 import '~/global.css';
+import Footer from "./components/footer/Footer.astro";
 ---
 
 <html lang="en">
@@ -41,7 +42,6 @@ import '~/global.css';
 </head>
 <body>
 <Nav/>
-<NavBar client:load/>
 <slot/>
 
 <script>

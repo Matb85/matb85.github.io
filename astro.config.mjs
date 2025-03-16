@@ -14,5 +14,8 @@ export default defineConfig({
     integrations: [
         react(),
         compress({Image: false, SVG: false}),
-    ]
+    ],
+    devToolbar: {
+        enabled: false,
+    }
 });
