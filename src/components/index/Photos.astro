@@ -29,25 +29,21 @@ const secondRow = [
         img: '/images/smp/thumbnail_DSC_8209.webp',
         name: "Events",
         desc: "Catching emotions",
-        link: "#",
     },
     {
         img: '/images/portraits/thumbnail_DSC06338-1.webp',
         name: "Portraits",
         desc: "Selected portraits",
-        link: "#",
     },
     {
         img: '/images/family-events/thumbnail_DSC06422.webp',
         name: "Family Events",
         desc: "Cherished family moments",
-        link: "#",
     },
     {
         img: '/images/church/thumbnail_DSC03877.webp',
         name: "Church",
         desc: "Catholic celebrations",
-        link: "#",
     },
 ]
 ---
@@ -76,7 +72,7 @@ const secondRow = [
                 <PhotoAlbumCover data={p}/>
         ))}
     </div>
-    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16 pl-[20vw]">
+    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16 lg:pl-[20vw]">
         {secondRow.map((p, i) => (
                 <PhotoAlbumCover data={p}/>
         ))}
