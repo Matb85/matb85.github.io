@@ -1,151 +1,157 @@
 ---
-import Header from '@/index/Header.astro';
+import Header from "@/index/Header.astro";
 import Layout from "~/layout.astro";
-import H from '@/utils/H';
-import Photo from '@/utils/Photo';
-import Footer from "../../components/footer/Footer.astro";
+import H from "@/utils/H";
+import Photo from "@/utils/Photo";
+import Footer from "@/footer/Footer.astro";
 
 const title = "Photography - Mateusz Bis | Portfolio";
 const desc = "Feel invited to see my photography works!";
 
 interface PhotoModuleI {
-    src: string;
-    width: number;
-    height: number;
-    format: string;
+  src: string;
+  width: number;
+  height: number;
+  format: string;
 }
 
 function extractPhotos(folder: string, photos: Record<string, { default: PhotoModuleI }>): PhotoModuleI[] {
-    return Object.values(photos).map((photo) => ({
-        ...photo.default,
-        src: "/images/" + folder + "/thumbnail_" + photo.default.src.match(/\/([^\/.]+)\./)![1] + ".webp"
-    })).sort((a, b) => a.src.localeCompare(b.src));
+  return Object.values(photos)
+    .map(photo => ({
+      ...photo.default,
+      src: "/images/" + folder + "/thumbnail_" + photo.default.src.match(/\/([^\/.]+)\./)![1] + ".webp",
+    }))
+    .sort((a, b) => a.src.localeCompare(b.src));
 }
 
 const albums = [
-    {
-        name: "Landscape",
-        sessions: [
-            {
-                desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-                photos: extractPhotos('landscape', import.meta.glob('~/assets/photos/landscape/*.jpg', { eager: true })),
-            }
-        ],
-    },
-    {
-        name: "Drone",
-        sessions: [
-            {
-                desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-                photos: extractPhotos('drone', import.meta.glob('~/assets/photos/drone/*.jpg', { eager: true })),
-            }
-        ],
-    },
-    {
-        name: "Events",
-        sessions: [
-            {
-                desc: "Selected photos from SMP 2024, an event organized annually for 500+ high school students.",
-                photos: extractPhotos('smp', import.meta.glob('~/assets/photos/smp/*.jpg', { eager: true })),
-            },
-            {
-                desc: "Selected photos from Parafia 2024, an event organized annually for 1000+ primary school & high school students focused on sports.",
-                photos: extractPhotos('parafiada', import.meta.glob('~/assets/photos/parafiada/*.jpg', { eager: true })),
-            }
-        ],
-    },
-    {
-        name: "Portraits",
-        sessions: [
-            {
-                desc: "Selection of portraits from various sessions.",
-                photos: extractPhotos('portraits', import.meta.glob('~/assets/photos/portraits/*.jpg', { eager: true })),
-            }
-        ],
-    },
-    {
-        name: "Family Events",
-        sessions: [
-            {
-                desc: "Selected photos from a 50th anniversary of marriage.",
-                photos: extractPhotos('family-events', import.meta.glob('~/assets/photos/family-events/*.jpg', { eager: true })),
-            }
-        ],
-    },
-    {
-        name: "Church",
-        sessions: [
-            {
-                desc: "Selected photos from various church celebrations.",
-                photos: extractPhotos('church', import.meta.glob('~/assets/photos/church/*.jpg', { eager: true })),
-            }
-        ],
-    },
-    {
-        name: "Real estate",
-        sessions: [
-            {
-                desc: "Selected photos from session for Pieniński Potok, all visible at pieninskipotok.pl",
-                photos: extractPhotos('apartments-1', import.meta.glob('~/assets/photos/apartments-1/*.jpg', { eager: true }))
-            },
-            {
-                desc: "Selected photos from session for Domek u Wiktora, all visible at domekuwiktorka.pl",
-                photos: extractPhotos('apartments-2', import.meta.glob('~/assets/photos/apartments-2/*.jpg', { eager: true }))
-            },
-            {
-                desc: "Selected photos from session for Słoneczny Stok",
-                photos: extractPhotos('apartments-3', import.meta.glob('~/assets/photos/apartments-3/*.jpg', { eager: true }))
-            }
-        ],
-    },
-    {
-        name: "Street",
-        sessions: [
-            {
-                desc: "Selected photos from my walks around several cities.",
-                photos: extractPhotos('street', import.meta.glob('~/assets/photos/street/*.jpg', { eager: true })),
-            }
-        ],
-    },
-]
+  {
+    name: "Landscape",
+    sessions: [
+      {
+        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
+        photos: extractPhotos("landscape", import.meta.glob("~/assets/photos/landscape/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Drone",
+    sessions: [
+      {
+        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
+        photos: extractPhotos("drone", import.meta.glob("~/assets/photos/drone/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Events",
+    sessions: [
+      {
+        desc: "Selected photos from SMP 2024, an event organized annually for 500+ high school students.",
+        photos: extractPhotos("smp", import.meta.glob("~/assets/photos/smp/*.jpg", { eager: true })),
+      },
+      {
+        desc: "Selected photos from Parafia 2024, an event organized annually for 1000+ primary school & high school students focused on sports.",
+        photos: extractPhotos("parafiada", import.meta.glob("~/assets/photos/parafiada/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Portraits",
+    sessions: [
+      {
+        desc: "Selection of portraits from various sessions.",
+        photos: extractPhotos("portraits", import.meta.glob("~/assets/photos/portraits/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Family Events",
+    sessions: [
+      {
+        desc: "Selected photos from a 50th anniversary of marriage.",
+        photos: extractPhotos(
+          "family-events",
+          import.meta.glob("~/assets/photos/family-events/*.jpg", { eager: true })
+        ),
+      },
+    ],
+  },
+  {
+    name: "Church",
+    sessions: [
+      {
+        desc: "Selected photos from various church celebrations.",
+        photos: extractPhotos("church", import.meta.glob("~/assets/photos/church/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Real estate",
+    sessions: [
+      {
+        desc: "Selected photos from session for Pieniński Potok, all visible at pieninskipotok.pl",
+        photos: extractPhotos("apartments-1", import.meta.glob("~/assets/photos/apartments-1/*.jpg", { eager: true })),
+      },
+      {
+        desc: "Selected photos from session for Domek u Wiktora, all visible at domekuwiktorka.pl",
+        photos: extractPhotos("apartments-2", import.meta.glob("~/assets/photos/apartments-2/*.jpg", { eager: true })),
+      },
+      {
+        desc: "Selected photos from session for Słoneczny Stok",
+        photos: extractPhotos("apartments-3", import.meta.glob("~/assets/photos/apartments-3/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Street",
+    sessions: [
+      {
+        desc: "Selected photos from my walks around several cities.",
+        photos: extractPhotos("street", import.meta.glob("~/assets/photos/street/*.jpg", { eager: true })),
+      },
+    ],
+  },
+];
 ---
 
-
 <Layout title={title} description={desc}>
-    <Header/>
-    {albums.map((album) => (
-            <>
-                <H text={album.name}/>
-                {album.sessions.map((session, i) => (
-                        <section class="photos-session">
-                            <div
-                                    data-aos="fade-right"
-                                    class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4 mt-12 md:mt-24"
-                            >
-                                <p>{session.desc}</p>
-                            </div>
-                            <div class="flex justify-center gap-4 text-4xl">
-                                <button class="photos-back btn pt-0 pb-1">
-                                    ««
-                                </button>
-                                <button class="photos-next btn pt-0 pb-1">
-                                    »»
-                                </button>
-                            </div>
-                            <div class="photos-con w-full overflow-auto mt-4">
-                                <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
-                                    {session.photos.map((p, i) => (
-                                            <Photo className="max-w-none max-h-[500px] h-64 sm:h-96 lg:h-[30vw] aspect-auto flex-none" src={p.src} alt={p.src}
-                                                   fullUrl={true}
-                                                   sizes={[480, 720]}/>
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
+  <Header />
+  {
+    albums.map(album => (
+      <>
+        <H text={album.name} />
+        {album.sessions.map((session, i) => (
+          <section class="photos-session">
+            <div
+              data-aos="fade-right"
+              class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4 mt-12 md:mt-24"
+            >
+              <p>{session.desc}</p>
+            </div>
+            <div class="flex justify-center gap-4 text-4xl">
+              <button class="photos-back btn pt-0 pb-1">««</button>
+              <button class="photos-next btn pt-0 pb-1">»»</button>
+            </div>
+            <div class="photos-con w-full overflow-auto mt-4">
+              <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
+                {session.photos.map((p, i) => (
+                  <Photo
+                    className="max-w-none max-h-[500px] h-64 sm:h-96 lg:h-[30vw] aspect-auto flex-none"
+                    src={p.src}
+                    alt={p.src}
+                    fullUrl={true}
+                    sizes={[480, 720]}
+                  />
                 ))}
-            </>
-    ))}
-    <Footer/>
+              </div>
+            </div>
+          </section>
+        ))}
+      </>
+    ))
+  }
+  <Footer />
 </Layout>
 
 <style lang="postcss">
@@ -168,30 +174,28 @@ const albums = [
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const photoSessions = document.querySelectorAll('.photos-session');
-        photoSessions.forEach((session) => {
-            const photosCon = session.querySelector('.photos-con')!;
-            const photosBack = session.querySelector('.photos-back')!;
-            const photosNext = session.querySelector('.photos-next')!;
+  document.addEventListener("DOMContentLoaded", () => {
+    const photoSessions = document.querySelectorAll(".photos-session");
+    photoSessions.forEach(session => {
+      const photosCon = session.querySelector(".photos-con")!;
+      const photosBack = session.querySelector(".photos-back")!;
+      const photosNext = session.querySelector(".photos-next")!;
 
-            const photoWidth = session.querySelector('.lazy-photo')!.clientWidth;
+      const photoWidth = session.querySelector(".lazy-photo")!.clientWidth * 1.5;
 
-            photosBack.addEventListener('click', () => {
-                photosCon.scrollTo({ left: photosCon.scrollLeft - photoWidth, behavior: 'smooth' });
-            });
+      photosBack.addEventListener("click", () => {
+        photosCon.scrollTo({ left: photosCon.scrollLeft - photoWidth, behavior: "smooth" });
+      });
 
-            photosNext.addEventListener('click', () => {
-                photosCon.scrollTo({ left: photosCon.scrollLeft + photoWidth, behavior: 'smooth' });
-            });
-        });
-    })
+      photosNext.addEventListener("click", () => {
+        photosCon.scrollTo({ left: photosCon.scrollLeft + photoWidth, behavior: "smooth" });
+      });
+    });
+  });
 
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('showcase-left')!.classList.add('inactive-section')
-        }, 400);
-    })
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("showcase-left")!.classList.add("inactive-section");
+    }, 400);
+  });
 </script>
-
-

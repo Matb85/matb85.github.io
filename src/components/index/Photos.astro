@@ -1,103 +1,92 @@
 ---
-import H from '@/utils/H';
+import H from "@/utils/H";
 import PhotoAlbumCover from "./PhotoAlbumCover.astro";
 
 const firstRow = [
-    {
-        img: '/images/apartments-1/thumbnail_DSC07852_HDR.webp',
-        name: "Real estate",
-        desc: "Hotels & apartments",
-    },
-    {
-        img: '/images/landscape/thumbnail_DSC_3535.webp',
-        name: "Landscape",
-        desc: "Selection from poznajgory.pl",
-    },
-    {
-        img: '/images/drone/thumbnail_DJI_0370.webp',
-        name: "Drone",
-        desc: "Selection from poznajgory.pl",
-    },
-    {
-        img: '/images/street/thumbnail_DSC05236.webp',
-        name: "Street",
-        desc: "Urban life through my lens",
-    },
+  {
+    img: "/images/apartments-1/thumbnail_DSC07852_HDR.webp",
+    name: "Real estate",
+    desc: "Hotels & apartments",
+  },
+  {
+    img: "/images/landscape/thumbnail_DSC_3535.webp",
+    name: "Landscape",
+    desc: "Selection from poznajgory.pl",
+  },
+  {
+    img: "/images/drone/thumbnail_DJI_0370.webp",
+    name: "Drone",
+    desc: "Selection from poznajgory.pl",
+  },
+  {
+    img: "/images/street/thumbnail_DSC05236.webp",
+    name: "Street",
+    desc: "Urban life through my lens",
+  },
 ];
 const secondRow = [
-    {
-        img: '/images/smp/thumbnail_DSC_8209.webp',
-        name: "Events",
-        desc: "Catching emotions",
-    },
-    {
-        img: '/images/portraits/thumbnail_4DSC063381.webp',
-        name: "Portraits",
-        desc: "Selected portraits",
-    },
-    {
-        img: '/images/family-events/thumbnail_DSC06422.webp',
-        name: "Family Events",
-        desc: "Cherished family moments",
-    },
-    {
-        img: '/images/church/thumbnail_DSC03877.webp',
-        name: "Church",
-        desc: "Catholic celebrations",
-    },
-]
+  {
+    img: "/images/smp/thumbnail_DSC_8209.webp",
+    name: "Events",
+    desc: "Catching emotions",
+  },
+  {
+    img: "/images/portraits/thumbnail_4DSC063381.webp",
+    name: "Portraits",
+    desc: "Selected portraits",
+  },
+  {
+    img: "/images/family-events/thumbnail_DSC06422.webp",
+    name: "Family Events",
+    desc: "Cherished family moments",
+  },
+  {
+    img: "/images/church/thumbnail_DSC03877.webp",
+    name: "Church",
+    desc: "Catholic celebrations",
+  },
+];
 ---
 
 <H text="Photography" />
 <div
-        data-aos="fade-right"
-        class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4"
+  data-aos="fade-right"
+  class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4"
 >
-    <p>
-        My Sony A7III is something I can't imagine my life without - I just love capturing moments, people, and places! Below
-        are some of my favourite photos I have taken so far. Click on the images to see the full album.
-    </p>
+  <p>
+    My Sony A7III is something I can't imagine my life without - I just love capturing moments, people, and places!
+    Below are some of my favourite photos I have taken so far. Click on the images to see the full album.
+  </p>
 </div>
 <div class="flex justify-center gap-4 text-4xl">
-    <button id="photos-back-1" class="btn pt-0 pb-1">
-        ««
-    </button>
-    <button id="photos-next-1" class="btn pt-0 pb-1">
-        »»
-    </button>
+  <button id="photos-back-1" class="btn pt-0 pb-1"> «« </button>
+  <button id="photos-next-1" class="btn pt-0 pb-1"> »» </button>
 </div>
 <section id="photos-con" class="w-full overflow-auto mt-4 space-y-4">
-    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
-        {firstRow.map((p, i) => (
-                <PhotoAlbumCover data={p}/>
-        ))}
-    </div>
-    <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16 lg:pl-[20vw]">
-        {secondRow.map((p, i) => (
-                <PhotoAlbumCover data={p}/>
-        ))}
-    </div>
+  <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
+    {firstRow.map((p, i) => <PhotoAlbumCover data={p} />)}
+  </div>
+  <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16 lg:pl-[20vw]">
+    {secondRow.map((p, i) => <PhotoAlbumCover data={p} />)}
+  </div>
 </section>
 
 <div class="flex justify-center gap-4 mt-12">
-    <a href="/photography" class="btn">See more</a>
+  <a href="/photography" class="btn">See more</a>
 </div>
 
 <script>
-    const projectsCon = document.getElementById('photos-con')!;
-    const projectsBack1 = document.getElementById('photos-back-1')!;
-    const projectsNext1 = document.getElementById('photos-next-1')!;
+  const projectsCon = document.getElementById("photos-con")!;
+  const projectsBack1 = document.getElementById("photos-back-1")!;
+  const projectsNext1 = document.getElementById("photos-next-1")!;
 
-    let scrollAmount = 0;
-    let scrollMax = projectsCon.scrollWidth - projectsCon.clientWidth;
+  const projectWidth = projectsCon.querySelector(".album")!.clientWidth * 1.5;
 
-    projectsBack1.addEventListener('click', () => {
-        scrollAmount = Math.max(scrollAmount - 400, 0);
-        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    });
+  projectsBack1.addEventListener("click", () => {
+    projectsCon.scrollTo({ left: projectsCon.scrollLeft - projectWidth, behavior: "smooth" });
+  });
 
-    projectsNext1.addEventListener('click', () => {
-        scrollAmount = Math.min(scrollAmount + 400, scrollMax);
-        projectsCon.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    });
+  projectsNext1.addEventListener("click", () => {
+    projectsCon.scrollTo({ left: projectsCon.scrollLeft + projectWidth, behavior: "smooth" });
+  });
 </script>
