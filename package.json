@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "imgs": "node ./imageResizer.js"
+    "imgs": "node ./imageResizer.js",
+    "imgs:clean": "find ./public/images -name \"*.webp\" -type f -delete"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.1",
