@@ -1,51 +1,52 @@
 ---
-import React from 'react';
-import H from '../utils/H';
-import Photo from '../utils/Photo';
+import H from "../utils/H";
+import Photo from "../utils/Photo";
 
 const text = "About me";
 ---
 
 <H text={text} />
 <div
-    data-aos="fade-right"
-    class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4"
+  data-aos="fade-right"
+  class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4"
 >
   <p>
-    <b>Hello!</b> I'm Mateusz Bis, a dedicated and versatile <b>Full Stack Software Engineer</b> with a robust
-    background in both development and design.
+    <b>Hello!</b> I'm Mateusz Bis, a dedicated and versatile <b>Full Stack Software Engineer</b> with a robust background
+    in both development and design.
   </p>
   <p>
     I' been present in the tech world since <b>2019</b> when I created{" "}
     <a href="https://redinnlabs.com" target="_blank" class="gradient-text">Redinn</a>, a <b>web agency</b> which to this
-    day puts performance and quality at the forefront of every project. Throughout years, I've experienced working
-    in various
-    environments, from <b>startups</b> (i.a. <a href="https://poznajgory.pl" target="_blank" class="gradient-text">Poznaj
-    Góry</a>),
-    through <b>middle-size companies</b> (i.a. <a href="https://optimamedical.com" target="_blank" class="gradient-text">Optima
-    Medical</a>)
-    to <b>corporations</b> (i.a. <a href="https://avsystem.com" target="_blank" class="gradient-text">AVSystem</a>).
+    day puts performance and quality at the forefront of every project. Throughout years, I've experienced working in various
+    environments, from <b>startups</b> (i.a. <a href="https://poznajgory.pl" target="_blank" class="gradient-text"
+      >Poznaj Góry</a
+    >), through <b>middle-size companies</b> (i.a. <a
+      href="https://optimamedical.com"
+      target="_blank"
+      class="gradient-text">Optima Medical</a
+    >) to <b>corporations</b> (i.a. <a href="https://avsystem.com" target="_blank" class="gradient-text">AVSystem</a>).
   </p>
   <p>
-    My skill set is constantly evolving, and currently includes <b>frontend</b> and <b>backend</b> development with various <b>frameworks</b>
-    listed in my  <a href="#contact-+-cv" class="gradient-text">résumé</a>, <b>devops</b> and cloud deployment on <b>AWS</b> & <b>Google Cloud</b>. Many of my skills are proven not only by my projects shown below,
-    but also <b>certifications</b> visible on my{" "}
-    <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" class="gradient-text">
-      LinkedIn</a>. Of
-    course, my
-    practical knowledge is accompanied by theoretical foundation thanks to my ongoing
+    My skill set is constantly expanding, and currently includes <b>frontend</b> + <b>backend</b> development with various
+    <b>frameworks</b>
+    (listed in my <a href="#contact-+-cv" class="gradient-text">résumé</a>), <b>devops</b> and cloud deployment on <b
+      >AWS</b
+    > & <b>Google Cloud</b>. All of my skills are proven either by practical projects, or appropriate <b
+      >certifications</b
+    > visible on my{" "}
+    <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" class="gradient-text">LinkedIn</a>.
+    Moreover, My practical knowledge is backed up by theoretical foundation thanks to my ongoing
     <a href="https://informatyka.agh.edu.pl/en/" target="_blank" class="gradient-text">Computer Science studies</a> at
     <b>AGH UST</b>.
   </p>
   <p>
-    In addition to my work in software engineering, I'm also a passionate <b>photographer</b>, I'm always on the
-    lookout for new opportunities to capture the world around me! My photography
-    work includes events, landscapes, portraits - all showcasing the beauty of <b>nature</b> and <b>human emotions</b> .
+    I'm also a passionate <b>photographer</b>, I'm always on the lookout for new opportunities to capture the world
+    around me! My photography work includes events, landscapes, portraits, street - all showcasing the beauty of nature
+    and human emotions.
   </p>
   <p>
     With a <b>proficient knowledge of English</b>, I excel in collaborating with international teams and clients,
-    ensuring clear and effective communication. I'm <b>excited</b> about the possibilities that lie ahead and am always
-    eager to take on new challenges! Please{" "}
+    ensuring clear and effective communication. Please{" "}
     feel invited to <a href="/#selected-works" class="gradient-text">scroll down</a>{" "}
     and look at some of my work below.
   </p>
@@ -53,25 +54,24 @@ const text = "About me";
 </div>
 
 <section
-    data-aos="fade-right"
-    class="w-full p-4 md:p-12 flex flex-col-reverse md:flex-row gap-8 justify-center overflow-hidden"
+  data-aos="fade-right"
+  class="w-full p-4 md:p-12 flex flex-col-reverse md:flex-row gap-8 justify-center overflow-hidden"
 >
   <div class="w-full md:w-7/12 relative pr-8 pb-8">
     <Photo
-        src="/images/landscape/thumbnail_DSC06798.webp"
-        fullUrl={true}
-        alt="Polish mountains"
-        sizes={[480, 720, 1280]}
-        className="aspect-3/2 w-full relative"
+      src="/images/landscape/thumbnail_DSC06798.webp"
+      fullUrl={true}
+      alt="Polish mountains"
+      sizes={[480, 720, 1280]}
+      className="aspect-3/2 w-full relative"
     />
     <Photo
-        src="/images/landscape/thumbnail_DSC07415.webp"
-        fullUrl={true}
-        alt="A bee sitting on a flower"
-        sizes={[480, 720]}
-        className="aspect-square w-2/5 absolute bottom-0 right-0"
+      src="/images/landscape/thumbnail_DSC07415.webp"
+      fullUrl={true}
+      alt="A bee sitting on a flower"
+      sizes={[480, 720]}
+      className="aspect-square w-2/5 absolute bottom-0 right-0"
     />
   </div>
   <img data-aos="fade-left" src="/i.svg" class="w-10/12 mx-auto md:w-5/12 object-contain" alt="interests" />
 </section>
-
