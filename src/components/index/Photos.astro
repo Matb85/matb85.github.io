@@ -9,6 +9,11 @@ const firstRow = [
     desc: "Hotels & apartments",
   },
   {
+    img: "/images/street/thumbnail_DSC05236.webp",
+    name: "Street",
+    desc: "Urban life through my lens",
+  },
+  {
     img: "/images/landscape/thumbnail_DSC_3535.webp",
     name: "Landscape",
     desc: "Selection from poznajgory.pl",
@@ -17,11 +22,6 @@ const firstRow = [
     img: "/images/drone/thumbnail_DJI_0370.webp",
     name: "Drone",
     desc: "Selection from poznajgory.pl",
-  },
-  {
-    img: "/images/street/thumbnail_DSC05236.webp",
-    name: "Street",
-    desc: "Urban life through my lens",
   },
 ];
 const secondRow = [
@@ -49,10 +49,7 @@ const secondRow = [
 ---
 
 <H text="Photography" />
-<div
-  data-aos="fade-right"
-  class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4"
->
+<div data-aos="fade-right" class="text_border paragraph">
   <p>
     My Sony A7III is something I can't imagine my life without - I just love capturing moments, people, and places!
     Below are some of my favourite photos I have taken so far. Click on the images to see the full album.
@@ -76,17 +73,19 @@ const secondRow = [
 </div>
 
 <script>
-  const projectsCon = document.getElementById("photos-con")!;
-  const projectsBack1 = document.getElementById("photos-back-1")!;
-  const projectsNext1 = document.getElementById("photos-next-1")!;
+  document.addEventListener("DOMContentLoaded", () => {
+    const projectsCon = document.getElementById("photos-con")!;
+    const projectsBack1 = document.getElementById("photos-back-1")!;
+    const projectsNext1 = document.getElementById("photos-next-1")!;
 
-  const projectWidth = projectsCon.querySelector(".album")!.clientWidth * 1.5;
+    const projectWidth = projectsCon.querySelector(".album")!.clientWidth * 1.5;
 
-  projectsBack1.addEventListener("click", () => {
-    projectsCon.scrollTo({ left: projectsCon.scrollLeft - projectWidth, behavior: "smooth" });
-  });
+    projectsBack1.addEventListener("click", () => {
+      projectsCon.scrollTo({ left: projectsCon.scrollLeft - projectWidth, behavior: "smooth" });
+    });
 
-  projectsNext1.addEventListener("click", () => {
-    projectsCon.scrollTo({ left: projectsCon.scrollLeft + projectWidth, behavior: "smooth" });
+    projectsNext1.addEventListener("click", () => {
+      projectsCon.scrollTo({ left: projectsCon.scrollLeft + projectWidth, behavior: "smooth" });
+    });
   });
 </script>

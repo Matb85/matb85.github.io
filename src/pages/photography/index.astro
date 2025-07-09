@@ -26,20 +26,20 @@ function extractPhotos(folder: string, photos: Record<string, { default: PhotoMo
 
 const albums = [
   {
-    name: "Landscape",
+    name: "Street",
     sessions: [
       {
-        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-        photos: extractPhotos("landscape", import.meta.glob("~/assets/photos/landscape/*.jpg", { eager: true })),
+        desc: "Selected photos from my walks around several cities.",
+        photos: extractPhotos("street", import.meta.glob("~/assets/photos/street/*.jpg", { eager: true })),
       },
     ],
   },
   {
-    name: "Drone",
+    name: "Portraits",
     sessions: [
       {
-        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-        photos: extractPhotos("drone", import.meta.glob("~/assets/photos/drone/*.jpg", { eager: true })),
+        desc: "Selection of portraits from various sessions.",
+        photos: extractPhotos("portraits", import.meta.glob("~/assets/photos/portraits/*.jpg", { eager: true })),
       },
     ],
   },
@@ -53,15 +53,6 @@ const albums = [
       {
         desc: "Selected photos from Parafia 2024, an event organised annually for ~1000 high school students focused on sports.",
         photos: extractPhotos("parafiada", import.meta.glob("~/assets/photos/parafiada/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Portraits",
-    sessions: [
-      {
-        desc: "Selection of portraits from various sessions.",
-        photos: extractPhotos("portraits", import.meta.glob("~/assets/photos/portraits/*.jpg", { eager: true })),
       },
     ],
   },
@@ -104,11 +95,20 @@ const albums = [
     ],
   },
   {
-    name: "Street",
+    name: "Landscape",
     sessions: [
       {
-        desc: "Selected photos from my walks around several cities.",
-        photos: extractPhotos("street", import.meta.glob("~/assets/photos/street/*.jpg", { eager: true })),
+        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
+        photos: extractPhotos("landscape", import.meta.glob("~/assets/photos/landscape/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Drone",
+    sessions: [
+      {
+        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
+        photos: extractPhotos("drone", import.meta.glob("~/assets/photos/drone/*.jpg", { eager: true })),
       },
     ],
   },
@@ -123,10 +123,7 @@ const albums = [
         <H text={album.name} />
         {album.sessions.map((session, i) => (
           <section class="photos-session">
-            <div
-              data-aos="fade-right"
-              class="text_border relative mx-auto text-center w-11/12 max-w-5xl leading-[1.8]! flex flex-col gap-4 mt-12 md:mt-24"
-            >
+            <div data-aos="fade-right" class="text_border paragraph mt-12 md:mt-24">
               <p>{session.desc}</p>
             </div>
             <div class="flex justify-center gap-4 text-4xl">
