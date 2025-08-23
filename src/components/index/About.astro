@@ -3,66 +3,258 @@ import H from "../utils/H";
 import Photo from "../utils/Photo";
 
 const text = "About me";
+
+const highlights = [
+  {
+    id: "experience",
+    icon: "💼",
+    title: "5+ Years Experience",
+    description: "Building software solutions since 2020",
+    tags: ["Startups", "Corporations", "Agencies"],
+  },
+  {
+    id: "education",
+    icon: "🎓",
+    title: "Computer Science",
+    description: "Currently, I'm studying Computer Science at AGH UST.",
+    tags: ["Theoretical Foundation", "Research"],
+  },
+];
+
+const achievements = [
+  {
+    title: "Founded Redinn Labs",
+    year: "2020",
+    description: "Web development agency focusing on performance and quality",
+  },
+  {
+    title: "Founded Poznaj Góry",
+    year: "2023",
+    description: "A startup promoting mountain tourism in Poland",
+  },
+  {
+    title: "Internship at AVSystem",
+    year: "2024",
+    description: "Contributed to the development of a DHCP server",
+  },
+  {
+    title: "Internship at CERN",
+    year: "2025",
+    description: "Data processing application for PPS2 detector analysis",
+  },
+];
 ---
 
 <H text={text} />
-<div data-aos="fade-right" class="text_border paragraph">
-  <p>
-    <b>Hello!</b> I'm Mateusz Bis, a dedicated and versatile <b>Full Stack Software Engineer</b> with a robust background
-    in both development and design.
-  </p>
-  <p>
-    I' been present in the tech world since <b>2019</b> when I created{" "}
-    <a href="https://redinnlabs.com" target="_blank" class="gradient-text">Redinn</a>, a <b>web agency</b> which to this
-    day puts performance and quality at the forefront of every project. Throughout years, I've experienced working in various
-    environments, from <b>startups</b> (i.a. <a href="https://poznajgory.pl" target="_blank" class="gradient-text"
-      >Poznaj Góry</a
-    >), through <b>middle-size companies</b> (i.a. <a
-      href="https://optimamedical.com"
-      target="_blank"
-      class="gradient-text">Optima Medical</a
-    >) to <b>corporations</b> (i.a. <a href="https://avsystem.com" target="_blank" class="gradient-text">AVSystem</a>).
-  </p>
-  <p>
-    My skill set is constantly expanding, and currently includes <b>devops</b>, <b>frontend</b> and <b>backend</b> development
-    with various technologies (listed in my <a href="#contact-+-cv" class="gradient-text">résumé</a>). All of my skills
-    are proven either by practical projects, or appropriate <b>certifications</b> visible on my{" "}
-    <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" class="gradient-text">LinkedIn</a>.
-    Moreover, My practical knowledge is backed up by theoretical foundation thanks to my ongoing
-    <a href="https://informatyka.agh.edu.pl/en/" target="_blank" class="gradient-text">Computer Science studies</a> at
-    <b>AGH UST</b>.
-  </p>
-  <p>
-    I'm also a passionate <b>photographer</b>, I'm always on the lookout for new opportunities to capture the world
-    around me! My photography work includes events, landscapes, portraits, street - all showcasing the beauty of nature
-    and human emotions.
-  </p>
-  <p>
-    Communication in English, Polish and French is not a problem for me, so feel free to reach out in any of these
-    languages.
-  </p>
-  Best regards, Mateusz Bis
+
+<!-- Main Content -->
+<div data-aos="fade-right" class="about-content">
+  <!-- Highlights Grid -->
+  <div class="about-text">
+    <ul class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+      {
+        highlights.map((highlight, index) => (
+          <li data-aos="fade-up" data-aos-delay={300 + index * 100} class="highlight-card group">
+            <h3 class="highlight-title">{highlight.title}</h3>
+            <p class="highlight-description">{highlight.description}</p>
+            <div class="tag-container mt-3">
+              {highlight.tags.map(tag => (
+                <span class="tag tag-primary text-xs">{tag}</span>
+              ))}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <p>
+      I've been present in the tech world since <b>2020</b> when I created{" "}
+      <a href="https://redinnlabs.com" target="_blank" class="gradient-text">Redinn</a>, a <b>web agency</b> which to this
+      day puts performance and quality at the forefront of every project. Throughout years, I've experienced working in various
+      environments, from <b>startups</b> (i.a. <a href="https://poznajgory.pl" target="_blank" class="gradient-text"
+        >Poznaj Góry</a
+      >), through <b>middle-size companies</b> (i.a. <a
+        href="https://optimamedical.com"
+        target="_blank"
+        class="gradient-text">Optima Medical</a
+      >) to <b>corporations</b> (i.a. <a href="https://avsystem.com" target="_blank" class="gradient-text">AVSystem</a
+      >).
+    </p>
+    <p>
+      My skill set is constantly expanding, and currently includes <b>devops</b>, <b>frontend</b> and <b>backend</b> development
+      with various technologies (listed in my <a href="#contact-+-cv" class="gradient-text">résumé</a>). All of my
+      skills are proven either by practical projects, or appropriate <b>certifications</b> visible on my{" "}
+      <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" class="gradient-text">LinkedIn</a>.
+      Moreover, My practical knowledge is backed up by theoretical foundation thanks to my ongoing
+      <a href="https://informatyka.agh.edu.pl/en/" target="_blank" class="gradient-text">Computer Science studies</a> at
+      <b>AGH UST</b>.
+    </p>
+  </div>
+
+  <!-- Achievement Timeline -->
+  <div class="achievement-timeline" data-aos="fade-left" data-aos-delay="400">
+    <h3 class="timeline-title">Milestones</h3>
+    <ul class="timeline-list">
+      {
+        achievements.map((achievement, index) => (
+          <li class="timeline-item" data-aos="fade-left" data-aos-delay={500 + index * 100}>
+            <div class="timeline-year">{achievement.year}</div>
+            <div class="timeline-content">
+              <h4 class="timeline-item-title">{achievement.title}</h4>
+              <p class="timeline-item-description">{achievement.description}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </div>
 
-<section
-  data-aos="fade-right"
-  class="w-full p-4 md:p-12 flex flex-col-reverse md:flex-row gap-8 justify-center overflow-hidden"
->
-  <div class="w-full md:w-7/12 relative pr-8 pb-8">
+<!-- Photos Section -->
+<section data-aos="fade-up" data-aos-delay="600" class="photos-section">
+  <div class="photos-container">
     <Photo
       src="/images/landscape/thumbnail_DSC06798.webp"
       fullUrl={true}
       alt="Polish mountains"
       sizes={[480, 720, 1280]}
-      className="aspect-3/2 w-full relative"
+      className="photo-main"
     />
     <Photo
       src="/images/landscape/thumbnail_DSC07415.webp"
       fullUrl={true}
       alt="A bee sitting on a flower"
       sizes={[480, 720]}
-      className="aspect-square w-2/5 absolute bottom-0 right-0"
+      className="photo-accent"
     />
   </div>
-  <img data-aos="fade-left" src="/i.svg" class="w-10/12 mx-auto md:w-5/12 object-contain" alt="interests" />
+  <div class="interests-graphic" data-aos="fade-left" data-aos-delay="700">
+    <img src="/i.svg" alt="interests and skills" />
+  </div>
 </section>
+
+<style>
+  @import "~/global.css" reference;
+
+  /* Highlight Cards */
+  .highlight-card {
+    @apply bg-white p-6 rounded-xl border-2 border-primary-200 
+           transition-all duration-300 ease-out hover:border-primary-300
+           hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .highlight-icon {
+    @apply text-3xl mb-3 block;
+  }
+
+  .highlight-title {
+    @apply font-primary font-bold mb-2 text-lg;
+  }
+
+  .highlight-description {
+    @apply text-primary-600 text-sm mb-3 leading-relaxed;
+  }
+
+  /* About Content Layout */
+  .about-content {
+    @apply max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-12;
+  }
+
+  .about-text {
+    @apply lg:col-span-2 space-y-12 text-primary-700 leading-relaxed;
+  }
+
+  .about-text p {
+    @apply mb-4;
+  }
+
+  /* Achievement Timeline */
+  .achievement-timeline {
+    @apply lg:col-span-1;
+  }
+
+  .timeline-title {
+    @apply font-primary font-bold text-xl mb-6;
+  }
+
+  .timeline-list {
+    @apply space-y-6;
+  }
+
+  .timeline-item {
+    @apply relative pl-8 border-l-2 border-primary-200 pb-6 last:pb-0;
+  }
+
+  .timeline-item::before {
+    content: "";
+    @apply absolute -left-2 top-0 w-4 h-4 bg-primary-400 rounded-full;
+  }
+
+  .timeline-year {
+    @apply text-xs font-bold text-primary-500 uppercase tracking-wide mb-1;
+  }
+
+  .timeline-item-title {
+    @apply font-primary font-bold mb-1;
+  }
+
+  .timeline-item-description {
+    @apply text-sm text-primary-600 leading-relaxed;
+  }
+
+  /* Photos Section */
+  .photos-section {
+    @apply w-full p-4 md:p-12 flex flex-col-reverse lg:flex-row gap-8 justify-center overflow-hidden max-w-6xl mx-auto;
+  }
+
+  .photos-container {
+    @apply w-full lg:w-7/12 relative pr-8 pb-8;
+  }
+
+  .photos-container :global(.photo-main) {
+    @apply aspect-[3/2] w-full relative rounded-lg shadow-lg;
+  }
+
+  .photos-container :global(.photo-accent) {
+    @apply aspect-square w-2/5 absolute bottom-0 right-0 rounded-lg shadow-md;
+  }
+
+  .interests-graphic {
+    @apply w-10/12 mx-auto lg:w-5/12 flex items-center justify-center;
+  }
+
+  .interests-graphic img {
+    @apply w-full h-auto object-contain max-w-md;
+  }
+
+  /* Contact CTA */
+  .contact-cta {
+    @apply max-w-3xl mx-auto text-center px-4 space-y-4;
+  }
+
+  .cta-text {
+    @apply text-primary-600 leading-relaxed;
+  }
+
+  .signature {
+    @apply text-lg;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .highlight-card {
+      @apply p-4;
+    }
+
+    .about-content {
+      @apply grid-cols-1 gap-8;
+    }
+
+    .achievement-timeline {
+      @apply order-first;
+    }
+
+    .timeline-title {
+      @apply text-lg;
+    }
+  }
+</style>

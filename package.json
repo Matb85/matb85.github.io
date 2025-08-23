@@ -12,20 +12,20 @@
     "imgs:clean": "find ./public/images -name \"*.webp\" -type f -delete"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.1",
+    "@astrojs/react": "^4.3.0",
     "aos": "^2.3.4",
-    "astro": "^5.5.2",
-    "astro-compress": "^2.3.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "astro": "^5.13.3",
+    "astro-compress": "^2.3.8",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.14",
-    "@types/node": "^22.7.5",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "sharp": "^0.33.5",
-    "tailwindcss": "^4.0.14"
+    "@tailwindcss/vite": "^4.1.12",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.7",
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.1.12"
   },
   "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
 }

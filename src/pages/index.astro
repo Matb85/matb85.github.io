@@ -1,22 +1,21 @@
 ---
-import About from '@/index/About.astro';
-import Footer from '@/footer/Footer.astro';
-import Header from '@/index/Header.astro';
-import Projects from '@/works/Projects.astro';
+import About from "@/index/About.astro";
+import Footer from "@/footer/Footer.astro";
+import Header from "@/index/Header.astro";
+import Websites from "@/works/Websites.astro";
 import Layout from "~/layout.astro";
-import Photos from "@/index/Photos.astro";
+import Backend from "~/components/works/Backend.astro";
 
 const title = "Mateusz Bis | Portfolio";
-const desc = "Hi, my name is Mateusz Bis, I'm a web developer, UI/UX designer and photographer. Welcome to my portfolio!";
+const desc =
+  "Hi, my name is Mateusz Bis, I'm a Full Stack engineer, UI/UX designer and photographer. Welcome to my portfolio!";
 ---
 
 <Layout title={title} description={desc}>
-    <Header />
-    <About />
-    <Photos/>
-    <Projects />
-    <div class="flex justify-center gap-4 mt-12">
-        <a href="/development" class="btn">See more</a>
-    </div>
-    <Footer />
+  <Header />
+  <About />
+  <Backend />
+  <Websites />
+
+  <Footer />
 </Layout>

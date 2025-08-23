@@ -1,48 +1,48 @@
 ---
-import { Logo } from '@/icons/Logo';
-import Hamburger from "./Hamburger.tsx"
+import { Logo } from "@/icons/Logo";
+import Hamburger from "./Hamburger.tsx";
 ---
+
 <section
-        id="nav"
-        class="fixed transition-all top-0 w-full h-20 backdrop-blur flex gap-4 justify-between px-4 items-center z-50 bg-primary-200/[0.4]"
+  id="nav"
+  class="fixed transition-all top-0 w-full h-20 backdrop-blur flex gap-4 justify-between px-4 items-center z-50 bg-primary-200/[0.4]"
 >
-    <a href="/" class="flex gap-2 items-center">
-        <div id="nav-logo"
-             class="transition-all duration-500 overflow-hidden">
-            <h2 class="text-[2rem] sm:text-[3rem] mt-2 block leading-none transition-all">Mateusz</h2>
-        </div>
-        <Logo className="w-8 sm:w-12 mx-auto"/>
-    </a>
-    <div class="hidden md:flex items-center gap-6">
-        <a href="/development" class="nav-dev text-xl hover:underline">Development</a>
-        <a href="/photography" class="nav-photo text-xl hover:underline">Photography</a>
-        <a href="/#contact-+-cv" class="text-xl hover:underline">Contact + CV</a>
-        <div class="flex items-center gap-2">
-            <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
-                <img src="/github.svg" alt="GitHub Icon" class="w-6 h-6"/>
-            </a>
-            <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" rel="noopener noreferrer">
-                <img src="/linkedin.svg" alt="LinkedIn Icon" class="w-6 h-6"/>
-            </a>
-        </div>
+  <a href="/" class="flex gap-2 items-center">
+    <div id="nav-logo" class="transition-all duration-500 overflow-hidden">
+      <h2 class="text-[2rem] sm:text-[3rem] mt-2 block leading-none transition-all">Mateusz</h2>
     </div>
-    <div class="flex md:hidden items-center">
-        <Hamburger id="mobile-navbar-toggle"/>
+    <Logo className="w-8 sm:w-12 mx-auto" />
+  </a>
+  <div class="hidden md:flex items-center gap-4">
+    <a href="/#backend-development" class="text-lg hover:underline">Backend</a>
+    <a href="/#frontend-development" class="text-lg hover:underline">Frontend</a>
+    <a href="/#contact-+-cv" class="text-lg hover:underline">Contact + CV</a>
+    <div class="flex items-center gap-2">
+      <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
+        <img src="/github.svg" alt="GitHub Icon" class="w-6 h-6" />
+      </a>
+      <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" rel="noopener noreferrer">
+        <img src="/linkedin.svg" alt="LinkedIn Icon" class="w-6 h-6" />
+      </a>
     </div>
+  </div>
+  <div class="flex md:hidden items-center">
+    <Hamburger id="mobile-navbar-toggle" />
+  </div>
 </section>
 
 <section id="mobile-navbar">
-    <a href="/development" class="nav-dev text-2xl hover:underline">Development</a>
-    <a href="/photography" class="nav-photo text-2xl hover:underline">Photography</a>
-    <a href="/#contact-+-cv" class="text-2xl hover:underline">Contact + CV</a>
-    <div class="flex items-center gap-8">
-        <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
-            <img src="/github.svg" alt="GitHub Icon" class="w-6 h-6"/>
-        </a>
-        <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" rel="noopener noreferrer">
-            <img src="/linkedin.svg" alt="LinkedIn Icon" class="w-6 h-6"/>
-        </a>
-    </div>
+  <a href="/development" class="nav-dev text-2xl hover:underline">Development</a>
+  <a href="/photography" class="nav-photo text-2xl hover:underline">Photography</a>
+  <a href="/#contact-+-cv" class="text-2xl hover:underline">Contact + CV</a>
+  <div class="flex items-center gap-8">
+    <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
+      <img src="/github.svg" alt="GitHub Icon" class="w-6 h-6" />
+    </a>
+    <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" rel="noopener noreferrer">
+      <img src="/linkedin.svg" alt="LinkedIn Icon" class="w-6 h-6" />
+    </a>
+  </div>
 </section>
 
 <style lang="postcss">
@@ -68,38 +68,38 @@ import Hamburger from "./Hamburger.tsx"
 </style>
 
 <script>
-    const nav = document.getElementById('nav')!;
-    const logo = document.getElementById('nav-logo')!;
+  const nav = document.getElementById("nav")!;
+  const logo = document.getElementById("nav-logo")!;
 
-    let oldScroll = 0;
+  let oldScroll = 0;
 
-    function scroll() {
-        if (window.scrollY < oldScroll || window.scrollY < 80) {
-            nav.style.transform = `translateY(0px)`;
-            logo.classList.add('open');
-        } else {
-            logo.classList.remove('open');
-            nav.style.transform = `translateY(-100px)`;
-        }
-        oldScroll = window.scrollY;
+  function scroll() {
+    if (window.scrollY < oldScroll || window.scrollY < 80) {
+      nav.style.transform = `translateY(0px)`;
+      logo.classList.add("open");
+    } else {
+      logo.classList.remove("open");
+      nav.style.transform = `translateY(-100px)`;
     }
-
     oldScroll = window.scrollY;
-    scroll();
-    window.addEventListener("scroll", () => scroll());
+  }
 
-    const mobileNavbar = document.getElementById('mobile-navbar')!;
-    const mobileNavbarToggle = document.getElementById('mobile-navbar-toggle')!;
-    const links = document.querySelectorAll('#mobile-navbar a');
+  oldScroll = window.scrollY;
+  scroll();
+  window.addEventListener("scroll", () => scroll());
 
-    mobileNavbarToggle.addEventListener('click', () => {
-        mobileNavbar.classList.toggle('open');
-        mobileNavbarToggle.classList.toggle('is-active');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNavbar.classList.remove('open');
-                mobileNavbarToggle.classList.remove('is-active');
-            })
-        })
+  const mobileNavbar = document.getElementById("mobile-navbar")!;
+  const mobileNavbarToggle = document.getElementById("mobile-navbar-toggle")!;
+  const links = document.querySelectorAll("#mobile-navbar a");
+
+  mobileNavbarToggle.addEventListener("click", () => {
+    mobileNavbar.classList.toggle("open");
+    mobileNavbarToggle.classList.toggle("is-active");
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileNavbar.classList.remove("open");
+        mobileNavbarToggle.classList.remove("is-active");
+      });
     });
+  });
 </script>

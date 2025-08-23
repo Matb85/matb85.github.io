@@ -1,9 +1,9 @@
 ---
-import Header from "@/index/Header.astro";
 import Layout from "~/layout.astro";
 import H from "@/utils/H";
 import Photo from "@/utils/Photo";
 import Footer from "@/footer/Footer.astro";
+import PhotoHeader from "~/components/index/PhotoHeader.astro";
 
 const title = "Photography - Mateusz Bis | Portfolio";
 const desc = "Feel invited to see my photography works!";
@@ -116,21 +116,21 @@ const albums = [
 ---
 
 <Layout title={title} description={desc}>
-  <Header />
+  <PhotoHeader />
   {
     albums.map(album => (
       <>
         <H text={album.name} />
         {album.sessions.map((session, i) => (
           <section class="photos-session">
-            <div data-aos="fade-right" class="text_border paragraph mt-12 md:mt-24">
-              <p>{session.desc}</p>
-            </div>
-            <div class="flex justify-center gap-4 text-4xl">
+            <p data-aos="fade-right" class="paragraph">
+              {session.desc}
+            </p>
+            <div class="flex justify-center gap-4 text-4xl mt-4 mb-4">
               <button class="photos-back btn pt-0 pb-1">««</button>
               <button class="photos-next btn pt-0 pb-1">»»</button>
             </div>
-            <div class="photos-con w-full overflow-auto mt-4">
+            <div class="photos-con w-full overflow-auto mt-4 mb-20">
               <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
                 {session.photos.map((p, i) => (
                   <Photo

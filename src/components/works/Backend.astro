@@ -1,0 +1,184 @@
+---
+import H from "../utils/H";
+
+const achievements = [
+  {
+    id: "data-science",
+    category: "Big Data",
+    title: "PPS-Calibview at CERN",
+    description:
+      "I developed a data processing app for visualizing and analyzing data from the PPS2 detector (part of the CMS experiment)",
+    tags: ["📊 Petabyte scale", "⚡ Data processing optimization"],
+    hoverColor: "hover:border-green-400",
+    delay: "200",
+  },
+  {
+    id: "leadership",
+    category: "Leadership",
+    title: "Poznaj Góry Student Project",
+    description:
+      "As the co-founder, I lead a diverse team of 15 people to build a comprehensive mountain exploration platform.",
+    tags: ["🎯 Full-stack leadership", "🛠️ Infrastructure design"],
+    hoverColor: "hover:border-orange-400",
+    delay: "300",
+  },
+  {
+    id: "personal",
+    category: "Largest personal project",
+    title: "Hotel Reservation System",
+    description:
+      "I've built a complete hotel management solution from scratch. Real-time booking, payments, inventory management, and analytics - everything a modern hotel needs.",
+    tags: ["💳 Payment processing", "📈 Analytics dashboard"],
+    hoverColor: "hover:border-red-400",
+    delay: "400",
+  },
+  {
+    id: "enterprise",
+    category: "Enterprise work",
+    title: "DHCP Server at AVSystem",
+    description:
+      "During my summer internship, I contributed to the development of a DHCP server, focusing on improving its usability and scalability.",
+    tags: ["🌐 Global deployment", "⚡ Full-stack development"],
+    hoverColor: "hover:border-primary-400",
+    delay: "100",
+  },
+];
+---
+
+<!-- Page Header -->
+<H text="Backend Development" />
+
+<!-- Introduction -->
+<p data-aos="fade-up" class="paragraph">
+  I'm passionate about building systems that actually work at scale! Below are some highlights of my backend-related
+  experience:
+</p>
+
+<!-- Achievements Section -->
+
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8 px-4">
+  {
+    achievements.map(achievement => (
+      <li
+        data-aos="fade-up"
+        data-aos-delay={achievement.delay}
+        class={`achievement-card bg-white p-8 rounded-xl border-2 border-primary-200 ${achievement.hoverColor}`}
+      >
+        <header>
+          <p class="achievement-category text-3xl" aria-label={`Category: ${achievement.category}`}>
+            {achievement.category}
+          </p>
+          <h3 id={`achievement-${achievement.id}-title`} class="achievement-title font-primary font-bold my-3">
+            {achievement.title}
+          </h3>
+        </header>
+        <p class="achievement-description text-primary-700 leading-relaxed mb-4">{achievement.description}</p>
+        <footer>
+          <ul class="tag-container" aria-label="Technologies and highlights">
+            {achievement.tags.map(tag => (
+              <li class="tag tag-primary">{tag}</li>
+            ))}
+          </ul>
+        </footer>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  @import "~/global.css" reference;
+
+  /* Achievement Cards with Enhanced Hover Transitions */
+  .achievement-card {
+    @apply relative overflow-hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .achievement-card::before {
+    content: "";
+    @apply absolute inset-0 opacity-0 rounded-xl;
+    background: linear-gradient(135deg, rgba(192, 132, 252, 0.05) 0%, rgba(129, 140, 248, 0.05) 100%);
+    transition: opacity 0.4s ease;
+  }
+
+  .achievement-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(192, 132, 252, 0.1);
+  }
+
+  .achievement-card:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Category Title Animation */
+  .achievement-category {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .achievement-card:hover .achievement-category {
+    @apply text-indigo-500;
+    transform: translateX(4px);
+  }
+
+  /* Title Animation */
+  .achievement-title {
+    @apply relative transition-all duration-300 ease-out;
+  }
+
+  .achievement-card:hover .achievement-title {
+    @apply text-indigo-700;
+    transform: translateY(-2px);
+  }
+
+  /* Description Animation */
+  .achievement-description {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .achievement-card:hover .achievement-description {
+    @apply text-gray-700;
+  }
+
+  /* Tag Container Animation */
+  .achievement-card:hover .tag-container {
+    transform: translateY(-2px);
+  }
+
+  .achievement-card:hover .tag {
+    @apply text-indigo-500;
+    background-color: rgba(192, 132, 252, 0.15);
+    border-color: rgba(192, 132, 252, 0.3);
+  }
+
+  /* Smooth border color transitions for different achievement types */
+  .achievement-card:hover.hover\:border-green-400 {
+    @apply border-green-400;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(74, 222, 128, 0.2);
+  }
+
+  .achievement-card:hover.hover\:border-orange-400 {
+    @apply border-orange-400;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(251, 146, 60, 0.2);
+  }
+
+  .achievement-card:hover.hover\:border-red-400 {
+    @apply border-red-400;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(248, 113, 113, 0.2);
+  }
+
+  .achievement-card:hover.hover\:border-primary-400 {
+    @apply border-blue-400;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(59, 130, 246, 0.2);
+  }
+</style>

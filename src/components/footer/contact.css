@@ -1,29 +1,85 @@
 @import "~/global.css" reference;
 
-.contact .text_border {
-  min-height: 18rem;
-  @apply w-full lg:w-1/2 p-8 sm:p-12;
+/* Contact Cards */
+.contact-card {
+  @apply relative overflow-hidden shadow-sm;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
-.contact input,
-.contact textarea {
-  @apply mt-4 w-full;
-}
-.say_hello hr {
-  @apply border-t-2;
+.contact-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(192, 132, 252, 0.1);
 }
 
-.say_hello .btn {
-  @apply flex items-center w-44 px-0;
-}
-.say_hello .btn span {
-  @apply w-full flex-none transition-transform;
+.contact-card:hover::before {
+  @apply opacity-100;
 }
 
-.say_hello .btn.sending span {
-  transform: translate(-100%);
+/* Input Groups */
+.input-group {
+  @apply relative;
 }
 
-.say_hello .btn.success span {
-  transform: translate(-200%);
+.input-group input:focus,
+.input-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.1);
+}
+
+/* Contact Button States */
+.contact-btn span {
+  @apply absolute inset-0 flex items-center justify-center transition-transform duration-300;
+}
+
+.contact-btn span:nth-child(1) {
+  transform: translateX(0);
+}
+
+.contact-btn span:nth-child(2) {
+  transform: translateX(100%);
+}
+
+.contact-btn span:nth-child(3) {
+  transform: translateX(200%);
+}
+
+.contact-btn.sending span:nth-child(1) {
+  transform: translateX(-100%);
+}
+
+.contact-btn.sending span:nth-child(2) {
+  transform: translateX(0);
+}
+
+.contact-btn.sending span:nth-child(3) {
+  transform: translateX(100%);
+}
+
+.contact-btn.success span:nth-child(1) {
+  transform: translateX(-200%);
+}
+
+.contact-btn.success span:nth-child(2) {
+  transform: translateX(-100%);
+}
+
+.contact-btn.success span:nth-child(3) {
+  transform: translateX(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .contact-card:hover {
+    transform: translateY(-4px) scale(1.005);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    @apply p-6;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-2px);
+  }
 }

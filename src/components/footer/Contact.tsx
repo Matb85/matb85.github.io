@@ -51,56 +51,80 @@ const Contact: React.FC = () => {
   return (
     <>
       <H text={text} />
-      <section className="contact w-full px-4 md:px-20 flex flex-col lg:flex-row gap-8 justify-center overflow-hidden">
-        <form onSubmit={submit} data-aos="fade-right" className="text_border say_hello">
-          <h4 className="text-2xl sm:text-4xl">Say hello</h4>
-          <input
-            type="text"
-            autoComplete="given-name"
-            placeholder="Your name"
-            value={store.name}
-            onChange={e => setStore({ ...store, name: e.target.value })}
-          />
-          <hr />
-          <input
-            type="email"
-            autoComplete="email"
-            placeholder="Your email"
-            value={store.email}
-            onChange={e => setStore({ ...store, email: e.target.value })}
-          />
-          <hr />
-          <textarea
-            placeholder="Your message"
-            value={store.message}
-            onChange={e => setStore({ ...store, message: e.target.value })}
-          />
-          <hr />
-          <p className="text-base h-5 mt-4 text-[#f5426f]">{status.error}</p>
-          <div className="w-full mt-8 flex flex-col-reverse gap-2 text-base items-end">
-            <a href={`tel:${phone}`} className="hover:underline">
-              {phone}
-            </a>
-            <a href={`mailto:${email}`} className="hover:underline">
-              {email}
-            </a>
-            <button className={`btn ${status.className}`}>
-              <span>Send message</span>
-              <span>Sending...</span>
-              <span>Success!</span>
+      <section className="contact w-full px-4 md:px-20 flex flex-col lg:flex-row gap-8 justify-center overflow-hidden max-w-6xl mx-auto mt-12">
+        <form
+          onSubmit={submit}
+          data-aos="fade-right"
+          className="contact-card bg-white p-8 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 flex-1"
+        >
+          <h3 className="text-2xl sm:text-4xl font-primary font-bold mb-6">Say hello</h3>
+          <ul className="space-y-6">
+            <li className="input-group">
+              <input
+                type="text"
+                autoComplete="given-name"
+                placeholder="Your name"
+                value={store.name}
+                onChange={e => setStore({ ...store, name: e.target.value })}
+                className="w-full px-4 py-3 border-2 border-primary-200 rounded-lg focus:border-primary-400 focus:outline-none transition-colors duration-300 text-primary-700"
+              />
+            </li>
+            <li className="input-group">
+              <input
+                type="email"
+                autoComplete="email"
+                placeholder="Your email"
+                value={store.email}
+                onChange={e => setStore({ ...store, email: e.target.value })}
+                className="w-full px-4 py-3 border-2 border-primary-200 rounded-lg focus:border-primary-400 focus:outline-none transition-colors duration-300 text-primary-700"
+              />
+            </li>
+            <li className="input-group">
+              <textarea
+                placeholder="Your message"
+                value={store.message}
+                onChange={e => setStore({ ...store, message: e.target.value })}
+                rows={5}
+                className="w-full px-4 py-3 border-2 border-primary-200 rounded-lg focus:border-primary-400 focus:outline-none transition-colors duration-300 text-primary-700 resize-vertical"
+              />
+            </li>
+            <li className="text-red-500 -mt-3 h-5 text-center font-medium">{status.error}</li>
+          </ul>
+          <div className="w-full flex mt-4 flex-col gap-4">
+            <button className={`btn contact-btn h-10 max-w-xs mx-auto ${status.className} w-full overflow-hidden`}>
+              <span className="relative z-10">Send message</span>
+              <span className="relative z-10">Sending...</span>
+              <span className="relative z-10">Success!</span>
             </button>
+            <div className="flex flex-col gap-3 text-primary-600 pt-2">
+              <a
+                href={`mailto:${email}`}
+                className="hover:text-primary-800 cursor-pointer hover:underline text-center font-medium"
+              >
+                {email}
+              </a>
+              <a
+                href={`tel:${phone}`}
+                className="hover:text-primary-800 cursor-pointer hover:underline text-center font-medium"
+              >
+                {phone}
+              </a>
+            </div>
           </div>
         </form>
-        <div data-aos="fade-left" className="text_border">
-          <h4 className="text-2xl sm:text-4xl w-full">My CV & Links</h4>
-          <div className="mt-4 cr_flex flex-wrap gap-4">
-            <a href="/resume.pdf" target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
+        <div
+          data-aos="fade-left"
+          className="contact-card bg-white p-8 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 flex-1"
+        >
+          <h3 className="text-2xl sm:text-4xl font-primary font-bold mb-6">CV & Links</h3>
+          <div className="flex flex-col gap-4">
+            <a href="/resume.pdf" target="_blank" className="btn text-center">
               Download résumé
             </a>
-            <a href={LinkeInProfile} target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
+            <a href={LinkeInProfile} target="_blank" className="btn text-center">
               LinkedIn profile
             </a>
-            <a href={GithubProfile} target="_blank" className="btn md:text-2xl w-48 md:w-80 px-0! text-center py-4">
+            <a href={GithubProfile} target="_blank" className="btn text-center">
               Github profile
             </a>
           </div>
