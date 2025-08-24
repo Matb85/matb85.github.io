@@ -5,6 +5,8 @@ import Header from "@/index/Header.astro";
 import Websites from "@/works/Websites.astro";
 import Layout from "~/layout.astro";
 import Backend from "~/components/works/Backend.astro";
+import Nav from "~/components/nav/Nav.astro";
+import Contact from "~/components/footer/Contact";
 
 const title = "Mateusz Bis | Portfolio";
 const desc =
@@ -12,10 +14,12 @@ const desc =
 ---
 
 <Layout title={title} description={desc}>
+  <Nav />
   <Header />
   <About />
   <Backend />
   <Websites />
 
+  <Contact client:visible />
   <Footer />
 </Layout>

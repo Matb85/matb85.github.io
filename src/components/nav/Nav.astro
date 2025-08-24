@@ -1,11 +1,49 @@
 ---
 import { Logo } from "@/icons/Logo";
 import Hamburger from "./Hamburger.tsx";
+import { GithubProfile, LinkedInProfile } from "../utils/utils";
+
+export interface NavLink {
+  href: string;
+  label: string;
+}
+
+export interface SocialIcon {
+  href: string;
+  src: string;
+  alt: string;
+  className?: string;
+}
+
+export interface Props {
+  navLinks?: NavLink[];
+  socialIcons?: SocialIcon[];
+}
+
+const {
+  navLinks = [
+    { href: "/#backend-+-system-design", label: "Backend" },
+    { href: "/#frontend-+-ui-ux", label: "Frontend" },
+    { href: "/#contact-+-cv", label: "Contact + CV" },
+  ],
+  socialIcons = [
+    {
+      href: GithubProfile,
+      src: "/github.svg",
+      alt: "GitHub Icon",
+    },
+    {
+      href: LinkedInProfile,
+      src: "/linkedin.svg",
+      alt: "LinkedIn Icon",
+    },
+  ],
+} = Astro.props;
 ---
 
 <section
   id="nav"
-  class="fixed transition-all top-0 w-full h-20 backdrop-blur flex gap-4 justify-between px-4 items-center z-50 bg-primary-200/[0.4]"
+  class="fixed transition-all top-0 w-full h-20 backdrop-blur flex gap-4 justify-between px-4 md:px-6 items-center z-50 bg-primary-200/[0.4]"
 >
   <a href="/" class="flex gap-2 items-center">
     <div id="nav-logo" class="transition-all duration-500 overflow-hidden">
@@ -14,16 +52,21 @@ import Hamburger from "./Hamburger.tsx";
     <Logo className="w-8 sm:w-12 mx-auto" />
   </a>
   <div class="hidden md:flex items-center gap-4">
-    <a href="/#backend-development" class="text-lg hover:underline">Backend</a>
-    <a href="/#frontend-development" class="text-lg hover:underline">Frontend</a>
-    <a href="/#contact-+-cv" class="text-lg hover:underline">Contact + CV</a>
+    {
+      navLinks.map(link => (
+        <a href={link.href} class={`text-lg hover:underline`}>
+          {link.label}
+        </a>
+      ))
+    }
     <div class="flex items-center gap-2">
-      <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
-        <img src="/github.svg" alt="GitHub Icon" class="w-6 h-6" />
-      </a>
-      <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" rel="noopener noreferrer">
-        <img src="/linkedin.svg" alt="LinkedIn Icon" class="w-6 h-6" />
-      </a>
+      {
+        socialIcons.map(icon => (
+          <a href={icon.href} target="_blank" rel="noopener noreferrer" class={icon.className || ""}>
+            <img src={icon.src} alt={icon.alt} class="w-7 h-7" />
+          </a>
+        ))
+      }
     </div>
   </div>
   <div class="flex md:hidden items-center">
@@ -32,16 +75,21 @@ import Hamburger from "./Hamburger.tsx";
 </section>
 
 <section id="mobile-navbar">
-  <a href="/development" class="nav-dev text-2xl hover:underline">Development</a>
-  <a href="/photography" class="nav-photo text-2xl hover:underline">Photography</a>
-  <a href="/#contact-+-cv" class="text-2xl hover:underline">Contact + CV</a>
+  {
+    navLinks.map(link => (
+      <a href={link.href} class={`text-2xl hover:underline`}>
+        {link.label}
+      </a>
+    ))
+  }
   <div class="flex items-center gap-8">
-    <a href="https://github.com/Matb85" target="_blank" rel="noopener noreferrer">
-      <img src="/github.svg" alt="GitHub Icon" class="w-6 h-6" />
-    </a>
-    <a href="https://www.linkedin.com/in/mateusz-bis-185bb1230/" target="_blank" rel="noopener noreferrer">
-      <img src="/linkedin.svg" alt="LinkedIn Icon" class="w-6 h-6" />
-    </a>
+    {
+      socialIcons.map(icon => (
+        <a href={icon.href} target="_blank" rel="noopener noreferrer" class={icon.className || ""}>
+          <img src={icon.src} alt={icon.alt} class="w-6 h-6" />
+        </a>
+      ))
+    }
   </div>
 </section>
 

@@ -1,9 +1,25 @@
 import React, { useState } from "react";
 import H from "../utils/H.tsx";
-import { email, GithubProfile, LinkeInProfile, phone } from "../utils/utils";
+import { email, GithubProfile, LinkedInProfile, phone } from "../utils/utils";
 import "./contact.css";
 
-const Contact: React.FC = () => {
+export interface CVLink {
+  href: string;
+  label: string;
+  className?: string;
+}
+
+export interface ContactProps {
+  cvLinks?: CVLink[];
+}
+
+const Contact: React.FC<ContactProps> = ({
+  cvLinks = [
+    { href: "/resume.pdf", label: "Download résumé" },
+    { href: LinkedInProfile, label: "LinkedIn profile" },
+    { href: GithubProfile, label: "Github profile" },
+  ],
+}) => {
   const [store, setStore] = useState({ email: "", name: "", message: "" });
   const [status, setStatus] = useState({ error: "", className: "" });
   const emailRegex =
@@ -91,7 +107,7 @@ const Contact: React.FC = () => {
             <li className="text-red-500 -mt-3 h-5 text-center font-medium">{status.error}</li>
           </ul>
           <div className="w-full flex mt-4 flex-col gap-4">
-            <button className={`btn contact-btn h-10 max-w-xs mx-auto ${status.className} w-full overflow-hidden`}>
+            <button className={`btn contact-btn h-12 max-w-xs mx-auto ${status.className} w-full overflow-hidden`}>
               <span className="relative z-10">Send message</span>
               <span className="relative z-10">Sending...</span>
               <span className="relative z-10">Success!</span>
@@ -117,16 +133,17 @@ const Contact: React.FC = () => {
           className="contact-card bg-white p-8 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 flex-1"
         >
           <h3 className="text-2xl sm:text-4xl font-primary font-bold mb-6">CV & Links</h3>
-          <div className="flex flex-col gap-4">
-            <a href="/resume.pdf" target="_blank" className="btn text-center">
-              Download résumé
-            </a>
-            <a href={LinkeInProfile} target="_blank" className="btn text-center">
-              LinkedIn profile
-            </a>
-            <a href={GithubProfile} target="_blank" className="btn text-center">
-              Github profile
-            </a>
+          <div className="flex w-full gap-4 justify-center flex-wrap">
+            {cvLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                target="_blank"
+                className={`btn w-full sm:w-[calc(50%-0.5rem)] !px-0 text-center ${link.className || ""}`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       </section>

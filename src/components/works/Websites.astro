@@ -10,7 +10,7 @@ const projects = [
     title: "Estetic Optima",
     category: "Medical Website",
     description: "Modern aesthetic medicine clinic website with treatment showcase.",
-    tags: ["🏥 Medical", "📱 Responsive"],
+    tags: ["🏥 Wix Studio"],
   },
   {
     id: "optimamedical",
@@ -19,7 +19,7 @@ const projects = [
     title: "Optima Medical",
     category: "Healthcare Platform",
     description: "Comprehensive healthcare platform with medical services showcase.",
-    tags: ["🏥 Healthcare", "👥 Patient Portal"],
+    tags: ["🏥 Healthcare", "👥 Wix Studio"],
   },
   {
     id: "sklepoptima",
@@ -27,8 +27,8 @@ const projects = [
     href: "https://sklep.optimamedical.pl",
     title: "Sklep Optima",
     category: "E-commerce",
-    description: "Glasses store with product catalog.",
-    tags: ["🛒 E-commerce", "💳 Payments"],
+    description: "Eyewear store with product catalog.",
+    tags: ["🛒 E-commerce", "💳 Wix Studio"],
   },
   {
     id: "akademiawisly",
@@ -37,7 +37,7 @@ const projects = [
     title: "Akademia Wisły",
     category: "Sports Academy",
     description: "Professional football academy website with player profiles and match schedule.",
-    tags: ["⚽ Sports", "📊 Game schedule"],
+    tags: ["⚽ Sports", "📊 Wordpess"],
   },
   {
     id: "poznajgory",
@@ -46,7 +46,7 @@ const projects = [
     title: "Poznaj Góry",
     category: "Travel Platform",
     description: "Mountain exploration platform with hiking trails, accommodation booking and guides.",
-    tags: ["🏔️ Travel", "🗺️ Maps"],
+    tags: ["🏔️ Travel", "🗺️ JAM Stack"],
   },
   {
     id: "redinn",
@@ -55,7 +55,7 @@ const projects = [
     title: "Redinn Labs",
     category: "Agency Website",
     description: "Web development agency showcase with portfolio and service offerings.",
-    tags: ["💼 Business", "🎨 Portfolio"],
+    tags: ["💼 Business", "🎨 JAM Stack"],
   },
   {
     id: "pieninskipotok",
@@ -64,7 +64,7 @@ const projects = [
     title: "Pieniński Potok",
     category: "Accommodation",
     description: "Mountain guesthouse website with booking system and local attractions guide.",
-    tags: ["🏠 Accommodation", "📅 Booking"],
+    tags: ["🏠 JAM Stack", "📅 Booking"],
   },
   {
     id: "uwiktorka",
@@ -73,17 +73,17 @@ const projects = [
     title: "U Wiktorka",
     category: "Holiday Rental",
     description: "Cozy mountain cottage rental with availability calendar and local recommendations.",
-    tags: ["🏡 Rental", "📍 Location"],
+    tags: ["🏡 JAM Stack", "📅 Booking"],
   },
 ];
 ---
 
-<H text="Frontend Development" />
+<H text="Frontend + UI/UX" />
 <p data-aos="fade-right" class="paragraph">
   Having founded my own web development agency, <a href="https://redinnlabs.com" target="_blank" class="gradient-text"
     >Redinn</a
-  >, I've had the opportunity to work on a variety of clients from different industries. Each project represents a
-  unique challenge!
+  >, I've had the opportunity to work for clients from different industries helping the design and develop of their
+  digital presence. Each project represents a unique challenge!
 </p>
 
 <section data-aos="fade-up" class="projects-slider" id="projects-glide">
@@ -218,7 +218,7 @@ const projects = [
 
   /* Glide.js Arrow Styles */
   .glide__arrows {
-    @apply flex justify-between items-center absolute top-1/2 left-0 right-0 z-10;
+    @apply flex justify-between items-center absolute w-full top-1/2 left-0 z-10;
     transform: translateY(-50%);
     pointer-events: none;
   }
@@ -268,11 +268,11 @@ const projects = [
     }
 
     .glide__arrow--left {
-      @apply -translate-x-2;
+      @apply translate-x-2;
     }
 
     .glide__arrow--right {
-      @apply translate-x-2;
+      @apply -translate-x-2;
     }
   }
 </style>

@@ -51,7 +51,7 @@
     --btn-gradient-width: -100%;
     transition: all 0.3s ease;
     z-index: 1;
-    @apply block relative cursor-pointer outline-none border-none overflow-hidden bg-black text-white px-8 py-2 rounded-lg shadow-md;
+    @apply block relative cursor-pointer outline-none border-none overflow-hidden bg-black text-white px-8 py-3 rounded-lg shadow-md;
   }
 
   .btn:after {
