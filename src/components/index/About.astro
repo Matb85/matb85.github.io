@@ -91,9 +91,9 @@ const achievements = [
   </div>
 
   <!-- Achievement Timeline -->
-  <div class="lg:col-span-1" data-aos="fade-left" data-aos-delay="400">
+  <div class="lg:col-span-1 overflow-hidden" data-aos="fade-left" data-aos-delay="400">
     <h3 class="font-primary font-bold text-xl mb-6">Milestones</h3>
-    <ul class="space-y-6">
+    <ul class="space-y-6 w-full pl-2">
       {
         achievements.map((achievement, index) => (
           <li class="timeline-item" data-aos="fade-left" data-aos-delay={index * 100}>
