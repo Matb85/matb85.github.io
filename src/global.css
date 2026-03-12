@@ -115,17 +115,9 @@ h6,
   @apply bg-primary-100 text-primary-700 border border-primary-200;
 }
 
-.tag-primary:hover {
-  @apply bg-primary-200 text-primary-800 border-primary-300 scale-105;
-}
-
 /* Dark tag style - For dark overlays or accent areas */
 .tag-dark {
   @apply bg-primary-600/90 text-white border border-primary-400/40 backdrop-blur-sm;
-}
-
-.tag-dark:hover {
-  @apply bg-primary-500/90 border-primary-300/60 scale-105;
 }
 
 /* Tag animations for staggered effects */
