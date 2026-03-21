@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const OUT_FOLDER = path.join(__dirname, '/public/images');
-const folders = ['/src/assets/mobile', '/src/assets/show', '/src/assets/ss'];
+const folders = ["/src/assets/mobile", "/src/assets/show", "/src/assets/ss", "/src/assets/other"];
 
 const specification = [
     {width: 30, prefix: 'thumbnail_'},

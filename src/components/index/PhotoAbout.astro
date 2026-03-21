@@ -1,0 +1,75 @@
+---
+import H from "../utils/H";
+import Photo from "../utils/Photo";
+
+const text = "About me";
+
+const highlights = [
+  {
+    title: "Juwenalia UEK",
+    src: "/logo/juwenalia_uek.svg",
+    href: "https://juwenaliauek.pl/",
+  },
+  {
+    title: "Cracovia Marathon",
+    src: "/logo/cracovia.svg",
+    href: "https://cracoviamaraton.pl",
+  },
+  {
+    title: "Poznaj Góry",
+    src: "/logo/pg.svg",
+    href: "https://poznajgory.pl/",
+  },
+  {
+    title: "Redinn",
+    src: "/logo/redinn.svg",
+    href: "https://redinnlabs.com/",
+  },
+];
+---
+
+<H text={text} />
+
+<!-- Main Content -->
+<div data-aos="fade-right" class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-12">
+  <!-- Highlights Grid -->
+  <div class="lg:col-span-2 space-y-4 sm:space-y-12 text-primary-700 leading-relaxed">
+    <p class="mb-4">
+      <b>Portrait sessions</b>, <b>Real Estate</b>, <b>Street</b>, <b>Travel</b> - these are just some of the photography
+      genres I have experience in. My journey with photography started around 2016 when I got my first DSLR, initially for
+      shooting landscape during hikes. Soon after, I started exploring portrait and event photography, which quickly became
+      my main focus. I've had the opportunity to work with a variety of clients, from individuals looking for <b
+        >personal portraits</b
+      >
+      to <b>large events</b> and <b>real estate</b> projects!
+    </p>
+    <div class="w-full grid grid-cols-2 gap-2 sm:gap-6">
+      {
+        highlights.map((highlight, index) => (
+          <a href={highlight.href} target="_blank" class="highlight-card group">
+            <img src={highlight.src} alt={`${highlight.title} Logo`} class="w-3/4 mx-auto h-auto object-contain" />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Achievement Timeline -->
+  <div class="lg:col-span-1 overflow-hidden" data-aos="fade-right" data-aos-delay="400">
+    <Photo
+      className="w-full max-md:aspect-4/3 object-top"
+      src="DSC05978.webp"
+      alt="Photo of Mateusz"
+      sizes={[720, 1280]}
+    />
+  </div>
+</div>
+
+<style>
+  @import "~/global.css" reference;
+
+  /* Highlight Cards */
+  .highlight-card {
+    @apply rounded-xl border-2 border-primary-200 hover:shadow-lg transition-shadow;
+  }
+</style>

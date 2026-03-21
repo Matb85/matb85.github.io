@@ -6,115 +6,12 @@ import PhotoHeader from "~/components/index/PhotoHeader.astro";
 import Nav from "~/components/nav/Nav.astro";
 import Contact from "~/components/footer/Contact";
 import { LinkedInProfile, IgProfile } from "~/components/utils/utils";
+import { albums } from "~/components/utils/photos";
+import PhotoAbout from "~/components/index/PhotoAbout.astro";
+import H from "~/components/utils/H";
 
 const title = "Photography - Mateusz Bis | Portfolio";
 const desc = "Feel invited to see my photography works!";
-
-interface PhotoModuleI {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
-}
-
-function extractPhotos(folder: string, photos: Record<string, { default: PhotoModuleI }>): PhotoModuleI[] {
-  return Object.values(photos)
-    .map(photo => ({
-      ...photo.default,
-      src: "/images/" + folder + "/thumbnail_" + photo.default.src.match(/\/([^\/.]+)\./)![1] + ".webp",
-    }))
-    .sort((a, b) => a.src.localeCompare(b.src));
-}
-
-const albums = [
-  {
-    name: "Street",
-    sessions: [
-      {
-        desc: "Selected photos from my walks around several cities.",
-        photos: extractPhotos("street", import.meta.glob("~/assets/photos/street/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Portraits",
-    sessions: [
-      {
-        desc: "Selection of portraits from various sessions.",
-        photos: extractPhotos("portraits", import.meta.glob("~/assets/photos/portraits/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Events",
-    sessions: [
-      {
-        desc: "Selected photos from SMP 2024, an event organised annually for 500+ high school students.",
-        photos: extractPhotos("smp", import.meta.glob("~/assets/photos/smp/*.jpg", { eager: true })),
-      },
-      {
-        desc: "Selected photos from Parafia 2024, an event organised annually for ~1000 high school students focused on sports.",
-        photos: extractPhotos("parafiada", import.meta.glob("~/assets/photos/parafiada/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Family Events",
-    sessions: [
-      {
-        desc: "Selected photos from a 50th anniversary of marriage.",
-        photos: extractPhotos(
-          "family-events",
-          import.meta.glob("~/assets/photos/family-events/*.jpg", { eager: true }),
-        ),
-      },
-    ],
-  },
-  {
-    name: "Church",
-    sessions: [
-      {
-        desc: "Selected photos from various church celebrations.",
-        photos: extractPhotos("church", import.meta.glob("~/assets/photos/church/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Real estate",
-    sessions: [
-      {
-        desc: "Selected photos from session for Pieniński Potok, all visible at pieninskipotok.pl",
-        photos: extractPhotos("apartments-1", import.meta.glob("~/assets/photos/apartments-1/*.jpg", { eager: true })),
-      },
-      {
-        desc: "Selected photos from session for Słoneczny Stok",
-        photos: extractPhotos("apartments-2", import.meta.glob("~/assets/photos/apartments-2/*.jpg", { eager: true })),
-      },
-      {
-        desc: "Selected photos from session for Domek u Wiktora, all visible at domekuwiktorka.pl",
-        photos: extractPhotos("apartments-3", import.meta.glob("~/assets/photos/apartments-3/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Landscape",
-    sessions: [
-      {
-        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-        photos: extractPhotos("landscape", import.meta.glob("~/assets/photos/landscape/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Drone",
-    sessions: [
-      {
-        desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-        photos: extractPhotos("drone", import.meta.glob("~/assets/photos/drone/*.jpg", { eager: true })),
-      },
-    ],
-  },
-];
 ---
 
 <Layout title={title} description={desc}>
@@ -134,24 +31,31 @@ const albums = [
     ]}
   />
   <PhotoHeader />
-  <section class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-8 mt-16">
+  <PhotoAbout />
+
+  <H text="Selected Photos" />
+
+  <section
+    id="albums"
+    class="w-3/4 scroll-mt-48 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-x-12 gap-y-18 mt-16"
+  >
     {
       albums.map(album => (
-        <div data-aos="fade-right" class="pb-4 overflow-hidden rounded-xl border-2 border-primary-200 *:object-top">
+        <a
+          href={"/photography/" + album.slug}
+          class={`pb-6 block hover:scale-105 transition ${album.vertical ? "card-vertical" : "card-horizontal"}`}
+        >
+          <div class="flex justify-between items-center mt-4 mb-2">
+            <h2 class="text-2xl md:text-3xl">{album.name}</h2>
+          </div>
           <Photo
-            className="aspect-3/2 object-center-top! rounded-b-xl"
+            className="w-full h-full"
             src={album.sessions[0].photos[0].src}
             alt={album.sessions[0].photos[0].src}
             fullUrl={true}
-            sizes={[480, 720]}
+            sizes={[720, 1280]}
           />
-          <div class="flex justify-center -mt-6 mb-4">
-            <a href="/photography/" class="btn">
-              See more
-            </a>
-          </div>
-          <h2 class="text-2xl md:text-3xl font-primary text-center">{album.name}</h2>
-        </div>
+        </a>
       ))
     }
   </section>
@@ -167,20 +71,10 @@ const albums = [
 </Layout>
 
 <style lang="postcss">
-    :global(#start .showcase-left) {
-        filter: grayscale(1);
-        transition: filter 0.2s;
-    }
-
-    :global(#start .showcase-left:hover) {
-        filter: grayscale(0);
-    }
-
-    :global(#start .showcase-left:hover h2) {
-        text-decoration: underline;
-    }
-
-    :global(.nav-photo) {
-        text-decoration: underline;
-    }
+   .card-vertical {
+    @apply row-span-2;
+   }
+   .card-horizontal :global(.lazy-photo) {
+    @apply aspect-3/2;
+   }
 </style>
