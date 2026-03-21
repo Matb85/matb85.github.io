@@ -45,10 +45,10 @@ const desc = "Feel invited to see my photography works!";
   />
 
   <header id="start" class="w-full text-center px-4 pt-16 md:pt-48 max-w-6xl mx-auto">
-      <div class="space-y-4" data-aos="fade-up">
-        <h1 class="font-primary text-3xl md:text-5xl lg:text-6xl mb-2">{a.name}</h1>
-        <a href="/photography#albums" class="underline">Back to albums</a>
-      </div>
+    <div class="space-y-4" data-aos="fade-up">
+      <h1 class="font-primary text-3xl md:text-5xl lg:text-6xl mb-2">{a.name}</h1>
+      <a href="/photography#albums" class="underline">Back to albums</a>
+    </div>
 
     <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
       <a href="#contact-+-cv" class="btn inline-block px-8 py-3 text-lg font-medium">Let's collaborate</a>
@@ -56,12 +56,12 @@ const desc = "Feel invited to see my photography works!";
   </header>
 </Layout>
 
-<section class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 mt-16">
+<section class="w-11/12 2xl:w-3/4 max-w-[120rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 mt-16">
   {
     a.sessions.map(session =>
       session.photos.map(photo => (
         <Photo
-          className={`w-full h-full ${photo.height > photo.width ? "row-span-2" : ""}`}
+          className={`w-full h-full  ${photo.height > photo.width ? "row-span-2" : ""}`}
           src={photo.src}
           alt="Photo"
           fullUrl={true}
