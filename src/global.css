@@ -48,7 +48,7 @@
     -webkit-text-fill-color: transparent;
   }
   .btn {
-    --btn-gradient-width: -100%;
+    --btn-gradient-width: -101%;
     transition: all 0.3s ease;
     z-index: 1;
     @apply block relative cursor-pointer outline-none border-none overflow-hidden bg-black text-white px-8 py-3 rounded-lg shadow-md;

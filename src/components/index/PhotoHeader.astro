@@ -1,14 +1,4 @@
----
-const mainRole = {
-  title: "Photographer",
-};
 
-const sideInterest = {
-  title: "Software Engineering",
-  description: "Building digital solutions",
-  link: "/",
-};
----
 
 <header id="start" class="w-full flex items-center justify-center px-4 pt-16 md:pt-32 max-w-6xl mx-auto">
   <!-- Main Hero Section -->
@@ -16,41 +6,20 @@ const sideInterest = {
     <!-- Logo and Name -->
     <div class="space-y-4" data-aos="fade-up">
       <h1 class="font-primary text-3xl md:text-5xl lg:text-6xl mb-2">Mateusz Bis</h1>
-      <p class="text-base md:text-xl text-primary-600 font-medium mb-2">Photography portfolio</p>
+      <p class="text-base md:text-xl text-primary-600 font-medium mb-2">
+        Photographer <span class="font-medium">with passion for</span>
+        <a
+          href="/"
+          class="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 transition-colors duration-200 font-medium underline decoration-primary-300 hover:decoration-primary-500"
+        >
+          Software Engineering
+        </a>
+      </p>
     </div>
 
-    <!-- Main Role Card -->
-    <div
-      data-aos="fade-up"
-      data-aos-delay="200"
-      class="w-full max-w-3xl relative bg-white rounded-2xl p-6 md:p-10 border-2 border-primary-200 transition-all duration-300 ease-out hover:border-primary-300 translate-y-0 group-hover:-translate-y-2 overflow-hidden block group transform group-hover:transition-transform group-hover:duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.1),_0_0_0_1px_rgba(129,140,248,0.1)]"
-    >
-      <div
-        class={`absolute inset-0 opacity-5 transition-opacity duration-300 rounded-2xl group-hover:opacity-10 bg-gradient-to-br from-purple-500 to-blue-500`}
-      >
-      </div>
-      <div class="relative z-10">
-        <h2 class="font-primary text-xl md:text-3xl lg:text-4xl">
-          {mainRole.title}
-        </h2>
-        <div class="flex flex-wrap items-center justify-center gap-2 text-sm md:text-base text-primary-500">
-          <span class="font-medium">with a passion for</span>
-          <a
-            href={sideInterest.link}
-            class="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 transition-colors duration-200 font-medium underline decoration-primary-300 hover:decoration-primary-500"
-          >
-            {sideInterest.title}
-          </a>
-        </div>
-        <p class="mt-4 text-primary-600 leading-relaxed md:text-lg">
-          <b>Hello!</b> I'm Mateusz, a passionate <b>photographer</b>, feel invited to see selection of my work below!
-        </p>
-      </div>
-    </div>
-
+   
     <!-- CTA Section -->
     <div class="space-y-4" data-aos="fade-up" data-aos-delay="400">
-      <p class="text-lg text-primary-600 font-medium">Ready to capture your special moments?</p>
       <a href="#contact-+-cv" class="btn inline-block px-8 py-3 text-lg font-medium">Let's collaborate</a>
     </div>
   </div>

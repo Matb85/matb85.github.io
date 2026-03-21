@@ -1,6 +1,5 @@
 ---
 import Layout from "~/layout.astro";
-import H from "@/utils/H";
 import Photo from "@/utils/Photo";
 import Footer from "@/footer/Footer.astro";
 import PhotoHeader from "~/components/index/PhotoHeader.astro";
@@ -66,7 +65,7 @@ const albums = [
         desc: "Selected photos from a 50th anniversary of marriage.",
         photos: extractPhotos(
           "family-events",
-          import.meta.glob("~/assets/photos/family-events/*.jpg", { eager: true })
+          import.meta.glob("~/assets/photos/family-events/*.jpg", { eager: true }),
         ),
       },
     ],
@@ -135,37 +134,27 @@ const albums = [
     ]}
   />
   <PhotoHeader />
-  {
-    albums.map(album => (
-      <>
-        <H text={album.name} />
-        {album.sessions.map((session, i) => (
-          <section class="photos-session">
-            <p data-aos="fade-right" class="paragraph">
-              {session.desc}
-            </p>
-            <div class="flex justify-center gap-4 text-4xl mt-4 mb-4">
-              <button class="photos-back btn pt-0 pb-1">««</button>
-              <button class="photos-next btn pt-0 pb-1">»»</button>
-            </div>
-            <div class="photos-con w-full overflow-auto mt-4 mb-20">
-              <div data-aos="fade-left" class="flex w-auto flex-nowrap gap-2 sm:gap-4 px-2 sm:px-4 lg:px-16">
-                {session.photos.map((p, i) => (
-                  <Photo
-                    className="max-w-none max-h-[500px] h-64 sm:h-96 lg:h-[30vw] aspect-auto flex-none"
-                    src={p.src}
-                    alt={p.src}
-                    fullUrl={true}
-                    sizes={[480, 720]}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
-        ))}
-      </>
-    ))
-  }
+  <section class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-8 mt-16">
+    {
+      albums.map(album => (
+        <div data-aos="fade-right" class="pb-4 overflow-hidden rounded-xl border-2 border-primary-200 *:object-top">
+          <Photo
+            className="aspect-3/2 object-center-top! rounded-b-xl"
+            src={album.sessions[0].photos[0].src}
+            alt={album.sessions[0].photos[0].src}
+            fullUrl={true}
+            sizes={[480, 720]}
+          />
+          <div class="flex justify-center -mt-6 mb-4">
+            <a href="/photography/" class="btn">
+              See more
+            </a>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-primary text-center">{album.name}</h2>
+        </div>
+      ))
+    }
+  </section>
   <Contact
     client:visible
     cvLinks={[
@@ -195,30 +184,3 @@ const albums = [
         text-decoration: underline;
     }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const photoSessions = document.querySelectorAll(".photos-session");
-    photoSessions.forEach(session => {
-      const photosCon = session.querySelector(".photos-con")!;
-      const photosBack = session.querySelector(".photos-back")!;
-      const photosNext = session.querySelector(".photos-next")!;
-
-      const photoWidth = session.querySelector(".lazy-photo")!.clientWidth * 1.5;
-
-      photosBack.addEventListener("click", () => {
-        photosCon.scrollTo({ left: photosCon.scrollLeft - photoWidth, behavior: "smooth" });
-      });
-
-      photosNext.addEventListener("click", () => {
-        photosCon.scrollTo({ left: photosCon.scrollLeft + photoWidth, behavior: "smooth" });
-      });
-    });
-  });
-
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      document.getElementById("showcase-left")?.classList?.add("inactive-section");
-    }, 400);
-  });
-</script>

@@ -1,59 +1,22 @@
----
-const mainRole = {
-  title: "Full Stack Software Engineer",
-};
-
-const sideInterest = {
-  title: "Photography",
-  description: "Creative visual storytelling",
-  link: "/photography",
-  icon: "📸",
-};
----
-
 <header id="start" class="w-full flex items-center justify-center px-4 pt-32 max-w-6xl mx-auto">
   <!-- Main Hero Section -->
   <div class="flex flex-col items-center text-center space-y-12">
     <!-- Logo and Name -->
     <div class="space-y-4" data-aos="fade-up">
-      <h1 class="font-primary text-3xl md:text-5xl lg:text-6xl mb-2">Mateusz Bis</h1>
-      <p class="text-base md:text-xl text-primary-600 font-medium mb-2">Work portfolio</p>
-    </div>
-
-    <!-- Main Role Card -->
-    <div
-      data-aos="fade-up"
-      data-aos-delay="200"
-      class="w-full max-w-3xl relative bg-white rounded-2xl p-6 md:p-10 border-2 border-primary-200 transition-all duration-300 ease-out hover:border-primary-300 translate-y-0 group-hover:-translate-y-2 overflow-hidden block group transform group-hover:transition-transform group-hover:duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.1),_0_0_0_1px_rgba(129,140,248,0.1)]"
-    >
-      <div
-        class={`absolute inset-0 opacity-5 transition-opacity duration-300 rounded-2xl group-hover:opacity-10 bg-gradient-to-br from-purple-500 to-blue-500`}
-      >
-      </div>
-      <div class="relative z-10">
-        <h2 class="font-primary text-xl md:text-3xl lg:text-4xl">
-          {mainRole.title}
-        </h2>
-        <div class="flex flex-wrap items-center justify-center gap-2 text-sm md:text-base text-primary-500">
-          <span class="font-medium">with a passion for</span>
-          <a
-            href={sideInterest.link}
-            class="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 transition-colors duration-200 font-medium underline decoration-primary-300 hover:decoration-primary-500"
-          >
-            {sideInterest.icon}
-            {sideInterest.title}
-          </a>
-        </div>
-        <p class="mt-4 text-primary-600 leading-relaxed md:text-lg">
-          <b>Hello!</b> I'm Mateusz, a dedicated and versatile <b>Engineer</b> with a passion for building solutions that
-          make a real impact!
-        </p>
-      </div>
+      <h1 class="font-primary text-3xl md:text-5xl lg:text-6xl mb-2">Hello, I'm Mateusz!</h1>
+      <p class="text-base md:text-xl text-primary-600 font-medium">
+        Full Stack Software Engineer, <span class="font-medium">with passion for</span>
+        <a
+          href="/photography"
+          class="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 transition-colors duration-200 font-medium underline decoration-primary-300 hover:decoration-primary-500"
+        >
+          📸 Photography
+        </a>
+      </p>
     </div>
 
     <!-- CTA Section -->
     <div class="space-y-4" data-aos="fade-up" data-aos-delay="400">
-      <p class="text-lg text-primary-600 font-medium">Ready to bring your ideas to life?</p>
       <a href="#contact-+-cv" class="btn inline-block px-8 py-3 text-lg font-medium">Let's collaborate</a>
     </div>
   </div>
