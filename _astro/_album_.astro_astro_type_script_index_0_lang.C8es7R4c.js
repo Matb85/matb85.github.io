@@ -1,0 +1,1 @@
+import{m as s}from"./index.Dhd5she7.js";window.addEventListener("load",()=>{const o=document.querySelectorAll(".MP-photo > img");for(const t of o)s.addPhoto(window.cpStore,{src:t.dataset.minsrc,srcset:t.dataset.minsrc,group:t.dataset.group,alt:t.alt})});
