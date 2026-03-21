@@ -18,17 +18,21 @@ function extractPhotos(folder: string, photos: Record<string, { default: PhotoMo
 
 export const albums = [
   {
-    name: "Street",
-    slug: "street",
+    name: "Parties & Events",
+    slug: "events",
     sessions: [
       {
-        desc: "Selected photos from my walks around several cities.",
-        photos: extractPhotos("street", import.meta.glob("~/assets/photos/street/*.jpg", { eager: true })),
+        desc: "Selected photos from Juwe Prozak 2.0 parties.",
+        photos: extractPhotos("prozak", import.meta.glob("~/assets/photos/prozak/*.jpg", { eager: true })),
+      },
+      {
+        desc: "Selected photos from SMP 2025, an event organised annually for 500+ high school students.",
+        photos: extractPhotos("smp", import.meta.glob("~/assets/photos/smp/*.jpg", { eager: true })),
       },
     ],
   },
   {
-    name: "Portraits",
+    name: "Portraits & sessions",
     slug: "portraits",
     vertical: true,
     sessions: [
@@ -39,23 +43,13 @@ export const albums = [
     ],
   },
   {
-    name: "Events",
-    slug: "events",
+    name: "Official Events",
+    slug: "official-events",
     sessions: [
       {
-        desc: "Selected photos from SMP 2024, an event organised annually for 500+ high school students.",
-        photos: extractPhotos("smp", import.meta.glob("~/assets/photos/smp/*.jpg", { eager: true })),
+        desc: "Selected photos from a 50th anniversary of marriage.",
+        photos: extractPhotos("prom", import.meta.glob("~/assets/photos/prom/*.jpg", { eager: true })),
       },
-      {
-        desc: "Selected photos from Parafia 2024, an event organised annually for ~1000 high school students focused on sports.",
-        photos: extractPhotos("parafiada", import.meta.glob("~/assets/photos/parafiada/*.jpg", { eager: true })),
-      },
-    ],
-  },
-  {
-    name: "Family Events",
-    slug: "family-events",
-    sessions: [
       {
         desc: "Selected photos from a 50th anniversary of marriage.",
         photos: extractPhotos(
@@ -66,15 +60,20 @@ export const albums = [
     ],
   },
   {
-    name: "Church",
-    slug: "church",
+    name: "Sport",
+    slug: "sport",
     sessions: [
       {
-        desc: "Selected photos from various church celebrations.",
-        photos: extractPhotos("church", import.meta.glob("~/assets/photos/church/*.jpg", { eager: true })),
+        desc: "Selected photos from Parafiada 2024, an event organised annually for ~1000 high school students focused on sports.",
+        photos: extractPhotos("skis", import.meta.glob("~/assets/photos/skis/*.jpg", { eager: true })),
+      },
+      {
+        desc: "Selected photos from Parafiada 2024, an event organised annually for ~1000 high school students focused on sports.",
+        photos: extractPhotos("parafiada", import.meta.glob("~/assets/photos/parafiada/*.jpg", { eager: true })),
       },
     ],
   },
+
   {
     name: "Real estate",
     slug: "real-estate",
@@ -94,19 +93,33 @@ export const albums = [
     ],
   },
   {
-    name: "Landscape",
+    name: "Church",
+    slug: "church",
+    sessions: [
+      {
+        desc: "Selected photos from various church celebrations.",
+        photos: extractPhotos("church", import.meta.glob("~/assets/photos/church/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Street",
+    slug: "street",
+    sessions: [
+      {
+        desc: "Selected photos from my walks around several cities.",
+        photos: extractPhotos("street", import.meta.glob("~/assets/photos/street/*.jpg", { eager: true })),
+      },
+    ],
+  },
+  {
+    name: "Landscape & Drone",
     slug: "landscape",
     sessions: [
       {
         desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
         photos: extractPhotos("landscape", import.meta.glob("~/assets/photos/landscape/*.jpg", { eager: true })),
       },
-    ],
-  },
-  {
-    name: "Drone",
-    slug: "drone",
-    sessions: [
       {
         desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
         photos: extractPhotos("drone", import.meta.glob("~/assets/photos/drone/*.jpg", { eager: true })),
