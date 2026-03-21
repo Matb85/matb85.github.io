@@ -45,7 +45,7 @@ const {
   id="nav"
   class="fixed transition-all top-0 w-full h-20 backdrop-blur flex gap-4 justify-between px-4 md:px-6 items-center z-50 bg-primary-200/[0.4]"
 >
-  <a href="/" class="flex gap-2 items-center">
+  <a href={Astro.url.pathname.includes("/photography") ? "/photography" : "/"} class="flex gap-2 items-center">
     <div id="nav-logo" class="transition-all duration-500 overflow-hidden">
       <h2 class="text-[2rem] sm:text-[3rem] mt-2 block leading-none transition-all">Mateusz</h2>
     </div>

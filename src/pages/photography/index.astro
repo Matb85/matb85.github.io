@@ -37,7 +37,7 @@ const desc = "Feel invited to see my photography works!";
 
   <section
     id="albums"
-    class="w-11/12 2xl:w-3/4 max-w-[120rem] scroll-mt-48 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-x-4 gap-y-4 2xl:gap-x-12 2xl:gap-y-18 mt-16"
+    class="w-11/12 2xl:w-3/4 max-w-[120rem] scroll-mt-48 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-x-4 gap-y-12 md:gap-y-4 2xl:gap-x-12 2xl:gap-y-18"
   >
     {
       albums.map(album => (
@@ -45,7 +45,7 @@ const desc = "Feel invited to see my photography works!";
           href={"/photography/" + album.slug}
           class={`group flex relative flex-col hover:scale-103 transition ${album.vertical ? "card-vertical" : "card-horizontal"}`}
         >
-          <h2 class="text-2xl md:text-3xl mt-4 mb-2">{album.name}</h2>
+          <h2 class="text-3xl max-md:text-center mt-4 mb-2">{album.name}</h2>
           <Photo
             className="w-full"
             src={album.sessions[0].photos[0].src}
@@ -53,7 +53,7 @@ const desc = "Feel invited to see my photography works!";
             fullUrl={true}
             sizes={[720, 1280]}
           />
-          <div class="w-full h-full absolute bottom-0 pt-14 flex justify-center bg-white/50 items-center group-hover:opacity-100 opacity-0 transition">
+          <div class="md:w-full md:h-full md:absolute bottom-0 mt-2 md:pt-14 flex justify-center bg-white/50 items-center group-hover:opacity-100 md:opacity-0 transition">
             <button class="btn">See more</button>
           </div>
         </a>

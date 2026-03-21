@@ -18,16 +18,19 @@ function extractPhotos(folder: string, photos: Record<string, { default: PhotoMo
 
 export const albums = [
   {
-    name: "Parties & Events",
-    slug: "events",
+    name: "Official Events",
+    slug: "official-events",
     sessions: [
       {
-        desc: "Selected photos from Juwe Prozak 2.0 parties.",
-        photos: extractPhotos("prozak", import.meta.glob("~/assets/photos/prozak/*.jpg", { eager: true })),
+        desc: "Selected photos from a 50th anniversary of marriage.",
+        photos: extractPhotos("prom", import.meta.glob("~/assets/photos/prom/*.jpg", { eager: true })),
       },
       {
-        desc: "Selected photos from SMP 2025, an event organised annually for 500+ high school students.",
-        photos: extractPhotos("smp", import.meta.glob("~/assets/photos/smp/*.jpg", { eager: true })),
+        desc: "Selected photos from a 50th anniversary of marriage.",
+        photos: extractPhotos(
+          "family-events",
+          import.meta.glob("~/assets/photos/family-events/*.jpg", { eager: true }),
+        ),
       },
     ],
   },
@@ -43,19 +46,16 @@ export const albums = [
     ],
   },
   {
-    name: "Official Events",
-    slug: "official-events",
+    name: "Parties",
+    slug: "events",
     sessions: [
       {
-        desc: "Selected photos from a 50th anniversary of marriage.",
-        photos: extractPhotos("prom", import.meta.glob("~/assets/photos/prom/*.jpg", { eager: true })),
+        desc: "Selected photos from Juwe Prozak 2.0 parties.",
+        photos: extractPhotos("prozak", import.meta.glob("~/assets/photos/prozak/*.jpg", { eager: true })),
       },
       {
-        desc: "Selected photos from a 50th anniversary of marriage.",
-        photos: extractPhotos(
-          "family-events",
-          import.meta.glob("~/assets/photos/family-events/*.jpg", { eager: true }),
-        ),
+        desc: "Selected photos from SMP 2025, an event organised annually for 500+ high school students.",
+        photos: extractPhotos("smp", import.meta.glob("~/assets/photos/smp/*.jpg", { eager: true })),
       },
     ],
   },
