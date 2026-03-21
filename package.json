@@ -13,9 +13,12 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
+    "@matb85/astro-pack": "^5.1.0",
+    "@matb85/base-pack": "^5.1.0",
     "aos": "^2.3.4",
     "astro": "^5.13.3",
     "astro-compress": "^2.3.8",
+    "modular-slider": "^1.0.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

@@ -70,6 +70,7 @@ for (const file of await fs.readdir(path.join(__dirname, '/src/assets/photos')))
     if (!destinationExists) {
         await fs.mkdir(destination);
     }
-    console.log(file);
-    await transformFolder('/src/assets/photos/' + file, destination);
+    console.log("Folder: ",file);
+    if (file === "prom") await transformFolder("/src/assets/photos/" + file, destination);
+    // await transformFolder("/src/assets/photos/" + file, destination);
 }
