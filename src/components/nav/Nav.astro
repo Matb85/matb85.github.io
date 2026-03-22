@@ -86,7 +86,7 @@ const {
     {
       socialIcons.map(icon => (
         <a href={icon.href} target="_blank" rel="noopener noreferrer" class={icon.className || ""}>
-          <img src={icon.src} alt={icon.alt} class="w-6 h-6" />
+          <img src={icon.src} alt={icon.alt} class="w-12 h-12" />
         </a>
       ))
     }
@@ -105,7 +105,7 @@ const {
     }
 
     :global(#mobile-navbar) {
-        transform: translateX(-100vw);
+        transform: translateX(-150vw);
         transition: 0.4s transform;
         @apply h-screen w-full bg-primary-200/[0.6] backdrop-blur fixed left-0 top-0 pt-20 z-40 flex flex-col items-center justify-center gap-6;
     }
