@@ -1,9 +1,9 @@
 ---
 import Layout from "~/layout.astro";
 import Footer from "@/footer/Footer.astro";
+import PhotoFooterLinks from "~/components/footer/PhotoFooterLinks.astro";
 import Nav from "~/components/nav/Nav.astro";
-import Contact from "~/components/footer/Contact";
-import { LinkedInProfile, IgProfile } from "~/components/utils/utils";
+import { LinkedInProfile, IgProfile, email } from "~/components/utils/utils";
 import { albums } from "~/components/utils/photos";
 
 import "modular-slider/modular-slider.css"; // PhotoMultiViewer needs modular-slider styles
@@ -25,8 +25,8 @@ if (!a) {
   throw new Error("Album not found");
 }
 
-const title = `${a.name} Photography - Mateusz Bis | Portfolio`;
-const desc = "Feel invited to see my photography works!";
+const title = `${a.name} – Photography – Mateusz Bis`;
+const desc = a.sessions.map(session => session.desc).join(" ");
 ---
 
 <Layout title={title} description={desc}>
@@ -47,53 +47,38 @@ const desc = "Feel invited to see my photography works!";
   />
 
   <header id="start" class="w-full text-center px-4 pt-16 md:pt-48 max-w-6xl mx-auto">
-    <div class="space-y-4" data-aos="fade-up">
+    <div class="space-y-4">
       <h1 class="font-primary text-3xl md:text-5xl lg:text-6xl mb-2">{a.name}</h1>
       <a href="/photography#albums" class="underline">Back to albums</a>
     </div>
 
-    <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
-      <a href="#contact-+-cv" class="btn inline-block px-8 py-3 text-lg font-medium">Let's collaborate</a>
+    <div class="mt-4">
+      <a href={`mailto:${email}`} class="btn inline-block px-8 py-3 text-lg font-medium">Let's collaborate</a>
     </div>
   </header>
+
+  <section class="w-11/12 2xl:w-3/4 max-w-[120rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 mt-16">
+    {
+      a.sessions
+        .map(session => session.photos)
+        .flat()
+        .map((photo, i) => (
+          <Photo
+            className={`w-full h-full  ${photo.height > photo.width ? "row-span-2" : ""}`}
+            src={photo.src}
+            multi
+            group={`main-${i}`}
+            alt="Photo"
+            sizes={[720, 1280]}
+          />
+        ))
+    }
+  </section>
+  <Footer class="w-11/12 2xl:w-3/4 max-w-[120rem]">
+    <PhotoFooterLinks />
+  </Footer>
+  <PhotoMultiViewer />
 </Layout>
-
-<section class="w-11/12 2xl:w-3/4 max-w-[120rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 mt-16">
-  {
-    a.sessions
-      .map(session => session.photos)
-      .flat()
-      .map((photo, i) => (
-        <Photo
-          className={`w-full h-full  ${photo.height > photo.width ? "row-span-2" : ""}`}
-          src={photo.src}
-          multi
-          group={`main-${i}`}
-          alt="Photo"
-          sizes={[720, 1280]}
-        />
-      ))
-  }
-</section>
-<Contact
-  client:visible
-  cvLinks={[
-    { href: "/resume.pdf", label: "Download résumé" },
-    { href: LinkedInProfile, label: "LinkedIn profile" },
-    { href: IgProfile, label: "Instagram profile" },
-  ]}
-/>
-<Footer />
-<PhotoMultiViewer />
-
-<style lang="postcss">
-   .card-vertical {
-    @apply row-span-2;
-   }
-   .card-horizontal :global(.lazy-photo) {
-    @apply aspect-3/2;
-   }
-</style>
 
 <script>
   import { mutations, type BasePackStoreI } from "@matb85/base-pack";

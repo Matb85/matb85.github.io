@@ -1,25 +1,66 @@
 ---
-import About from "@/index/About.astro";
-import Footer from "@/footer/Footer.astro";
-import Header from "@/index/Header.astro";
-import Websites from "@/works/Websites.astro";
 import Layout from "~/layout.astro";
-import Backend from "~/components/works/Backend.astro";
-import Nav from "~/components/nav/Nav.astro";
-import Contact from "~/components/footer/Contact";
+import Nav from "@/nav/Nav.astro";
+import Header from "@/index/Header.astro";
+import About from "@/index/About.astro";
+import Row from "@/index/Row.astro";
+import Websites from "@/works/Websites.astro";
+import Contact from "@/footer/Contact";
+import Footer from "@/footer/Footer.astro";
+import H from "@/utils/H";
 
-const title = "Mateusz Bis | Portfolio";
+const title = "Mateusz Bis – Software Engineer";
 const desc =
-  "Hi, my name is Mateusz Bis, I'm a Full Stack engineer, UI/UX designer and photographer. Welcome to my portfolio!";
+  "Software engineer at Software Mansion in Kraków, building Detour. Previously CERN (CMS PPS), ETH Zurich SPCL and AVSystem.";
 ---
 
 <Layout title={title} description={desc}>
   <Nav />
   <Header />
   <About />
-  <Backend />
+
+  <H text="Backend + System Design" />
+  <ul class="rows max-w-3xl mx-auto px-4">
+    <Row years="2026–">
+      <a slot="org" href="https://swmansion.com" target="_blank" rel="noopener" class="link">Software Mansion</a>
+      Detour, a mobile deep-linking product used by 100+ app developers. Built its A/B and multivariate testing feature
+      from scratch (TypeScript, Bun, Next.js).
+    </Row>
+    <Row years="2025–26">
+      <a slot="org" href="https://spcl.inf.ethz.ch" target="_blank" rel="noopener" class="link">ETH Zurich, SPCL</a>
+      Benchmarked embedding models on 5 datasets for the
+      <a href="https://arxiv.org/abs/2406.02524" target="_blank" rel="noopener" class="link">CheckEmbed paper ↗</a>, with
+      experiments automated on the Athena HPC cluster.
+    </Row>
+    <Row years="2025">
+      <span slot="org">CERN, CMS PPS</span>
+      Rebuilt the detector's calibration app in Next.js and JSROOT, cutting load time from ~60 s to ~5 s. The physicists
+      still use it.
+    </Row>
+    <Row years="2024">
+      <a slot="org" href="https://avsystem.com" target="_blank" rel="noopener" class="link">AVSystem</a>
+      Scala DHCP server: RFC-based IPv4/IPv6 tests that prevent memory leaks, plus features for its Angular management
+      console.
+    </Row>
+    <Row years="2023–26">
+      <a slot="org" href="https://poznajgory.pl" target="_blank" rel="noopener" class="link">Poznaj Góry ↗</a>
+      Led 6 students building a mountain trip planner, from attractions to accommodation booking. Kotlin, React and
+      Stripe. Grew to ~3,000 monthly users and 300+ attractions.
+    </Row>
+  </ul>
+
   <Websites />
 
   <Contact client:visible />
-  <Footer />
+  <Footer>
+    <a href="/photography" class="link">Photography →</a> · Updated Oct 2026
+  </Footer>
 </Layout>
+
+<style>
+  @import "~/global.css" reference;
+
+  .rows {
+    @apply flex flex-col gap-5;
+  }
+</style>

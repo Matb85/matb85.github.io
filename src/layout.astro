@@ -1,6 +1,4 @@
 ---
-import Nav from "./components/nav/Nav.astro";
-
 interface Props {
   title: string;
   description: string;
@@ -9,8 +7,10 @@ interface Props {
 const { title, description } = Astro.props;
 
 import ogImage from "~/assets/og.png";
-import "aos/dist/aos.css";
 import "~/global.css";
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(ogImage.src, Astro.site);
 ---
 
 <html lang="en">
@@ -26,25 +26,24 @@ import "~/global.css";
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={Astro.site!.href + Astro.url.pathname} />
-    <meta property="og:site_name" content="Mateusz Bis | Portfolio" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Mateusz Bis" />
     <meta property="og:type" content="website" />
 
-    <meta property="og:image" content={ogImage.src} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:alt" content="Mateusz Bis - Portfolio" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content={ogImage.width + ""} />
     <meta property="og:image:height" content={ogImage.height + ""} />
 
-    <link rel="canonical" href={Astro.site!.href + Astro.url.pathname} />
+    <link rel="canonical" href={canonical} />
   </head>
   <body>
     <slot />
 
     <script>
-      import aos from "aos";
-
-      async function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+      // Photos rendered by Photo.tsx start as a tiny thumbnail; swap in the real srcset once they scroll into view.
+      function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
         entries.forEach(entry => {
           if (entry.intersectionRatio <= 0) return;
           const target = entry.target as HTMLImageElement;
@@ -54,25 +53,10 @@ import "~/global.css";
         });
       }
 
-      /** set up a new IntersectionObserver if in the browser */
       const observer = new IntersectionObserver(callback, { rootMargin: "0px", threshold: 0.05 });
 
       document.addEventListener("DOMContentLoaded", () => {
-        // utility for add images to the store add setting up proper event listeners
-        function addImages(imgs: NodeListOf<HTMLImageElement>) {
-          imgs.forEach(img => {
-            observer.observe(img);
-          });
-        }
-
-        // observe all images
-        addImages(document.querySelectorAll(".lazy-photo") as NodeListOf<HTMLImageElement>);
-        aos.init({
-          offset: 0,
-          duration: 250,
-          easing: "ease-in-sine",
-          delay: 100,
-        });
+        document.querySelectorAll<HTMLImageElement>(".lazy-photo").forEach(img => observer.observe(img));
       });
     </script>
   </body>

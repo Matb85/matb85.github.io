@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import H from "../utils/H.tsx";
-import { email, GithubProfile, LinkedInProfile, phone } from "../utils/utils";
+import { email, GithubProfile, LinkedInProfile } from "../utils/utils";
 import "./contact.css";
 
 export interface CVLink {
@@ -30,7 +30,7 @@ const Contact: React.FC<ContactProps> = ({
 
     const TimeOfLastEmail = localStorage.getItem("TimeOfLastEmail");
     if (TimeOfLastEmail && Date.now() - parseInt(TimeOfLastEmail) < 2 * 1000 * 60) {
-      setStatus({ ...status, error: "You can send email only every 5 minutes" });
+      setStatus({ ...status, error: "You can send email only every 2 minutes" });
       return;
     }
     if (!emailRegex.test(store.email)) {
@@ -67,10 +67,9 @@ const Contact: React.FC<ContactProps> = ({
   return (
     <>
       <H text={text} />
-      <section className="contact w-full px-4 md:px-20 flex flex-col lg:flex-row gap-8 justify-center overflow-hidden max-w-6xl mx-auto mt-12">
+      <section className="contact w-full px-4 md:px-20 flex flex-col lg:flex-row gap-8 justify-center max-w-6xl mx-auto mt-12">
         <form
           onSubmit={submit}
-          data-aos="fade-right"
           className="contact-card bg-white p-8 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 flex-1"
         >
           <h3 className="text-2xl sm:text-4xl font-primary font-bold mb-6">Say hello</h3>
@@ -119,17 +118,10 @@ const Contact: React.FC<ContactProps> = ({
               >
                 {email}
               </a>
-              <a
-                href={`tel:${phone}`}
-                className="hover:text-primary-800 cursor-pointer hover:underline text-center font-medium"
-              >
-                {phone}
-              </a>
             </div>
           </div>
         </form>
         <div
-          data-aos="fade-left"
           className="contact-card bg-white p-8 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-all duration-300 flex-1"
         >
           <h3 className="text-2xl sm:text-4xl font-primary font-bold mb-6">CV & Links</h3>

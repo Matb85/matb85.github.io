@@ -70,6 +70,10 @@
   img {
     @apply object-cover;
   }
+
+  .link {
+    @apply underline underline-offset-4 decoration-primary-300 hover:decoration-primary-700 transition-colors;
+  }
 }
 
 /* latin */
@@ -101,56 +105,11 @@ h6,
   @apply font-primary;
 }
 
-/* Consistent Tag System */
-.tag {
-  @apply inline-flex items-center px-3 py-1 text-sm font-medium rounded-lg transition-all duration-150 ease-in-out;
-}
-
-.tag-container {
-  @apply flex flex-wrap gap-2;
-}
-
-/* Primary tag style - Light background for normal content */
-.tag-primary {
-  @apply bg-primary-100 text-primary-700 border border-primary-200;
-}
-
-/* Dark tag style - For dark overlays or accent areas */
-.tag-dark {
-  @apply bg-primary-600/90 text-white border border-primary-400/40 backdrop-blur-sm;
-}
-
-/* Tag animations for staggered effects */
-.tag:nth-child(1) {
-  transition-delay: 0.1s;
-}
-
-.tag:nth-child(2) {
-  transition-delay: 0.15s;
-}
-
-.tag:nth-child(3) {
-  transition-delay: 0.2s;
-}
-
-.tag:nth-child(4) {
-  transition-delay: 0.25s;
-}
-
-.tag:nth-child(5) {
-  transition-delay: 0.3s;
-}
 html,
 body {
   scroll-behavior: smooth;
   @apply w-full h-full bg-white;
 }
-.paragraph {
-  @apply max-w-3xl mx-auto text-center px-4 relative;
-  position: relative;
-  z-index: 1;
-}
-
 .lazy-photo {
   @apply opacity-0 transition-opacity duration-500;
 }
@@ -158,19 +117,18 @@ body {
   @apply opacity-100;
 }
 
-#showcase-left,
-#showcase-right {
-  transition: filter 0.3s;
+/* Centred intro paragraph under a section heading */
+.paragraph {
+  @apply max-w-3xl mx-auto text-center px-4 relative z-1;
 }
 
-.inactive-section {
-  filter: grayscale(1);
+/* Tags on the carousel cards */
+.tag-container {
+  @apply flex flex-wrap gap-2;
 }
-
-.inactive-section:hover {
-  filter: grayscale(0);
+.tag {
+  @apply inline-flex items-center px-3 py-1 text-sm font-medium rounded-lg;
 }
-
-.inactive-section:hover h2 {
-  text-decoration: underline;
+.tag-dark {
+  @apply bg-primary-600/90 text-white border border-primary-400/40 backdrop-blur-sm;
 }

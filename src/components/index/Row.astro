@@ -1,0 +1,14 @@
+---
+/** One line of the Work / Projects / Education lists: years, organisation (slot "org") and what came out of it. */
+interface Props {
+  years: string;
+}
+
+const { years } = Astro.props;
+---
+
+<li class="grid grid-cols-[5.5rem_1fr] md:grid-cols-[5.5rem_12rem_1fr] gap-x-4 gap-y-1 leading-relaxed">
+  <span class="text-primary-500 tabular-nums">{years}</span>
+  <span class="font-semibold"><slot name="org" /></span>
+  <span class="col-span-2 md:col-span-1 md:col-start-3 text-primary-700"><slot /></span>
+</li>

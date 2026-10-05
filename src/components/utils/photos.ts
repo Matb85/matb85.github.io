@@ -1,19 +1,35 @@
+import { readdirSync } from "node:fs";
+import path from "node:path";
+import sharp from "sharp";
 
-
-interface PhotoModuleI {
+export interface PhotoI {
+  /** Thumbnail URL under public/images; larger variants share the name with another prefix. */
   src: string;
   width: number;
   height: number;
-  format: string;
 }
 
-function extractPhotos(folder: string, photos: Record<string, { default: PhotoModuleI }>): PhotoModuleI[] {
-  return Object.values(photos)
-    .map(photo => ({
-      ...photo.default,
-      src: "/images/" + folder + "/thumbnail_" + photo.default.src.match(/\/([^\/.]+)\./)![1] + ".webp",
-    }))
-    .sort((a, b) => a.src.localeCompare(b.src));
+// Resolved from the project root: the build bundles this module into dist/, so import.meta.url is no use here.
+const PHOTOS_DIR = path.resolve("src/assets/photos");
+
+/** Lists a folder's JPEGs with their displayed dimensions, without importing the originals into the build. */
+async function loadFolder(folder: string): Promise<PhotoI[]> {
+  const dir = path.join(PHOTOS_DIR, folder);
+  const files = readdirSync(dir)
+    .filter(file => /\.jpe?g$/i.test(file))
+    .sort((a, b) => a.localeCompare(b));
+
+  return Promise.all(
+    files.map(async file => {
+      const { width = 0, height = 0, orientation = 1 } = await sharp(path.join(dir, file)).metadata();
+      const rotated = orientation >= 5; // EXIF orientations 5–8 swap width and height
+      return {
+        src: `/images/${folder}/thumbnail_${file.replace(/\.jpe?g$/i, ".webp")}`,
+        width: rotated ? height : width,
+        height: rotated ? width : height,
+      };
+    }),
+  );
 }
 
 export const albums = [
@@ -23,14 +39,11 @@ export const albums = [
     sessions: [
       {
         desc: "Selected photos from a 50th anniversary of marriage.",
-        photos: extractPhotos("prom", import.meta.glob("~/assets/photos/prom/*.jpg", { eager: true })),
+        photos: await loadFolder("prom"),
       },
       {
         desc: "Selected photos from a 50th anniversary of marriage.",
-        photos: extractPhotos(
-          "family-events",
-          import.meta.glob("~/assets/photos/family-events/*.jpg", { eager: true }),
-        ),
+        photos: await loadFolder("family-events"),
       },
     ],
   },
@@ -41,7 +54,7 @@ export const albums = [
     sessions: [
       {
         desc: "Selection of portraits from various sessions.",
-        photos: extractPhotos("portraits", import.meta.glob("~/assets/photos/portraits/*.jpg", { eager: true })),
+        photos: await loadFolder("portraits"),
       },
     ],
   },
@@ -51,11 +64,11 @@ export const albums = [
     sessions: [
       {
         desc: "Selected photos from Juwe Prozak 2.0 parties.",
-        photos: extractPhotos("prozak", import.meta.glob("~/assets/photos/prozak/*.jpg", { eager: true })),
+        photos: await loadFolder("prozak"),
       },
       {
         desc: "Selected photos from SMP 2025, an event organised annually for 500+ high school students.",
-        photos: extractPhotos("smp", import.meta.glob("~/assets/photos/smp/*.jpg", { eager: true })),
+        photos: await loadFolder("smp"),
       },
     ],
   },
@@ -65,30 +78,29 @@ export const albums = [
     sessions: [
       {
         desc: "Selected photos from Parafiada 2024, an event organised annually for ~1000 high school students focused on sports.",
-        photos: extractPhotos("skis", import.meta.glob("~/assets/photos/skis/*.jpg", { eager: true })),
+        photos: await loadFolder("skis"),
       },
       {
         desc: "Selected photos from Parafiada 2024, an event organised annually for ~1000 high school students focused on sports.",
-        photos: extractPhotos("parafiada", import.meta.glob("~/assets/photos/parafiada/*.jpg", { eager: true })),
+        photos: await loadFolder("parafiada"),
       },
     ],
   },
-
   {
     name: "Real estate",
     slug: "real-estate",
     sessions: [
       {
         desc: "Selected photos from session for Pieniński Potok, all visible at pieninskipotok.pl",
-        photos: extractPhotos("apartments-1", import.meta.glob("~/assets/photos/apartments-1/*.jpg", { eager: true })),
+        photos: await loadFolder("apartments-1"),
       },
       {
         desc: "Selected photos from session for Słoneczny Stok",
-        photos: extractPhotos("apartments-2", import.meta.glob("~/assets/photos/apartments-2/*.jpg", { eager: true })),
+        photos: await loadFolder("apartments-2"),
       },
       {
         desc: "Selected photos from session for Domek u Wiktora, all visible at domekuwiktorka.pl",
-        photos: extractPhotos("apartments-3", import.meta.glob("~/assets/photos/apartments-3/*.jpg", { eager: true })),
+        photos: await loadFolder("apartments-3"),
       },
     ],
   },
@@ -98,7 +110,7 @@ export const albums = [
     sessions: [
       {
         desc: "Selected photos from various church celebrations.",
-        photos: extractPhotos("church", import.meta.glob("~/assets/photos/church/*.jpg", { eager: true })),
+        photos: await loadFolder("church"),
       },
     ],
   },
@@ -108,7 +120,7 @@ export const albums = [
     sessions: [
       {
         desc: "Selected photos from my walks around several cities.",
-        photos: extractPhotos("street", import.meta.glob("~/assets/photos/street/*.jpg", { eager: true })),
+        photos: await loadFolder("street"),
       },
     ],
   },
@@ -118,11 +130,11 @@ export const albums = [
     sessions: [
       {
         desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-        photos: extractPhotos("landscape", import.meta.glob("~/assets/photos/landscape/*.jpg", { eager: true })),
+        photos: await loadFolder("landscape"),
       },
       {
         desc: "Selected photos from poznajgory.pl, all photos visible there have been taken by me.",
-        photos: extractPhotos("drone", import.meta.glob("~/assets/photos/drone/*.jpg", { eager: true })),
+        photos: await loadFolder("drone"),
       },
     ],
   },

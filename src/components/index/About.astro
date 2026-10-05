@@ -1,155 +1,39 @@
 ---
-import H from "../utils/H";
-// import Photo from "../utils/Photo";
+import H from "@/utils/H";
 
-const text = "About me";
-
-const highlights = [
-  {
-    id: "experience",
-    icon: "💼",
-    title: "5+ Years Experience",
-    description: "Building software solutions since 2020",
-    tags: ["Startups", "Corporations", "Agencies"],
-  },
-  {
-    id: "education",
-    icon: "🎓",
-    title: "Computer Science",
-    description: "Currently, I'm studying Computer Science at AGH UST.",
-    tags: ["Theoretical Foundation", "Research"],
-  },
-];
-
-const achievements = [
-  {
-    title: "Founded Redinn Labs",
-    year: "2020",
-    description: "Web development agency focusing on performance and quality",
-  },
-  {
-    title: "Founded Poznaj Góry",
-    year: "2023",
-    description: "A startup promoting mountain tourism in Poland",
-  },
-  {
-    title: "Internship at AVSystem",
-    year: "2024",
-    description: "Contributed to the development of a DHCP server",
-  },
-  {
-    title: "Internship at CERN",
-    year: "2025",
-    description: "Data processing application for PPS2 detector analysis",
-  },
+/** Short career summary; the specifics live in the Backend section's rows. */
+const facts = [
+  { label: "Now", value: "Software Mansion, Kraków" },
+  { label: "Before", value: "CERN · ETH Zurich · AVSystem · Redinn" },
 ];
 ---
 
-<H text={text} />
+<H text="About me" />
 
-<!-- Main Content -->
-<div data-aos="fade-right" class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-12">
-  <!-- Highlights Grid -->
-  <div class="lg:col-span-2 space-y-4 sm:space-y-12 text-primary-700 leading-relaxed">
-    <ul class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-      {
-        highlights.map((highlight, index) => (
-          <li data-aos="fade-up" data-aos-delay={300 + index * 100} class="highlight-card group">
-            <h3 class="font-primary font-bold mb-2 text-lg">{highlight.title}</h3>
-            <p class="text-primary-600 text-sm mb-3 leading-relaxed">{highlight.description}</p>
-            <div class="tag-container mt-3">
-              {highlight.tags.map(tag => (
-                <span class="tag tag-primary text-xs">{tag}</span>
-              ))}
-            </div>
-          </li>
-        ))
-      }
-    </ul>
-    <p class="mb-4">
-      I've been present in the tech world since <b>2020</b> when I created{" "}
-      <a href="https://redinnlabs.com" target="_blank" class="gradient-text">Redinn</a>, a <b>web agency</b> which to this
-      day puts performance and quality at the forefront of every project. Throughout years, I've experienced working in various
-      environments, from <b>startups</b> (i.a. <a href="https://poznajgory.pl" target="_blank" class="gradient-text"
-        >Poznaj Góry</a
-      >), through <b>middle-size companies</b> (i.a. <a
-        href="https://optimamedical.com"
-        target="_blank"
-        class="gradient-text">Optima Medical</a
-      >) to <b>corporations</b> (i.a. <a href="https://avsystem.com" target="_blank" class="gradient-text">AVSystem</a
-      >).
-    </p>
-    <p class="mb-4">
-      My skill set is constantly expanding, and currently includes <b>devops</b>, <b>frontend</b> and <b>backend</b> development
-      with various technologies (listed in my <a href="#contact-+-cv" class="gradient-text">résumé</a>). All of my
-      skills are proven either by practical projects, or appropriate <b>certifications</b> visible on my{" "}
-      <a href="https://www.linkedin.com/in/mateusz-bis/" target="_blank" class="gradient-text">LinkedIn</a>. Moreover,
-      My practical knowledge is backed up by theoretical foundation thanks to my ongoing
-      <a href="https://informatyka.agh.edu.pl/en/" target="_blank" class="gradient-text">Computer Science studies</a> at
-      <b>AGH UST</b>.
-    </p>
-  </div>
+<div class="max-w-3xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+  <p class="md:col-span-2 text-lg leading-relaxed text-primary-700">
+    I'm a software engineer at <a href="https://swmansion.com" target="_blank" rel="noopener" class="link"
+      >Software Mansion</a
+    > in Kraków and a Computer Science student at <a
+      href="https://informatyka.agh.edu.pl/en/"
+      target="_blank"
+      rel="noopener"
+      class="link">AGH</a
+    >. I started in 2020 building websites for local businesses through my own agency, and have since worked at a
+    corporation, two research labs and a student startup I co-founded. Most of it was full stack, and most of it is still
+    in use. The details are below, the full list is in my <a href="/resume.pdf" target="_blank" rel="noopener" class="link"
+      >CV</a
+    >.
+  </p>
 
-  <!-- Achievement Timeline -->
-  <div class="lg:col-span-1 overflow-hidden" data-aos="fade-right" data-aos-delay="400">
-    <h3 class="font-primary font-bold text-xl mb-6">Milestones</h3>
-    <ul class="space-y-6 w-full pl-2">
-      {
-        achievements.map((achievement, index) => (
-          <li class="timeline-item" data-aos="fade-right" data-aos-delay={index * 100}>
-            <div class="text-xs font-bold text-primary-500 uppercase tracking-wide mb-1">{achievement.year}</div>
-            <div class="timeline-content">
-              <h4 class="font-primary font-bold mb-1">{achievement.title}</h4>
-              <p class="text-sm text-primary-600 leading-relaxed">{achievement.description}</p>
-            </div>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <dl class="flex flex-col gap-4 md:border-l border-primary-200 md:pl-6 leading-relaxed">
+    {
+      facts.map(fact => (
+        <div>
+          <dt class="text-sm text-primary-500">{fact.label}</dt>
+          <dd class="font-semibold">{fact.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
 </div>
-
-<style>
-  @import "~/global.css" reference;
-
-  /* Highlight Cards */
-  .highlight-card {
-    @apply max-md:p-4 p-6 rounded-xl border-2 border-primary-200;
-  }
-
-  .highlight-icon {
-    @apply text-3xl mb-3 block;
-  }
-
-  /* Timeline Item with pseudo-element */
-  .timeline-item {
-    @apply relative pl-8 border-l-2 border-primary-200 pb-6 last:pb-0;
-  }
-
-  .timeline-item::before {
-    content: "";
-    @apply absolute -left-2 top-0 w-4 h-4 bg-primary-400 rounded-full;
-  }
-
-  /* Global styles for Photo components */
-  .photos-container :global(.photo-main) {
-    @apply aspect-[3/2] w-full relative rounded-lg shadow-lg;
-  }
-
-  .photos-container :global(.photo-accent) {
-    @apply aspect-square w-2/5 absolute bottom-0 right-0 rounded-lg shadow-md;
-  }
-
-  /* Contact CTA - unused styles, can be removed if not used elsewhere */
-  .contact-cta {
-    @apply max-w-3xl mx-auto text-center px-4 space-y-4;
-  }
-
-  .cta-text {
-    @apply text-primary-600 leading-relaxed;
-  }
-
-  .signature {
-    @apply text-lg;
-  }
-</style>

@@ -1,9 +1,10 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import react from '@astrojs/react';
-import compress from 'astro-compress';
+import react from "@astrojs/react";
+import compress from "astro-compress";
 import { astroPack } from "@matb85/astro-pack/integration";
+import { formats, enlarged } from "./image.config.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,20 +13,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [
-    react(),
-    compress({ Image: false, SVG: false }),
-    astroPack({
-      formats: {
-        thumbnail: /min_|thumbnail_/,
-        1920: "fhd_",
-        1280: "hd_",
-        720: "wvga_",
-        480: "hvga_",
-      },
-      enlarged: [1280, 1920],
-    }),
-  ],
+  integrations: [react(), compress({ Image: false, SVG: false }), astroPack({ formats, enlarged })],
   devToolbar: {
     enabled: false,
   },
